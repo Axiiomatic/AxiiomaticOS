@@ -1,6 +1,6 @@
 import { ThemeContextInterface } from "@/utils/contexts";
 
-export const func = (context: ThemeContextInterface, args: string[]) => {
+export const func = async (context: ThemeContextInterface, args: string[]) => {
   const newSpeed = args.join(" ");
   if (!newSpeed) {
     return `Current typing speed: ${context.typingSpeed}`;

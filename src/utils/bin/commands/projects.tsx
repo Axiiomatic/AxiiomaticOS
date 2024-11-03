@@ -1,6 +1,6 @@
 import config from "@/../config.json"
 
-const func = (args: string[]) => {
+const func = async (args: string[]) => {
   if (args.length === 0) return config.projects.map(project => `
 > <u><a href="${project.url}" target="_blank">${project.name}</a></u>
     - ${project.description}`).join("\n");
@@ -10,7 +10,7 @@ const func = (args: string[]) => {
       return `
 > <u><a href="${project.url}" target="_blank">${project.name}</a></u>
     - ${project.description}`
-  }).join("\n");
+  }).join("\n").trim();
 
 };
 

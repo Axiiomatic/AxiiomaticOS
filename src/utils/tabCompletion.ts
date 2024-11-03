@@ -1,4 +1,4 @@
-import { commands } from "@/commands";
+import { bin } from "@/utils/bin";
 
 export const tabCompletion = (input: string, lastKey : string, keyStreak : number, prevSuggestions : string[]): [string, string[]] => {
     const words = input.split(/\s+/);
@@ -7,14 +7,14 @@ export const tabCompletion = (input: string, lastKey : string, keyStreak : numbe
     let currentSuggestions : string[] = [];
     if (lastKey === 'Tab') currentSuggestions = prevSuggestions;
     else {
-      if (words[0] in commands && words.length > 1) {
-        const command = commands[words[0] as keyof typeof commands];
+      if (words[0] in bin && words.length > 1) {
+        const command = bin[words[0] as keyof typeof bin];
         if ('validArgs' in command) {
           if (words.length === 1) lastWord = '';
           args = command.validArgs;
         }
       }
-      if (args.length === 0) currentSuggestions = Object.keys(commands).filter(cmd => cmd.startsWith(lastWord));
+      if (args.length === 0) currentSuggestions = Object.keys(bin).filter(cmd => cmd.startsWith(lastWord));
       else currentSuggestions = args.filter(cmd => cmd.startsWith(lastWord));
     }
 

@@ -1,10 +1,10 @@
 import { ThemeContextInterface } from "./contexts";
-import { commands } from "@/commands";
+import { bin } from "@/utils/bin";
 
-export const executeCommand = (cmd: string, context: ThemeContextInterface): string => {
+export const executeCommand = async (cmd: string, context: ThemeContextInterface): Promise<string> => {
   const [command, ...args] = cmd.trim().split(/\s+/);
 
-  const handler = (commands as Record<string, any>)[command];
+  const handler = (bin as Record<string, any>)[command];
 
   if (!handler) {
     return `'${command}' is not recognized as a valid command`;
@@ -24,12 +24,12 @@ export const executeCommand = (cmd: string, context: ThemeContextInterface): str
 
 
     if (handler.usesContext) {
-      if (!handler.validArgs || handler.validArgs.length > 0) return handler.func(context, args);
-      return handler.func(context);
+      if (!handler.validArgs || handler.validArgs.length > 0) return await handler.func(context, args);
+      return await handler.func(context);
     }
 
-    if (!handler.validArgs || handler.validArgs.length > 0) return handler.func(args);
-    return handler.func();
+    if (!handler.validArgs || handler.validArgs.length > 0) return await handler.func(args);
+    return await handler.func();
 
   } catch (error) {
     console.error(`Error executing command ${command}:`, error);

@@ -1,6 +1,6 @@
 import { ThemeContextInterface } from "@/utils/contexts";
 
-export const func = (context: ThemeContextInterface, args: string[]) => {
+export const func = async (context: ThemeContextInterface, args: string[]) => {
   const newUsername = args.join(" ");
   if (!newUsername) {
     return `Current username: ${context.username}`;

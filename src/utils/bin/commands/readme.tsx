@@ -1,6 +1,6 @@
 import config from "@/../config.json"
 
-const func = () => {
+const func = async () => {
   window.open(config.readme, "_blank");
   return `Opened README`;
 };

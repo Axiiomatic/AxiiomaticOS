@@ -6,7 +6,7 @@ interface ColorType {
   // ... add other color properties if needed
 }
 
-export const func = (context: ThemeContextInterface & { color: ColorType }, args: string[]) => {
+export const func = async (context: ThemeContextInterface & { color: ColorType }, args: string[]) => {
   const newTheme = args.join(" ");
   if (!newTheme) {
     return `Current theme: ${context.color.name}`;

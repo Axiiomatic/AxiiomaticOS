@@ -1,4 +1,4 @@
-const func = (args: string[]) => {
+const func = async (args: string[]) => {
  window.open(`https://www.reddit.com/search/?q=${args.join(' ')}`);
   return `Searched Reddit for "${args.join(' ')}"`;
 };

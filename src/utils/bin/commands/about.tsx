@@ -1,7 +1,7 @@
 import { joinList } from "@/utils/functions";
 import config from "@/../config.json"
 
-const func = (args: string[]) => {
+const func = async (args: string[]) => {
   if (args.length === 0) return `
 Hello! I'm ${config.name}, but I usually go by ${joinList(config.aka, 'or')} online
 I'm a ${config.age} year old ${config.occupation} located at ${config.location}

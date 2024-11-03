@@ -1,6 +1,6 @@
 import config from "@/../config.json"
 
-const func = (args: string[]) => {
+const func = async (args: string[]) => {
   if (args.length === 0) return `
 ${config.education.map(edu => `> ${edu.degree} in ${edu.major} - ${edu.institution} (${edu.graduation_year})`).join("\n")}
 ${config.certificates.map(edu => `> ${edu.name} - ${edu.institution} (${edu.completion_year})`).join("\n")}

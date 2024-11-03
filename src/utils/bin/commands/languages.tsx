@@ -1,7 +1,7 @@
 import { joinList } from "@/utils/functions";
 import config from "@/../config.json"
 
-const func = (args: string[]) => {
+const func = async (args: string[]) => {
   if (args.length === 0) return `
 > Spoken Languages: ${joinList(config.spoken_languages, 'and')}
 > Programming Languages: ${joinList(config.programming_languages, 'and')}`;
@@ -20,6 +20,8 @@ const func = (args: string[]) => {
         break
     }
   });
+
+  return response.trim();
 };
 
 export default {

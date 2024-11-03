@@ -1,7 +1,7 @@
 import { joinList } from "@/utils/functions";
 import config from "@/../config.json"
 
-const func = () => {
+const func = async () => {
   return `
 ▐▓▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▓
 ▐▓                                 ▐▓

@@ -1,6 +1,6 @@
 import config from "@/../config.json"
 
-const func = () => {
+const func = async () => {
   window.open(config.repo, "_blank");
   return `Opened Github repository`;
 };

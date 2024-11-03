@@ -2,7 +2,6 @@ import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { useTheme, useCommandHistory } from "@/utils/contexts";
 import { executeCommand } from "@/utils/commandHandler";
 import { tabCompletion } from "@/utils/tabCompletion";
-import { commands } from "@/commands";
 import config from "@/../config.json";
 
 const inputHook = () => {
@@ -162,9 +161,9 @@ Type 'sumfetch' to display summary`
     scrollToBottom(); // Scroll immediately after DOM updates
   }, [output]); // Depend on `output` array
 
-  const processCommand = (cmd: string) => {
+  const processCommand = async (cmd: string) => {
     updateCommandHistory(cmd);
-    const response = executeCommand(cmd.toLowerCase(), themeContext);
+    const response = await executeCommand(cmd.toLowerCase(), themeContext);
     if (response === "CLEAR") setOutput([]);
     else setOutput([...output, `$ ${config.console_host}@${themeContext.username} > ${cmd}`, response]);
   };

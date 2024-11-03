@@ -1,4 +1,4 @@
-export const func = (args: string[]) => {
+export const func = async (args: string[]) => {
   return args.join(" ");
 };
 

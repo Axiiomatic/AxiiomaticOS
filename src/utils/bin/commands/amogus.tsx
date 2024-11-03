@@ -1,5 +1,5 @@
-const func = () => {
-  return '>:3';
+const func = async () => {
+  return `ඞ`;
 };
 
 export default {

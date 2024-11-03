@@ -1,5 +1,5 @@
 
-export const func = () => {
+export const func = async () => {
   return "CLEAR";
 };
 

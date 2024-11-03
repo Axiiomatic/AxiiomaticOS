@@ -1,12 +1,12 @@
-import { commands } from "./";
+import { bin } from "../";
 
-const func = (args: string[]) => {
+const func = async (args: string[]) => {
     if (!args.length) {
-        return Object.keys(commands).join(" ");
+        return Object.keys(bin).join(" ");
     }
     let response = '';
 
-    args.forEach(command => response += `${command}: ${commands[command as keyof typeof commands].description}\n`);
+    args.forEach(command => response += `${command}: ${bin[command as keyof typeof bin].description}\n`);
 
     return response.trim();
 };
