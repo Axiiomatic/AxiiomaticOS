@@ -19,5 +19,6 @@ export const joinList = (list : string[], conjunction : string) => {
   return list.slice(0, -1).join(', ') + ' ' + conjunction + ' ' + list.slice(-1);
 }
 
-// 
-export const getAge = (birthDate : string) => Math.floor((new Date().getTime() - new Date(birthDate).getTime()) / 3.15576e+10)
+export const numberWithCommas = (x : number) => {
+  return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+}
