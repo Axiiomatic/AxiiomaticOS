@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import config from "@/../config.json";
+import { ThemeProvider, CameraProvider, PageHistoryProvider, CommandHistoryProvider } from "@/utils/contexts";
 import "@/styles/global.css";
 
 const hackNF = localFont({
@@ -29,7 +30,15 @@ export default function RootLayout({
       <body
         className={`${vt323.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider>
+          <CameraProvider>
+            <PageHistoryProvider>
+              <CommandHistoryProvider>
+                {children}
+              </CommandHistoryProvider>
+            </PageHistoryProvider>
+          </CameraProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
