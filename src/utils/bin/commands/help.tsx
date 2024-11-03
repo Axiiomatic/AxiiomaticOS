@@ -15,16 +15,19 @@ export default {
     func,
     description: "Gives a list of available commands and their descriptions",
     validArgs: [
+        ":3",
         "about",
         "amogus",
         "bing",
         "clear",
+        "currency",
         "date",
         "duckduckgo",
         "echo",
         "education",
         "google",
         "help",
+        "ip",
         "languages",
         "projects",
         "readme",
@@ -36,7 +39,7 @@ export default {
         "sumfetch",
         "theme",
         "username",
-        "whoami",
-        ":3"
+        "weather",
+        "whoami"
     ]
 };
