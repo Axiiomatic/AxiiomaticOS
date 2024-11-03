@@ -22,7 +22,7 @@ Type 'sumfetch' to display summary`
   const [loadingProgress, setLoadingProgress] = useState<number>(0);
   const [turnOn, setTurnOn] = useState<boolean>(false);
   const [turnOff, setTurnOff] = useState<boolean>(false);
-  const [inputWidth, setInputWidth] = useState<number>(0);
+  const [inputEditable, setInputEditable] = useState<boolean>(true);
   const inputRef = useRef<any>(null);
   const outputRef = useRef<any>(null);
 
@@ -163,9 +163,11 @@ Type 'sumfetch' to display summary`
 
   const processCommand = async (cmd: string) => {
     updateCommandHistory(cmd);
+    setInputEditable(false);
     const response = await executeCommand(cmd.toLowerCase(), themeContext);
     if (response === "CLEAR") setOutput([]);
     else setOutput([...output, `$ ${config.console_host}@${themeContext.username} > ${cmd}`, response]);
+    setInputEditable(true);
   };
 
     return {
@@ -185,8 +187,8 @@ Type 'sumfetch' to display summary`
         setTurnOn,
         turnOff,
         setTurnOff,
-        inputWidth,
-        setInputWidth,
+        inputEditable,
+        setInputEditable,
         inputRef,
         outputRef,
         handleInput,

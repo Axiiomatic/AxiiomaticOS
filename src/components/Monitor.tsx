@@ -38,6 +38,7 @@ export const Monitor = () => {
     turnOn,
     turnOff,
     inputRef,
+    inputEditable,
     outputRef,
     handleInput,
     togglePower,
@@ -173,7 +174,7 @@ export const Monitor = () => {
               {/* Input field - only show when prompt animation is done */}
               {promptFinished && (
                 <div
-                  contentEditable={true}
+                  contentEditable={inputEditable}
                   className={`
                     bg-transparent border-none w-[80vw] align-text-top
                     h-full pointer-events-none
