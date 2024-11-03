@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import config from "@/../config.json";
-import "./globals.css";
+import "@/styles/global.css";
 
 const hackNF = localFont({
   src: "./fonts/Hack-NF.ttf",
