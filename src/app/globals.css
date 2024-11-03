@@ -25,3 +25,32 @@ body {
     text-wrap: balance;
   }
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@font-face {
+  font-family: "VT323";
+  src: url("/font/VT323-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Hack-NF";
+  src: url("/font/Hack-NF.ttf");
+}
+
+@layer components {
+  a {
+    position: relative;
+    text-decoration: none;
+  }
+  
+  a:hover::before {
+    content: "> ";
+  }
+  
+  a:hover::after {
+    content: " <";
+  }
+}
