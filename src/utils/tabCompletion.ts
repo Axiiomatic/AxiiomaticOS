@@ -14,7 +14,6 @@ export const tabCompletion = (input: string, lastKey : string, keyStreak : numbe
           args = command.validArgs;
         }
       }
-      console.log(args);
       if (args.length === 0) currentSuggestions = Object.keys(commands).filter(cmd => cmd.startsWith(lastWord));
       else currentSuggestions = args.filter(cmd => cmd.startsWith(lastWord));
     }
