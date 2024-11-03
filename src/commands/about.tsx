@@ -4,12 +4,12 @@ import config from "@/../config.json"
 
 const description = "Prints a summary of my information";
 
-const validArgs = ["me", "aka", "dob", "occupation", "location", "interests"];
+const validArgs = ["me", "aka", "age", "occupation", "location", "interests"];
 
 const func = (context: ThemeContextInterface, args: string[]) => {
   if (args.length === 0) return `
 Hello! I'm ${config.name}, but I usually go by ${joinList(config.aka, 'or')} online
-I'm a ${getAge(config.dob)} year old ${config.occupation} located at ${config.location}
+I'm a ${config.age} year old ${config.occupation} located at ${config.location}
 I'm interested in ${joinList(config.career_interests, 'and')}
 However, I also really enjoy ${joinList(config.personal_interests, 'and')}!
 
@@ -29,8 +29,8 @@ More about me:
       case "aka":
         response += `I almost never use my real name online. I usually go by ${joinList(config.aka, 'or')} in social media\n`
         break;
-      case "dob":
-        response += `My birthday is ${config.dob}, which means I'm ${getAge(config.dob)} years old\n`
+      case "age":
+        response += `I'm ${config.age} years old!\n`
         break;
       case "occupation":
         response += `I'm a ${config.occupation} at ${config.company}\n`
