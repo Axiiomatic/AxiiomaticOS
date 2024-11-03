@@ -47,7 +47,7 @@ Type 'sumfetch' to display summary`
 
     if (e.key === 'Tab') {
       e.preventDefault();
-      const [newInput, newSuggestions] = tabCompletion(input, lastKey, keyS, suggestions);
+      const [newInput, newSuggestions] = tabCompletion(input.toLowerCase(), lastKey, keyS, suggestions);
       setSuggestions(newSuggestions);
       setInput(newInput);
     }
