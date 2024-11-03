@@ -1,12 +1,10 @@
-import { ThemeContextInterface } from "@/utils/contexts";
 
-export const func = (context: ThemeContextInterface, args: string[]) => {
+export const func = () => {
   return "CLEAR";
 };
 
-export const description = "Clear terminal";
-
 export default {
     func,
-    description
+    description: "Clear terminal",
+    validArgs: []
 };

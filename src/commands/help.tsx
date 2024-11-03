@@ -1,26 +1,42 @@
-import { ThemeContextInterface } from "@/utils/contexts";
 import { commands } from "./";
 
-const func = (context: ThemeContextInterface, args: string[]) => {
+const func = (args: string[]) => {
     if (!args.length) {
         return Object.keys(commands).join(" ");
     }
-    let output = '';
+    let response = '';
 
-    args.forEach(command => {
-        if (command in commands && typeof commands[command as keyof typeof commands] === 'object') {
-            output += `${command}: ${commands[command as keyof typeof commands].description}\n`;
-        } else {
-            output += `Command "${command}" not found.\n`;
-        }
-    });
+    args.forEach(command => response += `${command}: ${commands[command as keyof typeof commands].description}\n`);
 
-    return output.trim();
+    return response.trim();
 };
-
-const description = "Gives a list of available commands and their descriptions";
 
 export default {
     func,
-    description
+    description: "Gives a list of available commands and their descriptions",
+    validArgs: [
+        "about",
+        "amogus",
+        "bing",
+        "clear",
+        "date",
+        "duckduckgo",
+        "echo",
+        "education",
+        "google",
+        "help",
+        "languages",
+        "projects",
+        "readme",
+        "reddit",
+        "repo",
+        "resume",
+        "socials",
+        "speed",
+        "sumfetch",
+        "theme",
+        "username",
+        "whoami",
+        ":3"
+    ]
 };

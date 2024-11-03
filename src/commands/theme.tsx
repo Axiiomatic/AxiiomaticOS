@@ -6,8 +6,6 @@ interface ColorType {
   // ... add other color properties if needed
 }
 
-type ColorConfigType = Record<string, ColorType>;
-
 export const func = (context: ThemeContextInterface & { color: ColorType }, args: string[]) => {
   const newTheme = args.join(" ");
   if (!newTheme) {
@@ -30,9 +28,9 @@ export const func = (context: ThemeContextInterface & { color: ColorType }, args
   return `Theme set to: ${newTheme}`;
 };
 
-export const description = "Check or change the terminal's theme";
-
 export default {
   func,
-  description
+  description: "Check or change the terminal's theme",
+  validArgs: [...Object.keys(config.colors), "list"],
+  usesContext: true
 };

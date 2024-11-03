@@ -22,7 +22,15 @@ export const executeCommand = (cmd: string, context: ThemeContextInterface): str
       })) return response;
     }
 
-    return handler.func(context, args);
+
+    if (handler.usesContext) {
+      if (!handler.validArgs || handler.validArgs.length > 0) return handler.func(context, args);
+      return handler.func(context);
+    }
+
+    if (!handler.validArgs || handler.validArgs.length > 0) return handler.func(args);
+    return handler.func();
+
   } catch (error) {
     console.error(`Error executing command ${command}:`, error);
     return `Error executing command: ${command}`;

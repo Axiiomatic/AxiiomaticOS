@@ -10,9 +10,8 @@ export const func = (context: ThemeContextInterface, args: string[]) => {
   return `Username set to: ${newUsername}`;
 };
 
-export const description = "Check or change your username";
-
 export default {
     func,
-    description
+    description: "Check or change your username",
+    usesContext: true
 };

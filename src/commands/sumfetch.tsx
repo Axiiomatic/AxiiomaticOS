@@ -1,8 +1,7 @@
-import { ThemeContextInterface } from "@/utils/contexts";
 import { joinList } from "@/utils/functions";
 import config from "@/../config.json"
 
-const func = (context: ThemeContextInterface, args: string[]) => {
+const func = () => {
   return `
 ▐▓▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▓
 ▐▓                                 ▐▓
@@ -30,9 +29,8 @@ ${config.socials.map(social => `> ${social.name}: <u><a href="${social.url}" tar
 `;
 };
 
-const description = "Prints a summary of my information";
-
 export default {
   func,
-  description
+  description: "Prints a summary of my information",
+  validArgs: []
 };

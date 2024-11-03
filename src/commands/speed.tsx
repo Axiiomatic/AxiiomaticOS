@@ -20,9 +20,8 @@ export const func = (context: ThemeContextInterface, args: string[]) => {
   return `Typing speed set to: ${speed}`;
 };
 
-export const description = "Check or change the terminal's typing speed";
-
 export default {
     func,
-    description
+    description: "Check or change the terminal's typing speed",
+    usesContext: true
 };

@@ -1,12 +1,7 @@
-import { ThemeContextInterface } from "@/utils/contexts";
-import { joinList, getAge } from "@/utils/functions";
+import { joinList } from "@/utils/functions";
 import config from "@/../config.json"
 
-const description = "Prints a summary of my information";
-
-const validArgs = ["me", "aka", "age", "occupation", "location", "interests"];
-
-const func = (context: ThemeContextInterface, args: string[]) => {
+const func = (args: string[]) => {
   if (args.length === 0) return `
 Hello! I'm ${config.name}, but I usually go by ${joinList(config.aka, 'or')} online
 I'm a ${config.age} year old ${config.occupation} located at ${config.location}
@@ -41,17 +36,16 @@ More about me:
       case "interests":
         response += `I'm interested in ${joinList(config.career_interests, 'and')}\nI also enjoy ${joinList(config.personal_interests, 'and')}!\n`
         break;
-      case "resume":
       default:
         break;
     }
-  })
+  });
 
   return response.trim();
 };
 
 export default {
   func,
-  description,
-  validArgs
+  description: "Prints a summary of my information",
+  validArgs: ["me", "aka", "age", "occupation", "location", "interests"]
 };

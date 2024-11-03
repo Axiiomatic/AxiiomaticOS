@@ -1,13 +1,9 @@
-import { ThemeContextInterface } from "@/utils/contexts";
-
-const func = (context: ThemeContextInterface, args: string[]) => {
+const func = (args: string[]) => {
  window.open(`https://www.reddit.com/search/?q=${args.join(' ')}`);
   return `Searched Reddit for "${args.join(' ')}"`;
 };
 
-const description = "Search for a term on Reddit";
-
 export default {
   func,
-  description
+  description: "Search for a term on Reddit"
 };

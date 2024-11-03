@@ -1,12 +1,9 @@
-import { ThemeContextInterface } from "@/utils/contexts";
-
-const func = (context: ThemeContextInterface, args: string[]) => {
+const func = () => {
   return '>:3';
 };
 
-const description = "...";
-
 export default {
   func,
-  description
+  description: "...",
+  validArgs: []
 };
