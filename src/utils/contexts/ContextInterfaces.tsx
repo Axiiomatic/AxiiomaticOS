@@ -20,9 +20,9 @@ export interface CommandHistoryContextInterface {
     updateCommandHistory: (newPage: string) => void
 }
 
-export interface ThemeContextInterface {
-    color: object;
-    setColor: (color: object) => void;
+export interface PreferencesContextInterface {
+    theme: object;
+    setTheme: (color: object) => void;
     username: string;
     setUsername: (username: string) => void;
     typingSpeed: number;

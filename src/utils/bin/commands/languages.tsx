@@ -1,20 +1,19 @@
 import { joinList } from "@/utils/functions";
-import config from "@/../config.json"
 
 const func = async (args: string[]) => {
   if (args.length === 0) return `
-> Spoken Languages: ${joinList(config.spoken_languages, 'and')}
-> Programming Languages: ${joinList(config.programming_languages, 'and')}`;
+> Spoken Languages: ${joinList(process.env.NEXT_PUBLIC_SPOKEN_LANGUAGES?.split(',') || [], 'and')}
+> Programming Languages: ${joinList(process.env.NEXT_PUBLIC_PROGRAMMING_LANGUAGES?.split(',') || [], 'and')}`;
 
   let response = '';
 
   args.forEach(arg => {
     switch (arg) {
       case "spoken":
-        response += `> Spoken Languages: ${joinList(config.spoken_languages, 'and')}\n`;
+        response += `> Spoken Languages: ${joinList(process.env.NEXT_PUBLIC_SPOKEN_LANGUAGES?.split(',') || [], 'and')}\n`;
         break;
       case "programming":
-        response += `> Programming Languages: ${joinList(config.programming_languages, 'and')}\n`;
+        response += `> Programming Languages: ${joinList(process.env.NEXT_PUBLIC_PROGRAMMING_LANGUAGES?.split(',') || [], 'and')}\n`;
         break;
       default:
         break

@@ -1,7 +1,7 @@
-import { ThemeContextInterface } from "./contexts";
+import { PreferencesContextInterface } from "./contexts";
 import { bin } from "@/utils/bin";
 
-export const executeCommand = async (cmd: string, context: ThemeContextInterface): Promise<string> => {
+export const executeCommand = async (cmd: string, context: PreferencesContextInterface): Promise<string> => {
   const [command, ...args] = cmd.trim().split(/\s+/);
 
   const handler = (bin as Record<string, any>)[command];

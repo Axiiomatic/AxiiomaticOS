@@ -1,7 +1,5 @@
-import config from "@/../config.json"
-
 const func = async () => {
-  window.open(config.repo, "_blank");
+  window.open(process.env.NEXT_PUBLIC_REPO, "_blank");
   return `Opened Github repository`;
 };
 

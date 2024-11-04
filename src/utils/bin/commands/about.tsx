@@ -1,12 +1,11 @@
 import { joinList } from "@/utils/functions";
-import config from "@/../config.json"
 
 const func = async (args: string[]) => {
   if (args.length === 0) return `
-Hello! I'm ${config.name}, but I usually go by ${joinList(config.aka, 'or')} online
-I'm a ${config.age} year old ${config.occupation} located at ${config.location}
-I'm interested in ${joinList(config.career_interests, 'and')}
-However, I also really enjoy ${joinList(config.personal_interests, 'and')}!
+Hello! I'm ${process.env.NEXT_PUBLIC_NAME}, but I usually go by ${joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], 'or')} online
+I'm a ${process.env.NEXT_PUBLIC_AGE} year old ${process.env.NEXT_PUBLIC_OCCUPATION} at ${process.env.NEXT_PUBLIC_COMPANY} located at ${process.env.NEXT_PUBLIC_LOCATION}
+I'm interested in ${joinList(process.env.NEXT_PUBLIC_CAREER_INTERESTS?.split(',') || [], 'and')}
+However, I also really enjoy ${joinList(process.env.NEXT_PUBLIC_PERSONAL_INTERESTS?.split(',') || [], 'and')}!
 
 More about me:
 'sumfetch' - Short Summary
@@ -19,22 +18,22 @@ More about me:
   args.forEach(arg => {
     switch (arg) {
       case "me":
-        response += `Hello! I'm ${config.name}.\nI'm a ${config.occupation}. Nice to meet you!\n`
+        response += `Hello! I'm ${process.env.NEXT_PUBLIC_NAME}.\nI'm a ${process.env.NEXT_PUBLIC_OCCUPATION}. Nice to meet you!\n`
         break;
       case "aka":
-        response += `I almost never use my real name online. I usually go by ${joinList(config.aka, 'or')} in social media\n`
+        response += `I almost never use my real name online. I usually go by ${joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], 'or')} in social media\n`
         break;
       case "age":
-        response += `I'm ${config.age} years old!\n`
+        response += `I'm ${process.env.NEXT_PUBLIC_AGE} years old!\n`
         break;
       case "occupation":
-        response += `I'm a ${config.occupation} at ${config.company}\n`
+        response += `I'm a ${process.env.NEXT_PUBLIC_OCCUPATION} at ${process.env.NEXT_PUBLIC_COMPANY}\n`
         break;
       case "location":
-        response += `I'm currently located at ${config.location}\n`
+        response += `I'm currently located at ${process.env.NEXT_PUBLIC_LOCATION}\n`
         break;
       case "interests":
-        response += `I'm interested in ${joinList(config.career_interests, 'and')}\nI also enjoy ${joinList(config.personal_interests, 'and')}!\n`
+        response += `I'm interested in ${joinList(process.env.NEXT_PUBLIC_CAREER_INTERESTS?.split(',') || [], 'and')}\nI also enjoy ${joinList(process.env.NEXT_PUBLIC_PERSONAL_INTERESTS?.split(',') || [], 'and')}!\n`
         break;
       default:
         break;

@@ -1,6 +1,6 @@
-import { ThemeContextInterface } from "@/utils/contexts";
+import { PreferencesContextInterface } from "@/utils/contexts";
 
-export const func = async (context: ThemeContextInterface) => {
+export const func = async (context: PreferencesContextInterface) => {
     return context.username;
 };
 

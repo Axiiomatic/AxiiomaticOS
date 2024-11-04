@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useLayoutEffect } from "react";
-import { useTheme, useCommandHistory } from "@/utils/contexts";
+import { usePreferences, useCommandHistory } from "@/utils/contexts";
 import { executeCommand } from "@/utils/commandHandler";
 import { tabCompletion } from "@/utils/tabCompletion";
 import config from "@/../config.json";
@@ -26,7 +26,7 @@ Type 'sumfetch' to display summary`
   const inputRef = useRef<any>(null);
   const outputRef = useRef<any>(null);
 
-  const themeContext = useTheme();
+  const preferencesContext = usePreferences();
   const { previousCommands, commandIndex, setCommandIndex, updateCommandHistory } = useCommandHistory();
 
   const scrollToBottom = () => {
@@ -164,9 +164,9 @@ Type 'sumfetch' to display summary`
   const processCommand = async (cmd: string) => {
     updateCommandHistory(cmd);
     setInputEditable(false);
-    const response = await executeCommand(cmd.toLowerCase(), themeContext);
+    const response = await executeCommand(cmd.toLowerCase(), preferencesContext);
     if (response === "CLEAR") setOutput([]);
-    else setOutput([...output, `$ ${config.console_host}@${themeContext.username} > ${cmd}`, response]);
+    else setOutput([...output, `$ ${config.console_host}@${preferencesContext.username} > ${cmd}`, response]);
     setInputEditable(true);
   };
 

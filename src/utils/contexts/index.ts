@@ -1,12 +1,12 @@
-import { useTheme, ThemeProvider } from "./themeContext";
+import { usePreferences, PreferencesProvider } from "./preferencesContext";
 import { useCamera, CameraProvider } from "./cameraContext";
 import { usePageHistory, PageHistoryProvider } from "./pageHistoryContext";
 import { useCommandHistory, CommandHistoryProvider } from "./commandHistoryContext";
-import { ThemeContextInterface, CameraContextInterface, PageHistoryContextInterface, CommandHistoryContextInterface } from "./ContextInterfaces";
+import { PreferencesContextInterface, CameraContextInterface, PageHistoryContextInterface, CommandHistoryContextInterface } from "./ContextInterfaces";
 
 export {
-    useTheme,
-    ThemeProvider,
+    usePreferences,
+    PreferencesProvider,
     useCamera,
     CameraProvider,
     usePageHistory,
@@ -16,7 +16,7 @@ export {
 };
 
 export type {
-    ThemeContextInterface,
+    PreferencesContextInterface,
     CameraContextInterface,
     PageHistoryContextInterface,
     CommandHistoryContextInterface

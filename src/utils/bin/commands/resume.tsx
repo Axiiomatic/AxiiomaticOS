@@ -1,7 +1,5 @@
-import config from "@/../config.json"
-
 const func = async () => {
-  window.open(config.resume, "_blank");
+  window.open(process.env.NEXT_PUBLIC_RESUME, "_blank");
   return `Opened resume`;
 };
 

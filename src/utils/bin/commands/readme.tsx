@@ -1,7 +1,5 @@
-import config from "@/../config.json"
-
 const func = async () => {
-  window.open(config.readme, "_blank");
+  window.open(process.env.NEXT_PUBLIC_README, "_blank");
   return `Opened README`;
 };
 

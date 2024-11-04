@@ -1,9 +1,20 @@
-import config from "@/../config.json"
+interface Education {
+  degree: string;
+  major: string;
+  institution: string;
+  graduation_year: string | number;
+}
+
+interface Certificate {
+  name: string;
+  institution: string;
+  completion_year: string | number;
+}
 
 const func = async (args: string[]) => {
   if (args.length === 0) return `
-${config.education.map(edu => `> ${edu.degree} in ${edu.major} - ${edu.institution} (${edu.graduation_year})`).join("\n")}
-${config.certificates.map(edu => `> ${edu.name} - ${edu.institution} (${edu.completion_year})`).join("\n")}
+${(JSON.parse(process.env.NEXT_PUBLIC_EDUCATION || '[]') as Education[]).map(edu => `> ${edu.degree} in ${edu.major} - ${edu.institution} (${edu.graduation_year})`).join("\n")}
+${(JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES || '[]') as Certificate[]).map(edu => `> ${edu.name} - ${edu.institution} (${edu.completion_year})`).join("\n")}
 `;
 
   let response = '';
@@ -11,10 +22,10 @@ ${config.certificates.map(edu => `> ${edu.name} - ${edu.institution} (${edu.comp
   args.forEach(arg => {
     switch (arg) {
       case "degrees":
-        response += `${config.education.map(edu => `> ${edu.degree} in ${edu.major} - ${edu.institution} (${edu.graduation_year})`).join("\n")}\n`;
+        response += `${(JSON.parse(process.env.NEXT_PUBLIC_EDUCATION || '[]') as Education[]).map(edu => `> ${edu.degree} in ${edu.major} - ${edu.institution} (${edu.graduation_year})`).join("\n")}\n`;
         break;
       case "certifications":
-        response += `${config.certificates.map(edu => `> ${edu.name} - ${edu.institution} (${edu.completion_year})`).join("\n")}\n`;
+        response += `${(JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES || '[]') as Certificate[]).map(edu => `> ${edu.name} - ${edu.institution} (${edu.completion_year})`).join("\n")}\n`;
         break;
       default:
         break

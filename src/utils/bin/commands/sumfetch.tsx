@@ -1,5 +1,28 @@
 import { joinList } from "@/utils/functions";
-import config from "@/../config.json"
+
+interface Education {
+  degree: string;
+  major: string;
+  institution: string;
+  graduation_year: string | number;
+}
+
+interface Certificate {
+  name: string;
+  institution: string;
+  completion_year: string | number;
+}
+
+interface Project {
+  name: string;
+  url: string;
+}
+
+interface Social {
+  name: string;
+  url: string;
+  display: string;
+}
 
 const func = async () => {
   return `
@@ -12,20 +35,20 @@ const func = async () => {
 🖳 Summary
 -------------------------
 🕮 ABOUT
-> ${config.name}
-> AKA ${joinList(config.aka, "or")}
-> <u><a href="${config.resume}" target="_blank">Resume (November 2024)</a></u>
-> <u><a href="${config.repo}" target="_blank">Github Repo</a></u>
+> ${process.env.NEXT_PUBLIC_NAME}
+> AKA ${joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], "or")}
+> <u><a href="${process.env.NEXT_PUBLIC_RESUME}" target="_blank">Resume (November 2024)</a></u>
+> <u><a href="${process.env.NEXT_PUBLIC_REPO}" target="_blank">Github Repo</a></u>
 --------------------------
 🖆 EDUCATION & CERTIFICATIONS
-${config.education.map(edu => `> ${edu.degree} in ${edu.major} - ${edu.institution} (${edu.graduation_year})`).join("\n")}
-${config.certificates.map(edu => `> ${edu.name} - ${edu.institution} (${edu.completion_year})`).join("\n")}
+${(JSON.parse(process.env.NEXT_PUBLIC_EDUCATION || '[]') as Education[]).map(edu => `> ${edu.degree} in ${edu.major} - ${edu.institution} (${edu.graduation_year})`).join("\n")}
+${(JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES || '[]') as Certificate[]).map(edu => `> ${edu.name} - ${edu.institution} (${edu.completion_year})`).join("\n")}
 --------------------------
 🗃 PROJECTS
-${config.projects.map(project => `> <u><a href="${project.url}" target="_blank">${project.name}</a></u>`).join("\n")}
+${(JSON.parse(process.env.NEXT_PUBLIC_PROJECTS || '[]') as Project[]).map(project => `> <u><a href="${project.url}" target="_blank">${project.name}</a></u>`).join("\n")}
 --------------------------
 🗂 CONTACT
-${config.socials.map(social => `> ${social.name}: <u><a href="${social.url}" target="_blank">${social.display}</a></u>`).join("\n")}
+${JSON.parse(process.env.NEXT_PUBLIC_SOCIALS || '[]').map((social: Social) => `> ${social.name}: <u><a href="${social.url}" target="_blank">${social.display}</a></u>`).join("\n")}
 `;
 };
 

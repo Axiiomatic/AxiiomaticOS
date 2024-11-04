@@ -1,10 +1,14 @@
-import config from "@/../config.json"
+interface Social {
+  name: string;
+  url: string;
+  display: string;
+}
 
 const func = async (args: string[]) => {
   if (args.length === 0) 
-    return config.socials.map(social => `> ${social.name}: <u><a href="${social.url}" target="_blank">${social.display}</a></u>`).join("\n")
+    return JSON.parse(process.env.NEXT_PUBLIC_SOCIALS || '[]').map((social: Social) => `> ${social.name}: <u><a href="${social.url}" target="_blank">${social.display}</a></u>`).join("\n")
 
-  return config.socials.map(social => {
+  return JSON.parse(process.env.NEXT_PUBLIC_SOCIALS || '[]').map((social: Social) => {
     if (args.includes(social.name.toLowerCase()))
       return `> ${social.name}: <u><a href="${social.url}" target="_blank">${social.display}</a></u>`
   }).join("\n").trim();
@@ -13,5 +17,5 @@ const func = async (args: string[]) => {
 export default {
   func,
   description: "Prints a list of all my public socials",
-  validArgs: config.socials.map(social => social.name.toLowerCase())
+  validArgs: JSON.parse(process.env.NEXT_PUBLIC_SOCIALS || '[]').map((social: { name: string }) => social.name.toLowerCase())
 };

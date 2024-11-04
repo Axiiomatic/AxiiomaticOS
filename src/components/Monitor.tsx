@@ -14,16 +14,16 @@ import {
 import { AsciiBanner, AsciiLogo, EmptyLogo } from "./ascii";
 import { clamp } from "@/utils/functions";
 import { monitorHook } from "@/utils/hooks";
-import { useTheme, usePageHistory } from "@/utils/contexts";
+import { usePreferences, usePageHistory } from "@/utils/contexts";
 import { useEffect, useState } from "react";
 
-interface ThemeColor {
+interface themeColor {
   textColor: string;
   bgColor: string;
 }
 
 export const Monitor = () => {
-  const { color, username, typingSpeed } = useTheme() as { color: ThemeColor; username: string; typingSpeed: number };
+  const { theme, username, typingSpeed } = usePreferences() as { theme: themeColor; username: string; typingSpeed: number };
 
   const { currentPage } = usePageHistory();
 
@@ -87,8 +87,8 @@ export const Monitor = () => {
         ${turnOn ? "animate-turn-on" : ""}
       `}/>
       { on ? 
-      <CRTWrapper textColor={color.bgColor}>
-        <TerminalWrapper textColor={color.textColor}>
+      <CRTWrapper textColor={theme.bgColor}>
+        <TerminalWrapper textColor={theme.textColor}>
           {loading ?
           // Computer is still loading, show loading screen
           <LoadingWrapper>
@@ -201,7 +201,7 @@ export const Monitor = () => {
           </div>
           }
         </TerminalWrapper>
-        <FooterWrapper textColor={color.textColor}>© 2024 Axiiomatic</FooterWrapper>
+        <FooterWrapper textColor={theme.textColor}>© 2024 Axiiomatic</FooterWrapper>
       </CRTWrapper> : <></>
       }
     </div>

@@ -1,4 +1,3 @@
-
 export const func = async () => {
   return "CLEAR";
 };
