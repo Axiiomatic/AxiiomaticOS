@@ -24,5 +24,42 @@
     "duckDuckGoResponse": "Se buscó \"{query}\" en DuckDuckGo",
 
     "educationDegrees": "> {degree} en {major} - {institution} ({graduation_year})",
-    "educationCertifications": "> {name} - {institution} ({completion_year})"
+    "educationCertifications": "> {name} - {institution} ({completion_year})",
+
+    "googleOpen": "Se abrió Google",
+    "googleResponse": "Se buscó \"{query}\" en Google",
+
+    "languagesSpoken": "> Idiomas: {spoken_languages}",
+    "languagesProgramming": "> Lenguajes de programación: {programming_languages}",
+
+    "readmeOpen": "Se abrió mi README",
+
+    "redditOpen": "Se abrió Reddit",
+    "redditResponse": "Se buscó \"{query}\" en Reddit",
+
+    "repoOpen": "Se abrió el repositorio de Github",
+
+    "resumeOpen": "Se abrió mi resume",
+
+    "speedCurrent": "Velocidad de tecleo: {speed}",
+    "speedErrorNaN": "La velocidad de tecleo debe ser un número entero",
+    "speedErrorOutOfRange": "La velocidad de tecleo debe ser un número positivo entre 1 y 100",
+    "speedErrorAlready": "La velocidad de tecleo ya es {speed}",
+    "speedSet": "Velocidad de tecleo cambiada a: {speed}",
+
+    "sumfetchSummary": "Sumario",
+    "sumfetchAbout": "SOBRE MÍ",
+    "sumfetchEC": "EDUCACIÓN Y CERTIFICACIONES",
+    "sumfetchProjects": "PROYECTOS",
+    "sumfetchContact": "CONTACTO",
+
+    "themeCurrent": "Tema: {theme}",
+    "themeAvailable": "Temas disponibles: {themes}",
+    "themeErrorAlready": "El tema ya es {theme}",
+    "themeErrorNA": "Tema no disponible. Los temas disponibles son: {themes}",
+    "themeSet": "Tema cambiado a: {theme}",
+
+    "usernameCurrent": "Nombre de usuario actual: {username}",
+    "usernameErrorAlready": "El nombre de usuario ya es {username}",
+    "usernameSet": "Nombre de usuario cambiado a: {username}"
 }

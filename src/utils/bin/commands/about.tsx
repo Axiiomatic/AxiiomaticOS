@@ -39,30 +39,22 @@ const func = async (args: string[]) => {
   args.forEach(arg => {
     switch (arg) {
       case "me":
-      case "mi":
         response += m.aboutMe({ name: process.env.NEXT_PUBLIC_NAME || '', occupation: occupation || '' });
         break;
       case "aka":
-      case "alias":
         response += m.aboutAka({ aka: aka });
         break;
       case "age":
-      case "edad":
         response += m.aboutAge({ age: process.env.NEXT_PUBLIC_AGE || '' });
         break;
       case "occupation":
-      case "ocupacion":
         response += m.aboutOccupation({ occupation: occupation || '', company: process.env.NEXT_PUBLIC_COMPANY || '' });
         break;
       case "location":
-      case "ubicacion":
         response += m.aboutLocation({ location: process.env.NEXT_PUBLIC_LOCATION || '' });
         break;
       case "interests":
-      case "intereses":
         response += m.aboutInterests({ career_interests: career_interests, personal_interests: personal_interests });
-        break;
-      default:
         break;
     }
   });
@@ -72,7 +64,7 @@ const func = async (args: string[]) => {
 
 export default {
   func,
-  description: "Prints a summary of my information",
-  description_es: "Imprime un resumen de mi información",
+  description: "Prints a summary about me",
+  description_es: "Imprime un resumen sobre mí",
   validArgs: ['age', 'aka', 'interests', 'location', 'me', 'occupation']
 };

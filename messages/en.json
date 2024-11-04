@@ -22,6 +22,43 @@
     "duckDuckGoResponse": "Searched DuckDuckGo for \"{query}\"",
 
     "educationDegrees": "> {degree} in {major} - {institution} ({graduation_year})",
-    "educationCertifications": "> {name} - {institution} ({completion_year})"
+    "educationCertifications": "> {name} - {institution} ({completion_year})",
+
+    "googleOpen": "Opened Google",
+    "googleResponse": "Searched Google for \"{query}\"",
+
+    "languagesSpoken": "> Spoken Languages: {spoken_languages}",
+    "languagesProgramming": "> Programming Languages: {programming_languages}",
+
+    "readmeOpen": "Opened README",
+
+    "redditOpen": "Opened Reddit",
+    "redditResponse": "Searched Reddit for \"{query}\"",
+
+    "repoOpen": "Opened Github repository",
+
+    "resumeOpen": "Opened my resume",
+
+    "speedCurrent": "Current typing speed: {speed}",
+    "speedErrorNaN": "Typing speed must be an integer",
+    "speedErrorOutOfRange": "Typing speed must be a positive integer between 1 and 100",
+    "speedErrorAlready": "Typing speed is already set to {speed}",
+    "speedSet": "Typing speed set to: {speed}",
+
+    "sumfetchSummary": "Summary",
+    "sumfetchAbout": "ABOUT",
+    "sumfetchEC": "EDUCATION & CERTIFICATES",
+    "sumfetchProjects": "PROJECTS",
+    "sumfetchContact": "CONTACT",
+
+    "themeCurrent": "Current theme: {theme}",
+    "themeAvailable": "Available themes: {themes}",
+    "themeErrorAlready": "Theme is already set to {theme}",
+    "themeErrorNA": "That theme is not available. Available themes: {themes}",
+    "themeSet": "Theme set to: {theme}",
+
+    "usernameCurrent": "Current username: {username}",
+    "usernameErrorAlready": "Username is already {username}",
+    "usernameSet": "Theme set to: {username}"
 
 }

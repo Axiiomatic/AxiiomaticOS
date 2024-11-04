@@ -15,12 +15,14 @@ const func = async (args: string[]) => {
 export default {
     func,
     description: "Gives a list of available commands and their descriptions",
+    description_es: "Da una lista de los comandos disponibles y sus descripciones",
     validArgs: [
         ":3",
         "about",
         "amogus",
         "bing",
         "clear",
+        "curl",
         "currency",
         "date",
         "duckduckgo",

@@ -1,4 +1,5 @@
 import * as m from "@/paraglide/messages";
+import { languageTag } from "@/paraglide/runtime";
 
 interface Education {
   degree: string;
@@ -14,10 +15,24 @@ interface Certificate {
 }
 
 const func = async (args: string[]) => {
+  const lang = languageTag();
+
+  let education, certificates;
+
+  switch (lang) {
+    case "en":
+      education = JSON.parse(process.env.NEXT_PUBLIC_EDUCATION || '[]');
+      certificates = JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES || '[]');
+      break;
+    case "es":
+      education = JSON.parse(process.env.NEXT_PUBLIC_EDUCATION_ES || '[]');
+      certificates = JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES_ES || '[]');
+      break;
+  }
   if (args.length === 0) return `
-${(JSON.parse(process.env.NEXT_PUBLIC_EDUCATION || '[]') as Education[])
+${(education as Education[])
   .map(edu => m.educationDegrees({ degree: edu.degree, major: edu.major, institution: edu.institution, graduation_year: edu.graduation_year })).join("\n")}
-${(JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES || '[]') as Certificate[])
+${(certificates as Certificate[])
   .map(edu => m.educationCertifications({ name: edu.name, institution: edu.institution, completion_year: edu.completion_year })).join("\n")}
 `;
 
@@ -26,15 +41,13 @@ ${(JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES || '[]') as Certificate[])
   args.forEach(arg => {
     switch (arg) {
       case "degrees":
-        response += `${(JSON.parse(process.env.NEXT_PUBLIC_EDUCATION || '[]') as Education[])
+        response += `${(education as Education[])
           .map(edu => m.educationDegrees({ degree: edu.degree, major: edu.major, institution: edu.institution, graduation_year: edu.graduation_year })).join("\n")}\n`;
         break;
       case "certifications":
-        response += `${(JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES || '[]') as Certificate[])
+        response += `${(certificates as Certificate[])
           .map(edu => m.educationCertifications({ name: edu.name, institution: edu.institution, completion_year: edu.completion_year })).join("\n")}\n`;
         break;
-      default:
-        break
     }
   });
 

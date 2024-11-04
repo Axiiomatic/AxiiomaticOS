@@ -1,27 +1,30 @@
 import { PreferencesContextInterface } from "@/utils/contexts";
+import * as m from "@/paraglide/messages";
 
 export const func = async (context: PreferencesContextInterface, args: string[]) => {
   const newSpeed = args.join(" ");
   if (!newSpeed) {
-    return `Current typing speed: ${context.typingSpeed}`;
+    return m.speedCurrent({ speed: context.typingSpeed });
   }
 
   const speed = parseInt(newSpeed);
 
-  if (isNaN(speed)) {
-    return "Typing speed must be a number";
-  }
+  if (isNaN(speed))
+    return m.speedErrorNaN();
 
-  if (speed < 1 || speed > 100) {
-    return "Typing speed must be a positive integer between 1 and 100";
-  }
+  if (speed < 1 || speed > 100)
+    return m.speedErrorOutOfRange();
+
+  if (speed === context.typingSpeed)
+    return m.speedErrorAlready({ speed: speed });
   
   context.setTypingSpeed(speed);
-  return `Typing speed set to: ${speed}`;
+  return m.speedSet({ speed: speed });
 };
 
 export default {
     func,
     description: "Check or change the terminal's typing speed",
+    description_es: "Revisa o cambia la velocidad de tecleo del terminal",
     usesContext: true
 };

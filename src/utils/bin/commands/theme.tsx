@@ -1,36 +1,37 @@
 import { PreferencesContextInterface } from "@/utils/contexts";
-import config from "@/../config.json"
+import config from "@/../config.json";
+import * as m from "@/paraglide/messages";
 
-interface ColorType {
+interface ThemeType {
   name: string;
-  // ... add other color properties if needed
 }
 
-export const func = async (context: PreferencesContextInterface & { color: ColorType }, args: string[]) => {
+export const func = async (context: PreferencesContextInterface & { theme: ThemeType }, args: string[]) => {
   const newTheme = args.join(" ");
   if (!newTheme) {
-    return `Current theme: ${context.color.name}`;
+    return m.themeCurrent({ theme: context.theme.name });
   }
 
   if(newTheme === "list") {
-    return `Available themes: ${Object.keys(config.themes).join(" ")}`;
+    return m.themeAvailable({ themes: Object.keys(config.themes).join(" ") });
   }
 
-  if (newTheme === context.color.name) {
-    return `Theme is already set to ${newTheme}`;
+  if (newTheme === context.theme.name) {
+    return m.themeErrorAlready({ theme: newTheme });
   }
 
   if (!config.themes[newTheme as keyof typeof config.themes]) {
-    return `That theme is not available. Available themes: ${Object.keys(config.themes).join(" ")}`;
+    return m.themeErrorNA({ themes: Object.keys(config.themes).join(" ") });
   }
   
   context.setTheme(config.themes[newTheme as keyof typeof config.themes]);
-  return `Theme set to: ${newTheme}`;
+  return m.themeSet({ theme: newTheme });
 };
 
 export default {
   func,
   description: "Check or change the terminal's theme",
+  description_es: "Revisa o cambia el tema del terminal",
   validArgs: [...Object.keys(config.themes), "list"],
   usesContext: true
 };

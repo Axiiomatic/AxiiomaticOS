@@ -1,3 +1,5 @@
+import { languageTag } from "@/paraglide/runtime";
+
 interface Project {
   name: string;
   url: string;
@@ -5,11 +7,23 @@ interface Project {
 }
 
 const func = async (args: string[]) => {
-  if (args.length === 0) return JSON.parse(process.env.NEXT_PUBLIC_PROJECTS || '[]').map((project: Project) => `
+  const lang = languageTag();
+
+  let projects;
+
+  switch (lang) {
+    case "en":
+      projects = JSON.parse(process.env.NEXT_PUBLIC_PROJECTS || '[]');
+      break;
+    case "es":
+      projects = JSON.parse(process.env.NEXT_PUBLIC_PROJECTS_ES || '[]');
+  }
+
+  if (args.length === 0) return projects.map((project: Project) => `
 > <u><a href="${project.url}" target="_blank">${project.name}</a></u>
     - ${project.description}`).join("\n");
 
-  return JSON.parse(process.env.NEXT_PUBLIC_PROJECTS || '[]').map((project: Project) => {
+  return projects.map((project: Project) => {
     if (args.includes(project.name.toLowerCase()))
       return `
 > <u><a href="${project.url}" target="_blank">${project.name}</a></u>
@@ -20,5 +34,6 @@ const func = async (args: string[]) => {
 export default {
   func,
   description: "Prints a list of all my projects",
+  description_es: "Imprime una lista de todos mis proyectos",
   validArgs: JSON.parse(process.env.NEXT_PUBLIC_PROJECTS || '[]').map((project: Project) => project.name.toLowerCase())
 };
