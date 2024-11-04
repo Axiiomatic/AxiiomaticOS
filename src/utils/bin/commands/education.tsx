@@ -15,11 +15,9 @@ interface Certificate {
 }
 
 const func = async (args: string[]) => {
-  const lang = languageTag();
-
   let education, certificates;
 
-  switch (lang) {
+  switch (languageTag()) {
     case "en":
       education = JSON.parse(process.env.NEXT_PUBLIC_EDUCATION || '[]');
       certificates = JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES || '[]');
@@ -56,7 +54,9 @@ ${(certificates as Certificate[])
 
 export default {
   func,
-  description: "Prints my degrees and certifications",
-  description_es: "Muestra mis títulos y certificaciones",
+  description: {
+    "en": "Prints my degrees and certifications",
+    "es": "Muestra mis títulos y certificaciones"
+  },
   validArgs: ["degrees", "certifications"]
 };

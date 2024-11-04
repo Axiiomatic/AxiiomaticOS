@@ -7,11 +7,9 @@ interface Social {
 }
 
 const func = async (args: string[]) => {
-  const lang = languageTag();
-
     let socials;
 
-    switch (lang) {
+    switch (languageTag()) {
       case "en":
         socials = JSON.parse(process.env.NEXT_PUBLIC_SOCIALS || '[]');
         break;
@@ -31,7 +29,9 @@ const func = async (args: string[]) => {
 
 export default {
   func,
-  description: "Prints a list of all my public socials",
-  description_es: "Imprime una lista de todas mis redes sociales públicas",
+  description: {
+    "en": "Prints a list of all my public socials",
+    "es": "Imprime una lista de todas mis redes sociales públicas"
+  },
   validArgs: JSON.parse(process.env.NEXT_PUBLIC_SOCIALS || '[]').map((social: { name: string }) => social.name.toLowerCase())
 };

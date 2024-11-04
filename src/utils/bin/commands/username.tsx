@@ -15,7 +15,9 @@ export const func = async (context: PreferencesContextInterface, args: string[])
 
 export default {
     func,
-    description: "Check or change your username",
-    description_es: "Revisa o cambia tu nombre de usuario",
+    description: {
+      "en": "Check or change your username",
+      "es": "Revisa o cambia tu nombre de usuario"
+    },
     usesContext: true
 };

@@ -7,11 +7,9 @@ interface Project {
 }
 
 const func = async (args: string[]) => {
-  const lang = languageTag();
-
   let projects;
 
-  switch (lang) {
+  switch (languageTag()) {
     case "en":
       projects = JSON.parse(process.env.NEXT_PUBLIC_PROJECTS || '[]');
       break;
@@ -33,7 +31,9 @@ const func = async (args: string[]) => {
 
 export default {
   func,
-  description: "Prints a list of all my projects",
-  description_es: "Imprime una lista de todos mis proyectos",
+  description: {
+    "en": "Prints a list of all my projects",
+    "es": "Imprime una lista de todos mis proyectos"
+  },
   validArgs: JSON.parse(process.env.NEXT_PUBLIC_PROJECTS || '[]').map((project: Project) => project.name.toLowerCase())
 };

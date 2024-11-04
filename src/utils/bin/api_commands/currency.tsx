@@ -1,5 +1,6 @@
 import { numberWithCommas } from '@/utils/functions';
 import axios from 'axios';
+import * as m from "@/paraglide/messages";
 
 const validCodes = [
     "ADA",
@@ -186,17 +187,17 @@ const validCodes = [
 
 const func = async (args : string[]) => {
     if (args.length !== 3) {
-        return 'Invalid arguments. Usage: currency [amount] [from-currency] [to-currency]';
+        return m.currencyErrorInvalidArgs();
     }
 
     const amount = parseFloat(args[0]);
 
     if (isNaN(amount) || amount <= 0) {
-        return 'Invalid amount. Please provide a positive number.';
+        return m.currencyErrorNegative();
     }
 
-    if (!validCodes.includes(args[1].toUpperCase())) return `Invalid currency code: ${args[1]}`;
-    if (!validCodes.includes(args[2].toUpperCase())) return `Invalid currency code: ${args[2]}`;
+    if (!validCodes.includes(args[1].toUpperCase())) return m.currencyErrorInvalidCode({ code: args[1] });
+    if (!validCodes.includes(args[2].toUpperCase())) return m.currencyErrorInvalidCode({ code: args[2] });
 
 
 
@@ -204,14 +205,22 @@ const func = async (args : string[]) => {
         const { data } = await axios.get(
 `https://api.fxratesapi.com/convert?api_key=${process.env.FXRATES_API_KEY}&amount=${amount}&from=${args[1].toUpperCase()}&to=${args[2].toUpperCase()}&format=json`
         );
-        return `${numberWithCommas(amount)} ${args[1].toUpperCase()} is equal to ${numberWithCommas(data.result)} ${args[2].toUpperCase()}`;
+        return m.currencyResponse({
+            base: numberWithCommas(amount),
+            code_from: args[1].toUpperCase(),
+            result: numberWithCommas(data.result),
+            code_to: args[2].toUpperCase()
+        })
     } catch (error) {
         console.error('Error:', error);
-        return 'Failed to fetch currency data';
+        return m.currencyErrorFailedRequest();
     }
 };
   
 export default {
     func,
-    description: "Converts a given amount from one currency to another"
+    description: {
+        "en": "Converts a given amount from one currency to another",
+        "es": "Convierte un monto de una moneda a otra"
+    }
 };

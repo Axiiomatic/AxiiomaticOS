@@ -4,7 +4,9 @@ export const func = async () => {
 
 export default {
     func,
-  description: "Clears terminal",
-  description_es: "Limpia el terminal",
+  description: {
+    "en": "Clears terminal",
+    "es": "Limpia el terminal"
+  },
   validArgs: []
 };

@@ -8,6 +8,8 @@ const func = async (args: string[]) => {
 
 export default {
   func,
-  description: "Search for a term on Reddit",
-  description_es: "Hace una búsqueda en Reddit"
+  description: {
+    "en": "Search for a term on Reddit",
+    "es": "Hace una búsqueda en Reddit"
+  }
 };

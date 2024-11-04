@@ -7,7 +7,9 @@ const func = async () => {
 
 export default {
   func,
-  description: "Open this project's Github repository in a new tab",
-  description_es: "Abre el repositorio de Github de este proyecto en una pestaña nueva",
+  description: {
+    "en": "Open this project's Github repository in a new tab",
+    "es": "Abre el repositorio de Github de este proyecto en una pestaña nueva"
+  },
   validArgs: []
 };

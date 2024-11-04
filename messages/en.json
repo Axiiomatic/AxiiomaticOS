@@ -59,6 +59,19 @@
 
     "usernameCurrent": "Current username: {username}",
     "usernameErrorAlready": "Username is already {username}",
-    "usernameSet": "Theme set to: {username}"
+    "usernameSet": "Theme set to: {username}",
+
+    "curlErrorNoURL": "Please provide a URL to fetch data from",
+    "curlErrorFailedRequest": "Failed to fetch data",
+
+    "currencyErrorInvalidArgs": "Invalid arguments. Correct usage: currency [amount] [from-currency] [to-currency]",
+    "currencyErrorNegative": "Invalid amount. Please provide a positive number.",
+    "currencyErrorInvalidCode": "Invalid currency code: {code}",
+    "currencyResponse": "{base} {code_from} is equal to {result} {code_to}",
+    "currencyErrorFailedRequest": "Failed to fetch currency data",
+
+    "ipErrorFailedRequest": "Failed to fetch IP data",
+
+    "weatherErrorFailedRequest": "Failed to fetch weather data"
 
 }

@@ -23,8 +23,10 @@ export const func = async (context: PreferencesContextInterface, args: string[])
 };
 
 export default {
-    func,
-    description: "Check or change the terminal's typing speed",
-    description_es: "Revisa o cambia la velocidad de tecleo del terminal",
-    usesContext: true
+  func,
+  description: {
+    "en": "Check or change the terminal's typing speed",
+    "es": "Revisa o cambia la velocidad de tecleo del terminal"
+  },
+  usesContext: true
 };

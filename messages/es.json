@@ -61,5 +61,18 @@
 
     "usernameCurrent": "Nombre de usuario actual: {username}",
     "usernameErrorAlready": "El nombre de usuario ya es {username}",
-    "usernameSet": "Nombre de usuario cambiado a: {username}"
+    "usernameSet": "Nombre de usuario cambiado a: {username}",
+
+    "curlErrorNoURL": "Por favor escribe una URL de donde pedir data",
+    "curlErrorFailedRequest": "Error al pedir data",
+    
+    "currencyErrorInvalidArgs": "Argumentos inválidos. Uso correcto: currency [amount] [from-currency] [to-currency]",
+    "currencyErrorNegative": "Monto inválido. Por favor usa un número positivo.",
+    "currencyErrorInvalidCode": "Moneda inválida: {code}",
+    "currencyResponse": "{base} {code_from} es igual a {result} {code_to}",
+    "currencyErrorFailedRequest": "Error al pedir data financiera",
+
+    "ipErrorFailedRequest": "Error al pedir data de IP",
+
+    "weatherErrorFailedRequest": "Error al pedir data del clima"
 }

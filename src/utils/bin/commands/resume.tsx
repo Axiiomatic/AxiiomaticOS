@@ -7,7 +7,9 @@ const func = async () => {
 
 export default {
   func,
-  description: "Open my resume in a new tab",
-  description_es: "Abre mi resume en una pestaña nueva",
+  description: {
+    "en": "Open my resume in a new tab",
+    "es": "Abre mi resume en una pestaña nueva"
+  },
   validArgs: []
 };

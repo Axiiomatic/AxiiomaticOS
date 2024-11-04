@@ -3,11 +3,9 @@ import * as m from "@/paraglide/messages";
 import { languageTag } from "@/paraglide/runtime";
 
 const func = async (args: string[]) => {
-  const lang = languageTag();
-
   let aka, occupation, career_interests, personal_interests;
 
-  switch (lang) {
+  switch (languageTag()) {
     case "en":
       aka = joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], 'or');
       occupation = process.env.NEXT_PUBLIC_OCCUPATION;
@@ -64,7 +62,9 @@ const func = async (args: string[]) => {
 
 export default {
   func,
-  description: "Prints a summary about me",
-  description_es: "Imprime un resumen sobre mí",
+  description: {
+    "en": "Prints a summary about me",
+    "es": "Imprime un resumen sobre mí"
+  },
   validArgs: ['age', 'aka', 'interests', 'location', 'me', 'occupation']
 };

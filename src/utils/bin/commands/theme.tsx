@@ -30,8 +30,10 @@ export const func = async (context: PreferencesContextInterface & { theme: Theme
 
 export default {
   func,
-  description: "Check or change the terminal's theme",
-  description_es: "Revisa o cambia el tema del terminal",
+  description: {
+    "en": "Check or change the terminal's theme",
+    "es": "Revisa o cambia el tema del terminal"
+  },
   validArgs: [...Object.keys(config.themes), "list"],
   usesContext: true
 };

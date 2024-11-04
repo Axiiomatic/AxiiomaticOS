@@ -27,11 +27,9 @@ interface Social {
 }
 
 const func = async () => {
-  const lang = languageTag();
-
   let aka, education, certificates, projects, socials;
 
-  switch (lang) {
+  switch (languageTag()) {
     case "en":
       aka = joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], "or");
       education = JSON.parse(process.env.NEXT_PUBLIC_EDUCATION || '[]');
@@ -76,7 +74,9 @@ ${socials.map((social : Social) => `> ${social.name}: <u><a href="${social.url}"
 
 export default {
   func,
-  description: "Prints a summary of all my key information",
-  description_es: "Imprime un sumario de toda mi información clave",
+  description: {
+    "en": "Prints a summary of all my key information",
+    "es": "Imprime un sumario de toda mi información clave"
+  },
   validArgs: []
 };

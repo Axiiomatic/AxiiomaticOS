@@ -7,7 +7,9 @@ const func = async () => {
 
 export default {
   func,
-  description: "Open my profile's README in a new tab",
-  description_es: "Abre el README de mi perfil en una pestaña nueva",
+  description: {
+    "en": "Open my profile's README in a new tab",
+    "es": "Abre el README de mi perfil en una pestaña nueva"
+  },
   validArgs: []
 };

@@ -1,16 +1,22 @@
 import axios from 'axios';
+import { languageTag } from '@/paraglide/runtime';
+import { weatherErrorFailedRequest } from '@/paraglide/messages';
+
 
 const func = async (args: string[]) => {
     try {
-        const { data } = await axios.get(`https://wttr.in/${args.join(' ')}?A0Tm`);
+        const { data } = await axios.get(`https://wttr.in/${args.join(' ')}?A0T${languageTag() === "en" ? '' : `&lang=${languageTag()}`}`);
         return data;
     } catch (error) {
         console.error('Error:', error);
-        return 'Failed to fetch weather data';
+        return weatherErrorFailedRequest();
     }
 };
   
 export default {
     func,
-    description: "Prints the weather data for a given location"
+    description: {
+        "en": "Prints the weather data for a given location",
+        "es": "Imprime la información del clima para alguna ubicación"
+    }
 };

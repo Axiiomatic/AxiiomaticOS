@@ -6,7 +6,9 @@ export const func = async (context: PreferencesContextInterface) => {
 
 export default {
     func,
-    description: "Print current username",
-    description_es: "Imprime el usuario actual",
+    description: {
+        "en": "Print current username",
+        "es": "Imprime el usuario actual"
+    },
     usesContext: true
 };

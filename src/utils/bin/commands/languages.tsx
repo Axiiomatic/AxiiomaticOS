@@ -4,11 +4,9 @@ import { languageTag } from "@/paraglide/runtime";
 
 
 const func = async (args: string[]) => {
-  const lang = languageTag();
-
   let spoken_languages, programming_languages;
   
-  switch (lang) {
+  switch (languageTag()) {
     case "en":
       spoken_languages = joinList(process.env.NEXT_PUBLIC_SPOKEN_LANGUAGES?.split(',') || [], 'and');
       programming_languages = joinList(process.env.NEXT_PUBLIC_PROGRAMMING_LANGUAGES?.split(',') || [], 'and');
@@ -40,7 +38,9 @@ ${m.languagesProgramming({ programming_languages: programming_languages })}`;
 
 export default {
   func,
-  description: "Prints the languages I speak and the programming languages I'm proficient in",
-  description_es: "Imprime los idiomas que hablo y los lenguajes de programación que sé usar",
+  description: {
+    "en": "Prints the languages I speak and the programming languages I'm proficient in",
+    "es": "Imprime los idiomas que hablo y los lenguajes de programación que sé usar"
+  },
   validArgs: ["spoken", "programming"]
 };

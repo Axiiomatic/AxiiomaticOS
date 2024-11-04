@@ -7,15 +7,17 @@ const func = async (args: string[]) => {
     }
     let response = '';
 
-    args.forEach(command => response += `${command}: ${languageTag() === "es" ? bin[command as keyof typeof bin].description_es : bin[command as keyof typeof bin].description}\n`);
+    args.forEach(command => response += `${command}: ${bin[command as keyof typeof bin].description[languageTag()]}\n`);
 
     return response.trim();
 };
 
 export default {
     func,
-    description: "Gives a list of available commands and their descriptions",
-    description_es: "Da una lista de los comandos disponibles y sus descripciones",
+    description: {
+        "en": "Gives a list of available commands and their descriptions",
+        "es": "Da una lista de los comandos disponibles y sus descripciones"
+    },
     validArgs: [
         ":3",
         "about",

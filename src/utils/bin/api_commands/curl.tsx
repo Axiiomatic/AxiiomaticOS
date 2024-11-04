@@ -1,7 +1,8 @@
 import axios from 'axios';
+import * as m from "@/paraglide/messages";
 
 const func = async (args: string[]) => {
-    if (args.length === 0) return 'Please provide a URL to fetch data from';
+    if (args.length === 0) return m.curlErrorNoURL();
     console.log(args.join(' '))
     try {
         const response : string[] = []
@@ -12,11 +13,14 @@ const func = async (args: string[]) => {
         return response.join('\n');
     } catch (error) {
         console.error('Error:', error);
-        return 'Failed to fetch data';
+        return m.curlErrorFailedRequest();
     }
 };
   
 export default {
     func,
-    description: "Fetches data from a given URL"
+    description: {
+        "en": "Fetches data from a given URL",
+        "es": "Obtiene data de una URL"
+    }
 };

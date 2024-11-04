@@ -4,7 +4,9 @@ export const func = async () => {
 
 export default {
     func,
-    description: "Display the current date and time",
-    description_es: "Muestra la fecha y hora actual",
+    description: {
+        "en": "Display the current date and time",
+        "es": "Muestra la fecha y hora actual"
+    },
     validArgs: []
 };

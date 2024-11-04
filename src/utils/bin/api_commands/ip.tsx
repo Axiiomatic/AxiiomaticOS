@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as m from "@/paraglide/messages";
 
 const func = async () => {
     try {
@@ -6,12 +7,15 @@ const func = async () => {
         return data.ip;
     } catch (error) {
         console.error('Error:', error);
-        return 'Failed to fetch IP data';
+        return m.ipErrorFailedRequest();
     }
 };
   
 export default {
     func,
-    description: "Prints the current IP address",
+    description: {
+        "en": "Prints the current IP address",
+        "es": "Imprime la dirección IP actual"
+    },
     validArgs: []
 };
