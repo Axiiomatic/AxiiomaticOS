@@ -72,6 +72,7 @@ const func = async (args: string[]) => {
 
 export default {
   func,
-  description: m.aboutDescription(),
+  description: "Prints a summary of my information",
+  description_es: "Imprime un resumen de mi información",
   validArgs: ['age', 'aka', 'interests', 'location', 'me', 'occupation']
 };

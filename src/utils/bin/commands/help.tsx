@@ -1,4 +1,5 @@
 import { bin } from "../";
+import { languageTag } from "@/paraglide/runtime";
 
 const func = async (args: string[]) => {
     if (!args.length) {
@@ -6,7 +7,7 @@ const func = async (args: string[]) => {
     }
     let response = '';
 
-    args.forEach(command => response += `${command}: ${bin[command as keyof typeof bin].description}\n`);
+    args.forEach(command => response += `${command}: ${languageTag() === "es" ? bin[command as keyof typeof bin].description_es : bin[command as keyof typeof bin].description}\n`);
 
     return response.trim();
 };

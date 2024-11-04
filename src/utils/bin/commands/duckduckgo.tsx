@@ -8,5 +8,6 @@ const func = async (args: string[]) => {
 
 export default {
   func,
-  description: m.duckDuckGoDescription()
+  description: "Search for a term on DuckDuckGo",
+  description_es: "Hace una búsqueda en DuckDuckGo",
 };

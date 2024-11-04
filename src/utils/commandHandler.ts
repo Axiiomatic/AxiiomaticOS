@@ -1,14 +1,11 @@
 import { PreferencesContextInterface } from "./contexts";
-import { bin, bin_es } from "@/utils/bin";
+import { bin } from "@/utils/bin";
 import * as m from "@/paraglide/messages";
-import { languageTag } from "@/paraglide/runtime";
 
 export const executeCommand = async (cmd: string, context: PreferencesContextInterface): Promise<string> => {
   const [command, ...args] = cmd.trim().split(/\s+/);
 
-  const commands = languageTag() === 'es' ? bin_es : bin;
-
-  const handler = (commands as Record<string, any>)[command];
+  const handler = (bin as Record<string, any>)[command];
   console.log(handler);
 
   if (!handler) {

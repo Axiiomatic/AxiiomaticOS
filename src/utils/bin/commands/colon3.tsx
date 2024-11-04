@@ -5,5 +5,6 @@ const func = async () => {
 export default {
   func,
   description: "...",
+  description_es: "...",
   validArgs: []
 };

@@ -7,7 +7,6 @@
     "invalidArg": "Invalid argument '{arg}' for command '{command}'\n",
     "commandError": "Error executing command: {command}",
     
-    "aboutDescription": "Prints a summary of my information",
     "aboutResponse": "Hello! I'm {name}, but I usually go by {aka} online\nI'm a {age} year old {occupation} at {company} located at {location}\nI'm interested in {career_interests}\nHowever, I also really enjoy {personal_interests}!\n\nMore about me:\n'sumfetch' - Short Summary\n'resume' - My Latest Resume\n'readme' - My Github README",
     "aboutAge": "I'm {age} years old!\n",
     "aboutAka": "I almost never use my real name online. I usually go by {aka} in social media\n",
@@ -16,18 +15,13 @@
     "aboutMe": "Hello! I'm {name}.\nI'm a {occupation}. Nice to meet you!\n",
     "aboutOccupation": "I'm a {occupation} at {company}\n",
 
-    "bingDescription": "Search for a term on Bing",
     "bingOpen": "Opened Bing",
     "bingResponse": "Searched Bing for \"{query}\"",
 
-    "clearDescription": "Clear terminal",
-
-    "dateDescription": "Display the current date and time",
-
-    "duckDuckGoDescription": "Search for a term on DuckDuckGo",
     "duckDuckGoOpen": "Opened DuckDuckGo",
     "duckDuckGoResponse": "Searched DuckDuckGo for \"{query}\"",
 
-    "echoDescription": "Echo user input"
+    "educationDegrees": "> {degree} in {major} - {institution} ({graduation_year})",
+    "educationCertifications": "> {name} - {institution} ({completion_year})"
 
 }

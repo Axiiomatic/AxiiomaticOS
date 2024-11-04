@@ -8,5 +8,6 @@ const func = async (args: string[]) => {
 
 export default {
   func,
-  description: m.bingDescription()
+  description: "Search for a term on Bing",
+  description_es: "Hace una búsqueda en Bing"
 };
