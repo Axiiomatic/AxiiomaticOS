@@ -1,0 +1,39 @@
+{
+    "title": "AxiiomaticOS",
+    "description": "My personal 3D portfolio website",
+    "console_host": "axiiomatic",
+    "console_user": "guest",
+    "themes": {
+        "classic": {
+            "name": "classic",
+            "textColor": "#5BF870",
+            "bgColor": "#0A643C"
+        },
+        "crimson": {
+            "name": "crimson",
+            "textColor": "#F85B5B",
+            "bgColor": "#640A0A"
+        },
+        "gold": {
+            "name": "gold",
+            "textColor": "#F0F85B",
+            "bgColor": "#64580A"
+        },
+        "lavender": {
+            "name": "lavender",
+            "textColor": "#F55BF8",
+            "bgColor": "#640A53"
+        },
+        "midnight": {
+            "name": "midnight",
+            "textColor": "#5B65F8",
+            "bgColor": "#190A64"
+        },
+        "mono": {
+            "name": "mono",
+            "textColor": "#C7C7C7",
+            "bgColor": "#666666"
+        }
+    },
+    "typing_speed": 80
+}
