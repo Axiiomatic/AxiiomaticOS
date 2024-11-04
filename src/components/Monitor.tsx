@@ -62,6 +62,8 @@ export const Monitor = () => {
       setOutputLines(new Array(output.slice(-1)[0].split('\n').length).fill(false));
       setOutputFinished(output.length === 0);
       setPromptFinished(false);
+    } else if (inputRef.current) {
+      inputRef.current.focus();
     }
   }, [output]);
 

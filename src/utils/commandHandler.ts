@@ -1,13 +1,18 @@
 import { PreferencesContextInterface } from "./contexts";
-import { bin } from "@/utils/bin";
+import { bin, bin_es } from "@/utils/bin";
+import * as m from "@/paraglide/messages";
+import { languageTag } from "@/paraglide/runtime";
 
 export const executeCommand = async (cmd: string, context: PreferencesContextInterface): Promise<string> => {
   const [command, ...args] = cmd.trim().split(/\s+/);
 
-  const handler = (bin as Record<string, any>)[command];
+  const commands = languageTag() === 'es' ? bin_es : bin;
+
+  const handler = (commands as Record<string, any>)[command];
+  console.log(handler);
 
   if (!handler) {
-    return `'${command}' is not recognized as a valid command`;
+    return m.invalidCommand({ command: command});
   }
 
   try {
@@ -16,7 +21,7 @@ export const executeCommand = async (cmd: string, context: PreferencesContextInt
       if (args.some((arg) => {
         const included = handler.validArgs.includes(arg)
         if (!included) {
-          response += `Invalid argument '${arg}' for command '${command}'.\n`;
+          response += m.invalidArg({ arg: arg, command: command});
           return true;
         }
       })) return response;
@@ -33,6 +38,6 @@ export const executeCommand = async (cmd: string, context: PreferencesContextInt
 
   } catch (error) {
     console.error(`Error executing command ${command}:`, error);
-    return `Error executing command: ${command}`;
+    return m.commandError({ command: command });
   }
 }; 

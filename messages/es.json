@@ -1,0 +1,32 @@
+{
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    
+    "welcome": "Bienvenido a AxiiomaticOS\nEscribe 'ayuda' para ver una lista de comandos disponibles\nEscribe 'sumario' para ver un resumen",
+    
+    "invalidCommand": "'{command}' no es un comando válido",
+    "invalidArg": "Argumento inválido '{arg}' para comando '{command}'\n",
+    "commandError": "Error ejecutando comando: {command}",
+
+    "aboutDescription": "Imprime un resumen de mi información",
+    "aboutResponse": "¡Hola! Soy {name}, aunque suelo usar {aka} en línea\nSoy un {occupation} de {age} años en {company} ubicado en {location}\nEstoy interesado en {career_interests}\n¡También me gusta {personal_interests}!\n\nMás sobre mí:\n'sumfetch' - Pequeño resumen\n'resume' - Mi resume actual\n'readme' - Mi README de Github",
+    "aboutAge": "¡Tengo {age} años!\n",
+    "aboutAka": "Casi nunca uso mi nombre real en línea. Suelo usar {aka} en mis redes sociales\n",
+    "aboutInterests": "Estoy interesado en {career_interests}\n¡También me gusta {personal_interests}!\n",
+    "aboutLocation": "Actualmente vivo en {location}\n",
+    "aboutMe": "¡Hola! Soy {name}.\nSoy un {occupation}. ¡Un placer!\n",
+    "aboutOccupation": "Soy un {occupation} en {company}\n",
+    
+    "bingDescription": "Hace una búsqueda en Bing",
+    "bingOpen": "Se abrió Bing",
+    "bingResponse": "Se buscó \"{query}\" en Bing",
+
+    "clearDescription": "Limpia el terminal",
+
+    "dateDescription": "Muestra la fecha y hora actual",
+
+    "duckDuckGoDescription": "Hace una búsqueda en DuckDuckGo",
+    "duckDuckGoOpen": "Se abrió DuckDuckGo",
+    "duckDuckGoResponse": "Se buscó \"{query}\" en DuckDuckGo",
+
+    "echoDescription": "Muestra el texto ingresado"
+}

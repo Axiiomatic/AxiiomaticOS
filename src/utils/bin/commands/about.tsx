@@ -1,39 +1,66 @@
 import { joinList } from "@/utils/functions";
+import * as m from "@/paraglide/messages";
+import { languageTag } from "@/paraglide/runtime";
 
 const func = async (args: string[]) => {
-  if (args.length === 0) return `
-Hello! I'm ${process.env.NEXT_PUBLIC_NAME}, but I usually go by ${joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], 'or')} online
-I'm a ${process.env.NEXT_PUBLIC_AGE} year old ${process.env.NEXT_PUBLIC_OCCUPATION} at ${process.env.NEXT_PUBLIC_COMPANY} located at ${process.env.NEXT_PUBLIC_LOCATION}
-I'm interested in ${joinList(process.env.NEXT_PUBLIC_CAREER_INTERESTS?.split(',') || [], 'and')}
-However, I also really enjoy ${joinList(process.env.NEXT_PUBLIC_PERSONAL_INTERESTS?.split(',') || [], 'and')}!
+  const lang = languageTag();
 
-More about me:
-'sumfetch' - Short Summary
-'resume' - My Latest Resume
-'readme' - My Github README
-`;
+  let aka, occupation, career_interests, personal_interests;
+
+  switch (lang) {
+    case "en":
+      aka = joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], 'or');
+      occupation = process.env.NEXT_PUBLIC_OCCUPATION;
+      career_interests = joinList(process.env.NEXT_PUBLIC_CAREER_INTERESTS?.split(',') || [], 'and');
+      personal_interests = joinList(process.env.NEXT_PUBLIC_PERSONAL_INTERESTS?.split(',') || [], 'and');
+      break;
+    case "es":
+      aka = joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], 'o');
+      occupation = process.env.NEXT_PUBLIC_OCCUPATION_ES;
+      career_interests = joinList(process.env.NEXT_PUBLIC_CAREER_INTERESTS_ES?.split(',') || [], 'y');
+      personal_interests = joinList(process.env.NEXT_PUBLIC_PERSONAL_INTERESTS_ES?.split(',') || [], 'y');
+      break;
+  }
+
+  if (args.length === 0) return m.aboutResponse({
+    name: process.env.NEXT_PUBLIC_NAME || '',
+    aka: aka,
+    age: process.env.NEXT_PUBLIC_AGE || '',
+    occupation: occupation || '',
+    company: process.env.NEXT_PUBLIC_COMPANY || '',
+    location: process.env.NEXT_PUBLIC_LOCATION || '',
+    career_interests: career_interests,
+    personal_interests: personal_interests
+  });
+
 
   let response = '';
 
   args.forEach(arg => {
     switch (arg) {
       case "me":
-        response += `Hello! I'm ${process.env.NEXT_PUBLIC_NAME}.\nI'm a ${process.env.NEXT_PUBLIC_OCCUPATION}. Nice to meet you!\n`
+      case "mi":
+        response += m.aboutMe({ name: process.env.NEXT_PUBLIC_NAME || '', occupation: occupation || '' });
         break;
       case "aka":
-        response += `I almost never use my real name online. I usually go by ${joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], 'or')} in social media\n`
+      case "alias":
+        response += m.aboutAka({ aka: aka });
         break;
       case "age":
-        response += `I'm ${process.env.NEXT_PUBLIC_AGE} years old!\n`
+      case "edad":
+        response += m.aboutAge({ age: process.env.NEXT_PUBLIC_AGE || '' });
         break;
       case "occupation":
-        response += `I'm a ${process.env.NEXT_PUBLIC_OCCUPATION} at ${process.env.NEXT_PUBLIC_COMPANY}\n`
+      case "ocupacion":
+        response += m.aboutOccupation({ occupation: occupation || '', company: process.env.NEXT_PUBLIC_COMPANY || '' });
         break;
       case "location":
-        response += `I'm currently located at ${process.env.NEXT_PUBLIC_LOCATION}\n`
+      case "ubicacion":
+        response += m.aboutLocation({ location: process.env.NEXT_PUBLIC_LOCATION || '' });
         break;
       case "interests":
-        response += `I'm interested in ${joinList(process.env.NEXT_PUBLIC_CAREER_INTERESTS?.split(',') || [], 'and')}\nI also enjoy ${joinList(process.env.NEXT_PUBLIC_PERSONAL_INTERESTS?.split(',') || [], 'and')}!\n`
+      case "intereses":
+        response += m.aboutInterests({ career_interests: career_interests, personal_interests: personal_interests });
         break;
       default:
         break;
@@ -45,6 +72,6 @@ More about me:
 
 export default {
   func,
-  description: "Prints a summary of my information",
-  validArgs: ["me", "aka", "age", "occupation", "location", "interests"]
+  description: m.aboutDescription(),
+  validArgs: ['age', 'aka', 'interests', 'location', 'me', 'occupation']
 };

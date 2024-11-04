@@ -3,6 +3,7 @@ import { usePreferences, useCommandHistory } from "@/utils/contexts";
 import { executeCommand } from "@/utils/commandHandler";
 import { tabCompletion } from "@/utils/tabCompletion";
 import config from "@/../config.json";
+import * as m from '@/paraglide/messages';
 
 const inputHook = () => {
   const [input, setInput] = useState<string>('');
@@ -10,11 +11,7 @@ const inputHook = () => {
   const [keyStreak, setKeyStreak] = useState<number>(0);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   
-  const [output, setOutput] = useState<string[]>([
-`Welcome to AxiiomaticOS
-Type 'help' to see a list of available commands
-Type 'sumfetch' to display summary`
-]);
+  const [output, setOutput] = useState<string[]>([m.welcome()]);
 
   const [on, setOn] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
@@ -165,9 +162,9 @@ Type 'sumfetch' to display summary`
     updateCommandHistory(cmd);
     setInputEditable(false);
     const response = await executeCommand(cmd.toLowerCase(), preferencesContext);
+    setInputEditable(true);
     if (response === "CLEAR") setOutput([]);
     else setOutput([...output, `$ ${config.console_host}@${preferencesContext.username} > ${cmd}`, response]);
-    setInputEditable(true);
   };
 
     return {

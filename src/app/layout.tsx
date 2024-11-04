@@ -1,3 +1,5 @@
+import { LanguageProvider } from "@inlang/paraglide-next"
+import { languageTag } from "@/paraglide/runtime.js"
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import config from "@/../config.json";
@@ -26,7 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <LanguageProvider>
+   <html lang={languageTag()}>
       <body
         className={`${vt323.variable} antialiased`}
       >
@@ -41,5 +44,6 @@ export default function RootLayout({
         </PreferencesProvider>
       </body>
     </html>
+ </LanguageProvider>
   );
 }
