@@ -1,16 +1,16 @@
 import { PreferencesContextInterface } from "@/utils/contexts";
-import * as m from "@/paraglide/messages";
+import { usernameCurrent, usernameErrorAlready, usernameSet } from "@/paraglide/messages";
 
 export const func = async (context: PreferencesContextInterface, args: string[]) => {
   const newUsername = args.join(" ");
   if (!newUsername)
-    return m.usernameCurrent({ username: context.username });
+    return usernameCurrent({ username: context.username });
 
   if (newUsername === context.username)
-    return m.usernameErrorAlready({ username: newUsername })
+    return usernameErrorAlready({ username: newUsername })
   
   context.setUsername(newUsername);
-  return m.usernameSet({ username: newUsername });
+  return usernameSet({ username: newUsername });
 };
 
 export default {

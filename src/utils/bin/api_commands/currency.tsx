@@ -1,6 +1,6 @@
 import { numberWithCommas } from '@/utils/functions';
 import axios from 'axios';
-import * as m from "@/paraglide/messages";
+import { currencyErrorInvalidArgs, currencyErrorNegative, currencyErrorInvalidCode, currencyResponse, currencyErrorFailedRequest } from "@/paraglide/messages";
 
 const validCodes = [
     "ADA",
@@ -187,17 +187,17 @@ const validCodes = [
 
 const func = async (args : string[]) => {
     if (args.length !== 3) {
-        return m.currencyErrorInvalidArgs();
+        return currencyErrorInvalidArgs();
     }
 
     const amount = parseFloat(args[0]);
 
     if (isNaN(amount) || amount <= 0) {
-        return m.currencyErrorNegative();
+        return currencyErrorNegative();
     }
 
-    if (!validCodes.includes(args[1].toUpperCase())) return m.currencyErrorInvalidCode({ code: args[1] });
-    if (!validCodes.includes(args[2].toUpperCase())) return m.currencyErrorInvalidCode({ code: args[2] });
+    if (!validCodes.includes(args[1].toUpperCase())) return currencyErrorInvalidCode({ code: args[1] });
+    if (!validCodes.includes(args[2].toUpperCase())) return currencyErrorInvalidCode({ code: args[2] });
 
 
 
@@ -205,7 +205,7 @@ const func = async (args : string[]) => {
         const { data } = await axios.get(
 `https://api.fxratesapi.com/convert?api_key=${process.env.FXRATES_API_KEY}&amount=${amount}&from=${args[1].toUpperCase()}&to=${args[2].toUpperCase()}&format=json`
         );
-        return m.currencyResponse({
+        return currencyResponse({
             base: numberWithCommas(amount),
             code_from: args[1].toUpperCase(),
             result: numberWithCommas(data.result),
@@ -213,7 +213,7 @@ const func = async (args : string[]) => {
         })
     } catch (error) {
         console.error('Error:', error);
-        return m.currencyErrorFailedRequest();
+        return currencyErrorFailedRequest();
     }
 };
   

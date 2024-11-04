@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as m from "@/paraglide/messages";
+import { ipErrorFailedRequest } from "@/paraglide/messages";
 
 const func = async () => {
     try {
@@ -7,7 +7,7 @@ const func = async () => {
         return data.ip;
     } catch (error) {
         console.error('Error:', error);
-        return m.ipErrorFailedRequest();
+        return ipErrorFailedRequest();
     }
 };
   

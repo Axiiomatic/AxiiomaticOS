@@ -3,7 +3,7 @@ import { usePreferences, useCommandHistory } from "@/utils/contexts";
 import { executeCommand } from "@/utils/commandHandler";
 import { tabCompletion } from "@/utils/tabCompletion";
 import config from "@/../config.json";
-import * as m from '@/paraglide/messages';
+import { welcome } from '@/paraglide/messages';
 
 const inputHook = () => {
   const [input, setInput] = useState<string>('');
@@ -11,7 +11,7 @@ const inputHook = () => {
   const [keyStreak, setKeyStreak] = useState<number>(0);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   
-  const [output, setOutput] = useState<string[]>([m.welcome()]);
+  const [output, setOutput] = useState<string[]>([welcome()]);
 
   const [on, setOn] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);

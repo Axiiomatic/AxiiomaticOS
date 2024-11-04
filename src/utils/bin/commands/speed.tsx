@@ -1,25 +1,25 @@
 import { PreferencesContextInterface } from "@/utils/contexts";
-import * as m from "@/paraglide/messages";
+import { speedCurrent, speedErrorNaN, speedErrorOutOfRange, speedErrorAlready, speedSet } from "@/paraglide/messages";
 
 export const func = async (context: PreferencesContextInterface, args: string[]) => {
   const newSpeed = args.join(" ");
   if (!newSpeed) {
-    return m.speedCurrent({ speed: context.typingSpeed });
+    return speedCurrent({ speed: context.typingSpeed });
   }
 
   const speed = parseInt(newSpeed);
 
   if (isNaN(speed))
-    return m.speedErrorNaN();
+    return speedErrorNaN();
 
   if (speed < 1 || speed > 100)
-    return m.speedErrorOutOfRange();
+    return speedErrorOutOfRange();
 
   if (speed === context.typingSpeed)
-    return m.speedErrorAlready({ speed: speed });
+    return speedErrorAlready({ speed: speed });
   
   context.setTypingSpeed(speed);
-  return m.speedSet({ speed: speed });
+  return speedSet({ speed: speed });
 };
 
 export default {

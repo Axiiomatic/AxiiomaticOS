@@ -1,8 +1,8 @@
-import * as m from "@/paraglide/messages";
+import { repoOpen } from "@/paraglide/messages";
 
 const func = async () => {
   window.open(process.env.NEXT_PUBLIC_REPO, "_blank");
-  return m.repoOpen();
+  return repoOpen();
 };
 
 export default {

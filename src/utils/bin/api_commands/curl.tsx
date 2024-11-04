@@ -1,8 +1,8 @@
 import axios from 'axios';
-import * as m from "@/paraglide/messages";
+import { curlErrorNoURL, curlErrorFailedRequest } from "@/paraglide/messages";
 
 const func = async (args: string[]) => {
-    if (args.length === 0) return m.curlErrorNoURL();
+    if (args.length === 0) return curlErrorNoURL();
     console.log(args.join(' '))
     try {
         const response : string[] = []
@@ -13,7 +13,7 @@ const func = async (args: string[]) => {
         return response.join('\n');
     } catch (error) {
         console.error('Error:', error);
-        return m.curlErrorFailedRequest();
+        return curlErrorFailedRequest();
     }
 };
   

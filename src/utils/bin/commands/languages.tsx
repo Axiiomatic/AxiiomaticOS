@@ -1,5 +1,5 @@
 import { joinList } from "@/utils/functions";
-import * as m from "@/paraglide/messages";
+import { languagesSpoken, languagesProgramming } from "@/paraglide/messages";
 import { languageTag } from "@/paraglide/runtime";
 
 
@@ -17,18 +17,18 @@ const func = async (args: string[]) => {
       break;
   }
 
-  if (args.length === 0) return `${m.languagesSpoken({ spoken_languages: spoken_languages })}
-${m.languagesProgramming({ programming_languages: programming_languages })}`;
+  if (args.length === 0) return `${languagesSpoken({ spoken_languages: spoken_languages })}
+${languagesProgramming({ programming_languages: programming_languages })}`;
 
   let response = '';
 
   args.forEach(arg => {
     switch (arg) {
       case "spoken":
-        response += `${m.languagesSpoken({ spoken_languages: spoken_languages })}\n`;
+        response += `${languagesSpoken({ spoken_languages: spoken_languages })}\n`;
         break;
       case "programming":
-        response += `${m.languagesProgramming({ programming_languages: programming_languages })}\n`;
+        response += `${languagesProgramming({ programming_languages: programming_languages })}\n`;
         break;
     }
   });

@@ -1,6 +1,6 @@
 import { PreferencesContextInterface } from "./contexts";
 import { bin } from "@/utils/bin";
-import * as m from "@/paraglide/messages";
+import { invalidCommand, invalidArg, commandError } from "@/paraglide/messages";
 
 export const executeCommand = async (cmd: string, context: PreferencesContextInterface): Promise<string> => {
   const [command, ...args] = cmd.trim().split(/\s+/);
@@ -9,7 +9,7 @@ export const executeCommand = async (cmd: string, context: PreferencesContextInt
   console.log(handler);
 
   if (!handler) {
-    return m.invalidCommand({ command: command});
+    return invalidCommand({ command: command});
   }
 
   try {
@@ -18,7 +18,7 @@ export const executeCommand = async (cmd: string, context: PreferencesContextInt
       if (args.some((arg) => {
         const included = handler.validArgs.includes(arg)
         if (!included) {
-          response += m.invalidArg({ arg: arg, command: command});
+          response += invalidArg({ arg: arg, command: command});
           return true;
         }
       })) return response;
@@ -35,6 +35,6 @@ export const executeCommand = async (cmd: string, context: PreferencesContextInt
 
   } catch (error) {
     console.error(`Error executing command ${command}:`, error);
-    return m.commandError({ command: command });
+    return commandError({ command: command });
   }
 }; 

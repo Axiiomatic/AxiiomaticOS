@@ -1,5 +1,5 @@
 import { joinList } from "@/utils/functions";
-import * as m from "@/paraglide/messages";
+import { sumfetchSummary, sumfetchAbout, sumfetchEC, sumfetchProjects, sumfetchContact } from "@/paraglide/messages";
 import { languageTag } from "@/paraglide/runtime";
 
 interface Education {
@@ -52,22 +52,22 @@ const func = async () => {
 ▐▓                                 ▐▓
 ▐▓▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▓
 
-🖳 ${m.sumfetchSummary()}
+🖳 ${sumfetchSummary()}
 -------------------------
-🕮 ${m.sumfetchAbout()}
+🕮 ${sumfetchAbout()}
 > ${process.env.NEXT_PUBLIC_NAME}
 > AKA ${aka}
 > <u><a href="${process.env.NEXT_PUBLIC_RESUME}" target="_blank">Resume (November 2024)</a></u>
 > <u><a href="${process.env.NEXT_PUBLIC_REPO}" target="_blank">Github Repo</a></u>
 --------------------------
-🖆 ${m.sumfetchEC()}
+🖆 ${sumfetchEC()}
 ${education.map((edu : Education) => `> ${edu.degree} in ${edu.major} - ${edu.institution} (${edu.graduation_year})`).join("\n")}
 ${certificates.map((edu : Certificate) => `> ${edu.name} - ${edu.institution} (${edu.completion_year})`).join("\n")}
 --------------------------
-🗃 ${m.sumfetchProjects()}
+🗃 ${sumfetchProjects()}
 ${projects.map((project : Project) => `> <u><a href="${project.url}" target="_blank">${project.name}</a></u>`).join("\n")}
 --------------------------
-🗂 ${m.sumfetchContact()}
+🗂 ${sumfetchContact()}
 ${socials.map((social : Social) => `> ${social.name}: <u><a href="${social.url}" target="_blank">${social.display}</a></u>`).join("\n")}
 `;
 };

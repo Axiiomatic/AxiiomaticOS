@@ -1,8 +1,8 @@
-import * as m from "@/paraglide/messages";
+import { resumeOpen } from "@/paraglide/messages";
 
 const func = async () => {
   window.open(process.env.NEXT_PUBLIC_RESUME, "_blank");
-  return m.resumeOpen();
+  return resumeOpen();
 };
 
 export default {

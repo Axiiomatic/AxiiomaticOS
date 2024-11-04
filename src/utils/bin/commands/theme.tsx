@@ -1,6 +1,6 @@
 import { PreferencesContextInterface } from "@/utils/contexts";
 import config from "@/../config.json";
-import * as m from "@/paraglide/messages";
+import { themeCurrent, themeAvailable, themeErrorAlready, themeErrorNA, themeSet } from "@/paraglide/messages";
 
 interface ThemeType {
   name: string;
@@ -9,23 +9,23 @@ interface ThemeType {
 export const func = async (context: PreferencesContextInterface & { theme: ThemeType }, args: string[]) => {
   const newTheme = args.join(" ");
   if (!newTheme) {
-    return m.themeCurrent({ theme: context.theme.name });
+    return themeCurrent({ theme: context.theme.name });
   }
 
   if(newTheme === "list") {
-    return m.themeAvailable({ themes: Object.keys(config.themes).join(" ") });
+    return themeAvailable({ themes: Object.keys(config.themes).join(" ") });
   }
 
   if (newTheme === context.theme.name) {
-    return m.themeErrorAlready({ theme: newTheme });
+    return themeErrorAlready({ theme: newTheme });
   }
 
   if (!config.themes[newTheme as keyof typeof config.themes]) {
-    return m.themeErrorNA({ themes: Object.keys(config.themes).join(" ") });
+    return themeErrorNA({ themes: Object.keys(config.themes).join(" ") });
   }
   
   context.setTheme(config.themes[newTheme as keyof typeof config.themes]);
-  return m.themeSet({ theme: newTheme });
+  return themeSet({ theme: newTheme });
 };
 
 export default {

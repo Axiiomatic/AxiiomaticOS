@@ -1,4 +1,4 @@
-import * as m from "@/paraglide/messages";
+import { educationDegrees, educationCertifications } from "@/paraglide/messages";
 import { languageTag } from "@/paraglide/runtime";
 
 interface Education {
@@ -29,9 +29,9 @@ const func = async (args: string[]) => {
   }
   if (args.length === 0) return `
 ${(education as Education[])
-  .map(edu => m.educationDegrees({ degree: edu.degree, major: edu.major, institution: edu.institution, graduation_year: edu.graduation_year })).join("\n")}
+  .map(edu => educationDegrees({ degree: edu.degree, major: edu.major, institution: edu.institution, graduation_year: edu.graduation_year })).join("\n")}
 ${(certificates as Certificate[])
-  .map(edu => m.educationCertifications({ name: edu.name, institution: edu.institution, completion_year: edu.completion_year })).join("\n")}
+  .map(edu => educationCertifications({ name: edu.name, institution: edu.institution, completion_year: edu.completion_year })).join("\n")}
 `;
 
   let response = '';
@@ -40,11 +40,11 @@ ${(certificates as Certificate[])
     switch (arg) {
       case "degrees":
         response += `${(education as Education[])
-          .map(edu => m.educationDegrees({ degree: edu.degree, major: edu.major, institution: edu.institution, graduation_year: edu.graduation_year })).join("\n")}\n`;
+          .map(edu => educationDegrees({ degree: edu.degree, major: edu.major, institution: edu.institution, graduation_year: edu.graduation_year })).join("\n")}\n`;
         break;
       case "certifications":
         response += `${(certificates as Certificate[])
-          .map(edu => m.educationCertifications({ name: edu.name, institution: edu.institution, completion_year: edu.completion_year })).join("\n")}\n`;
+          .map(edu => educationCertifications({ name: edu.name, institution: edu.institution, completion_year: edu.completion_year })).join("\n")}\n`;
         break;
     }
   });

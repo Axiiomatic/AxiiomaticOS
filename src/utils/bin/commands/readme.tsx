@@ -1,8 +1,8 @@
-import * as m from "@/paraglide/messages";
+import { readmeOpen } from "@/paraglide/messages";
 
 const func = async () => {
   window.open(process.env.NEXT_PUBLIC_README, "_blank");
-  return m.readmeOpen();
+  return readmeOpen();
 };
 
 export default {

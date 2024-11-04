@@ -1,5 +1,5 @@
 import { joinList } from "@/utils/functions";
-import * as m from "@/paraglide/messages";
+import { aboutResponse, aboutMe, aboutAka, aboutAge, aboutOccupation, aboutLocation, aboutInterests } from "@/paraglide/messages";
 import { languageTag } from "@/paraglide/runtime";
 
 const func = async (args: string[]) => {
@@ -20,7 +20,7 @@ const func = async (args: string[]) => {
       break;
   }
 
-  if (args.length === 0) return m.aboutResponse({
+  if (args.length === 0) return aboutResponse({
     name: process.env.NEXT_PUBLIC_NAME || '',
     aka: aka,
     age: process.env.NEXT_PUBLIC_AGE || '',
@@ -37,22 +37,22 @@ const func = async (args: string[]) => {
   args.forEach(arg => {
     switch (arg) {
       case "me":
-        response += m.aboutMe({ name: process.env.NEXT_PUBLIC_NAME || '', occupation: occupation || '' });
+        response += aboutMe({ name: process.env.NEXT_PUBLIC_NAME || '', occupation: occupation || '' });
         break;
       case "aka":
-        response += m.aboutAka({ aka: aka });
+        response += aboutAka({ aka: aka });
         break;
       case "age":
-        response += m.aboutAge({ age: process.env.NEXT_PUBLIC_AGE || '' });
+        response += aboutAge({ age: process.env.NEXT_PUBLIC_AGE || '' });
         break;
       case "occupation":
-        response += m.aboutOccupation({ occupation: occupation || '', company: process.env.NEXT_PUBLIC_COMPANY || '' });
+        response += aboutOccupation({ occupation: occupation || '', company: process.env.NEXT_PUBLIC_COMPANY || '' });
         break;
       case "location":
-        response += m.aboutLocation({ location: process.env.NEXT_PUBLIC_LOCATION || '' });
+        response += aboutLocation({ location: process.env.NEXT_PUBLIC_LOCATION || '' });
         break;
       case "interests":
-        response += m.aboutInterests({ career_interests: career_interests, personal_interests: personal_interests });
+        response += aboutInterests({ career_interests: career_interests, personal_interests: personal_interests });
         break;
     }
   });
