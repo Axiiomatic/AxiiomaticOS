@@ -3,7 +3,6 @@ import axios from 'axios';
 const func = async (args: string[]) => {
     try {
         const { data } = await axios.get(`https://wttr.in/${args.join(' ')}?A0Tm`);
-        console.log(data);
         return data;
     } catch (error) {
         console.error('Error:', error);
