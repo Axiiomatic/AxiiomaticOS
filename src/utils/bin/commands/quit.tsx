@@ -1,5 +1,5 @@
 export const func = async () => {
-  return "EXIT";
+  return "QUIT";
 };
 
 export default {
