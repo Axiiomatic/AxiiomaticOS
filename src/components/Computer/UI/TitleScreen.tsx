@@ -7,7 +7,9 @@ import { AsciiLogo } from "@/components/ascii";
 export const TitleScreen = () => {
     return (
         <CenterWrapper>
-            {AsciiLogo}
+            <div className="text-[10px]">
+                {AsciiLogo}
+            </div>
         </CenterWrapper>
     )
 };
