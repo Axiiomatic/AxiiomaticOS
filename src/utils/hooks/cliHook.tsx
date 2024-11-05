@@ -4,7 +4,7 @@ import { executeCommand } from "@/utils/commandHandler";
 import { tabCompletion } from "@/utils/tabCompletion";
 import config from "@/../config.json";
 import { welcome } from '@/paraglide/messages';
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/lib/i18n";
 
 const cliHook = () => {
   const router = useRouter();
@@ -107,9 +107,20 @@ const cliHook = () => {
     setInputEditable(false);
     const response = await executeCommand(cmd.toLowerCase(), preferencesContext);
     setInputEditable(true);
-    if (response === "CLEAR") setOutput([]);
-    else if (response === "EXIT") router.push("/os");
-    else setOutput([...output, `$ ${config.console_host}@${preferencesContext.username} > ${cmd}`, response]);
+    switch (response) {
+      case "CLEAR":
+        setOutput([]);
+        break;
+      case "QUIT":
+        router.push("/os");
+        break;
+      case "GUI":
+        router.push("/os/gui");
+        break;
+      default:
+        setOutput([...output, `$ ${config.console_host}@${preferencesContext.username} > ${cmd}`, response]);
+        break;
+    }
   };
 
     return {
