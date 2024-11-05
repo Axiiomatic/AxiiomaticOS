@@ -1,15 +1,17 @@
 import CRTWrapper from "./CRTWrapper";
 import TerminalWrapper from "./TerminalWrapper";
-import LoadingWrapper from "./LoadingWrapper";
+import CenterWrapper from "./CenterWrapper";
 import TextWrapper from "./TextWrapper";
 import AsciiWrapper from "./AsciiWrapper";
-import OverlayWrapper from "./OverlayWrapper";
 import FooterWrapper from "./FooterWrapper";
+import MonitorWrapper from "./MonitorWrapper";
 
-export { CRTWrapper,
+export {
+    CRTWrapper,
     TerminalWrapper,
-    LoadingWrapper,
+    CenterWrapper,
     TextWrapper,
     AsciiWrapper,
-    OverlayWrapper,
-    FooterWrapper };
+    FooterWrapper,
+    MonitorWrapper
+};

@@ -3,7 +3,7 @@ import { languageTag } from "@/paraglide/runtime.js"
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import config from "@/../config.json";
-import { PreferencesProvider, CameraProvider, PageHistoryProvider, CommandHistoryProvider } from "@/utils/contexts";
+import { PreferencesProvider, CameraProvider, PageHistoryProvider, CommandHistoryProvider, ComputerProvider } from "@/utils/contexts";
 import "./globals.css";
 
 const hackNF = localFont({
@@ -37,7 +37,9 @@ export default function RootLayout({
           <CameraProvider>
             <PageHistoryProvider>
               <CommandHistoryProvider>
-                {children}
+                <ComputerProvider>
+                  {children} 
+                </ComputerProvider>
               </CommandHistoryProvider>
             </PageHistoryProvider>
           </CameraProvider>

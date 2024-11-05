@@ -5,7 +5,7 @@ interface Props {
     children?: ReactNode
 }
 
-export const LoadingWrapper = ({ className, children, ...props }: Props) => {
+export const CenterWrapper = ({ className, children, ...props }: Props) => {
   return (
     <pre className={`
         absolute top-0 left-0 right-0 bottom-0
@@ -18,4 +18,4 @@ export const LoadingWrapper = ({ className, children, ...props }: Props) => {
   );
 };
   
-  export default LoadingWrapper;
+  export default CenterWrapper;

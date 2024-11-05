@@ -4,22 +4,17 @@ import { executeCommand } from "@/utils/commandHandler";
 import { tabCompletion } from "@/utils/tabCompletion";
 import config from "@/../config.json";
 import { welcome } from '@/paraglide/messages';
+import { useRouter } from "next/navigation";
 
-const inputHook = () => {
+const cliHook = () => {
+  const router = useRouter();
   const [input, setInput] = useState<string>('');
+  const [inputEditable, setInputEditable] = useState<boolean>(true);
   const [lastKey, setLastKey] = useState<string>('');
   const [keyStreak, setKeyStreak] = useState<number>(0);
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  
   const [output, setOutput] = useState<string[]>([welcome()]);
 
-  const [on, setOn] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [loadPrompt, setLoadPrompt] = useState<string | undefined>('/');
-  const [loadingProgress, setLoadingProgress] = useState<number>(0);
-  const [turnOn, setTurnOn] = useState<boolean>(false);
-  const [turnOff, setTurnOff] = useState<boolean>(false);
-  const [inputEditable, setInputEditable] = useState<boolean>(true);
   const inputRef = useRef<any>(null);
   const outputRef = useRef<any>(null);
 
@@ -78,20 +73,6 @@ const inputHook = () => {
     scrollToBottom();
   };
 
-  const togglePower = (newPow : boolean) => {
-    setOn(newPow);
-  
-    if (on) {
-      // Reset loading state when toggling back on
-      setTurnOff(true);
-      setOutput([]);
-      setLoading(true);
-      setLoadingProgress(0);
-    } else {
-      setTurnOn(true);
-    }
-  };
-
   const keepFocus = () => {
     if (inputRef.current) {
       inputRef.current.focus();
@@ -99,40 +80,6 @@ const inputHook = () => {
   };
 
   useEffect(() => {
-    // Simulate loading progress
-    const interval = setInterval(() => {
-
-      if (!on) return;
-      setLoadingProgress((prev) => {
-        if (prev >= 150) {
-          setLoading(false);
-          return 150; // Ensure it caps at 100%
-        }
-        if (prev >= 100) {
-          return prev + 1;
-        }
-        return prev + 2*Math.random(); // Increase progress by 2% every 100ms
-      });
-    }, 60);
-
-    const loadInterval = setInterval(() => {
-      setLoadPrompt((prev) => {
-        switch (prev) {
-          case '/':
-            return '-'
-          case '-':
-            return '\\'
-          case '\\':
-            return '/'
-        }
-      })
-    }, 200)
-
-    const turnOnOffTimeout = setTimeout(() => {
-      setTurnOn(false)
-      setTurnOff(false)
-    }, 300); // Flash duration
-
     if (inputRef.current) {
       // Move cursor to end for contentEditable div
       const range = document.createRange();
@@ -144,15 +91,12 @@ const inputHook = () => {
     }
 
     return () => {
-      clearInterval(interval);
-      clearInterval(loadInterval);
-      clearTimeout(turnOnOffTimeout)
     };
-  }, [on, input]);
+  }, [input]);
 
   useEffect(() => {
     keepFocus(); // Keep focus on input field after processing command
-}, [loading]);
+});
 
   useLayoutEffect(() => {
     scrollToBottom(); // Scroll immediately after DOM updates
@@ -164,6 +108,7 @@ const inputHook = () => {
     const response = await executeCommand(cmd.toLowerCase(), preferencesContext);
     setInputEditable(true);
     if (response === "CLEAR") setOutput([]);
+    else if (response === "EXIT") router.push("/os");
     else setOutput([...output, `$ ${config.console_host}@${preferencesContext.username} > ${cmd}`, response]);
   };
 
@@ -172,28 +117,15 @@ const inputHook = () => {
         setInput,
         output,
         setOutput,
-        on,
-        setOn,
-        loading,
-        setLoading,
-        loadPrompt,
-        setLoadPrompt,
-        loadingProgress,
-        setLoadingProgress,
-        turnOn,
-        setTurnOn,
-        turnOff,
-        setTurnOff,
         inputEditable,
         setInputEditable,
         inputRef,
         outputRef,
         handleInput,
-        togglePower,
         keepFocus,
         processCommand,
         scrollToBottom
     };
 };
 
-export default inputHook;
+export default cliHook;

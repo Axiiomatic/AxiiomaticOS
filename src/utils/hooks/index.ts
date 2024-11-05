@@ -1,3 +1,4 @@
-import monitorHook from './monitorHook';
+import cliHook from './cliHook';
+import loadingHook from './loadingHook';
 
-export { monitorHook };
+export { cliHook, loadingHook };

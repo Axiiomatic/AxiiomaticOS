@@ -10,6 +10,7 @@ import google from "./google";
 import help from "./help";
 import languages from "./languages";
 import projects from "./projects";
+import quit from "./quit";
 import readme from "./readme";
 import reddit from "./reddit";
 import repo from "./repo";
@@ -23,6 +24,7 @@ import whoami from "./whoami";
 import colon3 from "./colon3";
 
 export const commands = {
+    ':3': colon3,
     about,
     amogus,
     bing,
@@ -35,6 +37,7 @@ export const commands = {
     help,
     languages,
     projects,
+    quit,
     readme,
     reddit,
     repo,
@@ -44,6 +47,5 @@ export const commands = {
     sumfetch,
     theme,
     username,
-    whoami,
-    ':3': colon3,
+    whoami
 };

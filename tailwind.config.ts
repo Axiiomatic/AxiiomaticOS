@@ -65,8 +65,6 @@ const config: Config = {
         }
       },
       animation: {
-        'turn-off': 'turn-off 0.2s ease-in',
-        'turn-on': 'turn-on 0.2s ease-in',
         'text-flicker': 'text-flicker 2s linear infinite',
         'cursor': 'cursor-blink 1s infinite',
         'scanline': 'scanline 5s linear infinite',

@@ -1,7 +1,7 @@
 {
     "$schema": "https://inlang.com/schema/inlang-message-format",
     
-    "welcome": "Bienvenido a AxiiomaticOS\nEscribe 'help' para ver una lista de comandos disponibles\nEscribe 'sumfetch' para ver un resumen",
+    "welcome": "Bienvenido a AxiiomaticOS\nEscribe 'help' para ver una lista de comandos disponibles\nEscribe 'sumfetch' para ver un resumen\nEscribe 'quit' para salir de la CLI",
     
     "invalidCommand": "'{command}' no es un comando válido",
     "invalidArg": "Argumento inválido '{arg}' para comando '{command}'\n",

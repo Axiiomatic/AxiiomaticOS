@@ -13,6 +13,11 @@ export interface PageHistoryContextInterface {
     updatePageHistory: (newPage: string) => void
 }
 
+export interface ComputerContextInterface {
+    state: string
+    setState: (newState: string) => void
+}
+
 export interface CommandHistoryContextInterface {
     previousCommands: string[]
     commandIndex: number

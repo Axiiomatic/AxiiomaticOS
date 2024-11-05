@@ -2,7 +2,8 @@ import { usePreferences, PreferencesProvider } from "./preferencesContext";
 import { useCamera, CameraProvider } from "./cameraContext";
 import { usePageHistory, PageHistoryProvider } from "./pageHistoryContext";
 import { useCommandHistory, CommandHistoryProvider } from "./commandHistoryContext";
-import { PreferencesContextInterface, CameraContextInterface, PageHistoryContextInterface, CommandHistoryContextInterface } from "./ContextInterfaces";
+import { useComputer, ComputerProvider } from "./computerContext";
+import { PreferencesContextInterface, CameraContextInterface, PageHistoryContextInterface, CommandHistoryContextInterface, ComputerContextInterface } from "./ContextInterfaces";
 
 export {
     usePreferences,
@@ -12,12 +13,15 @@ export {
     usePageHistory,
     PageHistoryProvider,
     useCommandHistory,
-    CommandHistoryProvider
+    CommandHistoryProvider,
+    useComputer,
+    ComputerProvider
 };
 
 export type {
     PreferencesContextInterface,
     CameraContextInterface,
     PageHistoryContextInterface,
-    CommandHistoryContextInterface
+    CommandHistoryContextInterface,
+    ComputerContextInterface
 };
