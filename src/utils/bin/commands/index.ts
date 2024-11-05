@@ -7,6 +7,7 @@ import duckduckgo from "./duckduckgo";
 import echo from "./echo";
 import education from "./education";
 import google from "./google";
+import gui from "./gui";
 import help from "./help";
 import languages from "./languages";
 import projects from "./projects";
@@ -34,6 +35,7 @@ export const commands = {
     echo,
     education,
     google,
+    gui,
     help,
     languages,
     projects,
