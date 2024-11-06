@@ -1,15 +1,13 @@
-import React, { ReactNode, CSSProperties } from "react";
+import React, { ReactNode } from "react";
 
 interface Props {
-    textColor: string
     className?: string
     children?: ReactNode
 }
 
-export const CRTWrapper = ({ textColor, className, children, ...props }: Props) => {
+export const CRTWrapper = ({ className, children, ...props }: Props) => {
     return (
       <div
-      style={{ '--crt-color': textColor } as CSSProperties}
       className={`
         absolute overflow-hidden
         w-[100vw] h-[100vh]

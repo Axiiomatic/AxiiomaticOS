@@ -54,7 +54,7 @@ const config: Config = {
   		backgroundImage: {
   			'crt': `
           radial-gradient(circle, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),
-          radial-gradient(circle, var(--crt-color), rgba(0, 0, 0, 0) 70%)
+          radial-gradient(circle, var(--bgColor), rgba(0, 0, 0, 0) 70%)
         `
       },
   		keyframes: {

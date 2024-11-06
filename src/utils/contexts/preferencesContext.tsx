@@ -14,7 +14,7 @@ interface Props {
 }
 
 const PreferencesContext = createContext<PreferencesContextInterface>({
-    theme: config.themes.classic,
+    theme: config.themes.classic.name,
     setTheme: () => {},
     username: config.console_user,
     setUsername: () => {},
@@ -23,12 +23,13 @@ const PreferencesContext = createContext<PreferencesContextInterface>({
 });
 
 export const PreferencesProvider = ({ children } : Props) => {
-    const [theme, setTheme] = useState<Theme>(config.themes.classic);
+    const [theme, setTheme] = useState<string>(config.themes.classic.name);
     const [username, setUsername] = useState<string>(config.console_user);
     const [typingSpeed, setTypingSpeed] = useState<number>(config.typing_speed);
 
     useEffect(() => {
-        document.documentElement.style.setProperty('--color', theme.textColor);
+        document.documentElement.style.setProperty('--color', config.themes[theme as keyof typeof config.themes].textColor);
+        document.documentElement.style.setProperty('--bgColor', config.themes[theme as keyof typeof config.themes].bgColor);
     }, [theme]);
 
     return (

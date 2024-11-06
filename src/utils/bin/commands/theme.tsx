@@ -9,14 +9,14 @@ interface ThemeType {
 export const func = async (context: PreferencesContextInterface & { theme: ThemeType }, args: string[]) => {
   const newTheme = args.join(" ");
   if (!newTheme) {
-    return themeCurrent({ theme: context.theme.name });
+    return themeCurrent({ theme: context.theme });
   }
 
   if(newTheme === "list") {
     return themeAvailable({ themes: Object.keys(config.themes).join(" ") });
   }
 
-  if (newTheme === context.theme.name) {
+  if (newTheme === context.theme) {
     return themeErrorAlready({ theme: newTheme });
   }
 
@@ -24,7 +24,7 @@ export const func = async (context: PreferencesContextInterface & { theme: Theme
     return themeErrorNA({ themes: Object.keys(config.themes).join(" ") });
   }
   
-  context.setTheme(config.themes[newTheme as keyof typeof config.themes]);
+  context.setTheme(config.themes[newTheme as keyof typeof config.themes].name);
   return themeSet({ theme: newTheme });
 };
 

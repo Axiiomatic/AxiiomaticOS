@@ -1,10 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'; 
 
-interface Theme {
-    textColor: string;
-    bgColor: string;
-}
-
 export interface CameraContextInterface {
     cameraPosition: number[]
     setCameraPosition: (position: number[]) => void
@@ -33,8 +28,8 @@ export interface CommandHistoryContextInterface {
 }
 
 export interface PreferencesContextInterface {
-    theme: Theme;
-    setTheme: Dispatch<SetStateAction<Theme>>;
+    theme: string;
+    setTheme: (theme : string) => void;
     username: string;
     setUsername: (username: string) => void;
     typingSpeed: number;

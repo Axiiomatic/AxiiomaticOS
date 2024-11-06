@@ -6,7 +6,7 @@ export default {
     func,
   description: {
     "en": "Redirects to the GUI",
-    "es": "Enruta a la GUI"
+    "es": "Envía a la GUI"
   },
   validArgs: []
 };
