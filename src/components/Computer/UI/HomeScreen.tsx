@@ -1,6 +1,7 @@
 import React from "react";
 import {
-  CenterWrapper
+  CenterWrapper,
+  AsciiWrapper
 } from "@/components/wrappers";
 import { AsciiBanner } from "@/components/ascii";
 import { Link } from "@/lib/i18n";
@@ -18,11 +19,11 @@ export const HomeScreen = () => {
 
     return (
         <CenterWrapper>
-            <div style={{
+            <AsciiWrapper style={{
                 borderBottomColor: `rgba(${color}, 1)`
-            }} className="border-b-[5px] p-5">
+            }} className="top-[0%] text-[20px] border-b-[5px] p-5">
                 {AsciiBanner}
-            </div>
+            </AsciiWrapper>
 
             <div className={`
             flex flex-col p-5
