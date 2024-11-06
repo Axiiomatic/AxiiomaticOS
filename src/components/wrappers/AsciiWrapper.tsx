@@ -1,11 +1,12 @@
 import React, { ReactNode } from "react";
 
 interface Props {
-    className?: string
-    children?: ReactNode
+    className?: string;
+    children?: ReactNode;
+    style?: React.CSSProperties;
 }
 
-export const AsciiWrapper = ({ className, children, ...props }: Props) => {
+export const AsciiWrapper = ({ className, children, style, ...props }: Props) => {
   return (
     <pre className={`
         relative mb-[10px]
@@ -13,7 +14,7 @@ export const AsciiWrapper = ({ className, children, ...props }: Props) => {
         whitespace-pre z-[1]
         pointer-events-none select-none
         ${className}
-      `} {...props}>
+      `} style={style} {...props}>
         {children}
       </pre>
   );
