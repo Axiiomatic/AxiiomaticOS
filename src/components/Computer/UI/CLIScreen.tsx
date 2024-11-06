@@ -60,10 +60,18 @@ export const CLIScreen = () => {
     }
   }, [promptFinished]);
 
-  if (!promptFinished) scrollToBottom();
+  useEffect(() => {
+    const scrollInterval = setInterval(() => {
+      if (!promptFinished) {
+        scrollToBottom();
+      }
+    }, 100);
+
+    return () => clearInterval(scrollInterval);
+  }, [promptFinished]);
 
   return (
-    <div className="overflow-auto flex flex-col h-full" ref={outputRef}>
+    <div className="overflow-x-hidden overflow-y-scroll !important flex flex-col h-full" ref={outputRef}>
       { /* ASCII logo at the top left */ }
       <AsciiWrapper className="top-[1vh] left-[1vh] text-[5px]">
         {AsciiLogo}
@@ -114,7 +122,7 @@ export const CLIScreen = () => {
           <div contentEditable={inputEditable}
             className={`
               bg-transparent border-none w-[80vw] align-text-top
-              h-full pointer-events-none
+              h-full
               font-inherit
               outline-none text-[30px]
               caret-transparent cursor-default
@@ -125,7 +133,18 @@ export const CLIScreen = () => {
               after:ml-[1px]
             `} ref={inputRef} spellCheck={false}
             onInput={(e) => setInput(e.currentTarget.textContent || '')}
-            onKeyDown={handleInput} onBlur={keepFocus}
+            onKeyDown={handleInput} 
+            onBlur={keepFocus}
+            onSelect={(e) => {
+              // Force cursor to end of content
+              const el = e.currentTarget;
+              const range = document.createRange();
+              const sel = window.getSelection();
+              range.selectNodeContents(el);
+              range.collapse(false);
+              sel?.removeAllRanges();
+              sel?.addRange(range);
+            }}
             suppressContentEditableWarning={true}
           >
             {input}
