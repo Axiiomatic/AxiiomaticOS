@@ -40,6 +40,13 @@ const router = useRouter();
                     >
                     GUI
                     </Link>
+                    <Link
+                    href="/os/blog"
+                    className=""
+                    prefetch={false}
+                    >
+                    Blog
+                    </Link>
                     <Select onValueChange={(newValue : string) => {
                     router.push("/os/cli", { locale: newValue.toLowerCase()})
                 }} defaultValue={languageTag().toUpperCase()}>
