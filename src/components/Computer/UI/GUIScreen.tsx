@@ -6,7 +6,7 @@ import {
 export const GUIScreen = () => {
     return (
         <CenterWrapper>
-            GUI
+            GUI (Work in Progress)
         </CenterWrapper>
     )
 };
