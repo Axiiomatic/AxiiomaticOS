@@ -9,13 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@inlang/paraglide-next": "0.7.2",
+    "@radix-ui/react-aspect-ratio": "^1.1.0",
     "axios": "^1.7.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.454.0",
     "next": "14.2.10",
     "react": "^18",
     "react-dom": "^18",
-    "@inlang/paraglide-next": "0.7.2"
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@inlang/paraglide-js": "1.11.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -23,7 +30,6 @@
     "eslint-config-next": "14.2.10",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5",
-    "@inlang/paraglide-js": "1.11.3"
+    "typescript": "^5"
   }
 }
