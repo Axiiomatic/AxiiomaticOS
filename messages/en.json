@@ -1,9 +1,16 @@
 {
     "$schema": "https://inlang.com/schema/inlang-message-format",
 
-    "home": "Home",
+    "start": "Start",
     "and": "and",
     "or": "or",
+
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "education": "Education",
+    "projects": "Projects",
+    "contact": "Contact",
     
     "welcome": "Welcome to AxiiomaticOS\nType 'help' to see a list of available commands\nType 'sumfetch' to display summary\nType 'quit' to exit the CLI",
     

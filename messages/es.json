@@ -1,9 +1,16 @@
 {
     "$schema": "https://inlang.com/schema/inlang-message-format",
     
-    "home": "Hogar",
+    "start": "Inicio",
     "and": "y",
     "or": "o",
+
+    "home": "Hogar",
+    "about": "Sobre Mí",
+    "skills": "Habilidades",
+    "education": "Educación",
+    "projects": "Proyectos",
+    "contact": "Contacto",
 
     "welcome": "Bienvenido a AxiiomaticOS\nEscribe 'help' para ver una lista de comandos disponibles\nEscribe 'sumfetch' para ver un resumen\nEscribe 'quit' para salir de la CLI",
     
