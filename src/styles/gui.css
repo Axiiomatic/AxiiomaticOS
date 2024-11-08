@@ -1,0 +1,67 @@
+.gui-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0.6;
+  perspective: 90vh;
+  z-index: 1;
+}
+
+.gui-background:after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: -50%;
+  width: 200%;
+  background-image: 
+    linear-gradient(var(--bgColor) 3px, transparent 0),
+    linear-gradient(90deg, var(--bgColor) 3px, transparent 0),
+    linear-gradient(var(--bgColor) 3px, transparent 0),
+    linear-gradient(90deg, var(--bgColor) 3px, transparent 0);
+  background-size: 200px 200px, 200px 200px, 40px 40px, 40px 40px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  will-change: transform;
+  transform: rotateX(80deg);
+  top: -50vh;
+  animation: gridMoveTop 20s linear infinite;
+  z-index: 2;
+}
+
+.gui-background:before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  background-image: 
+    linear-gradient(var(--bgColor) 3px, transparent 0),
+    linear-gradient(90deg, var(--bgColor) 3px, transparent 0),
+    linear-gradient(var(--bgColor) 3px, transparent 0),
+    linear-gradient(90deg, var(--bgColor) 3px, transparent 0);
+  background-size: 200px 200px, 200px 200px, 40px 40px, 40px 40px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+  will-change: transform;
+  transform: rotateX(-80deg);
+  bottom: -50vh;
+  animation: gridMoveBottom 20s linear infinite;
+  z-index: 2;
+}
+
+@keyframes gridMoveTop {
+  0% {
+    transform: rotateX(80deg) translateY(0);
+  }
+  100% {
+    transform: rotateX(80deg) translateY(200px);
+  }
+}
+
+@keyframes gridMoveBottom {
+  from {
+    transform: rotateX(-80deg) translateY(0);
+  }
+  to {
+    transform: rotateX(-80deg) translateY(-200px);
+  }
+}
