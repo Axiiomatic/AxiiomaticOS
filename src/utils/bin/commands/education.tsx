@@ -1,5 +1,6 @@
 import { educationDegrees, educationCertifications } from "@/paraglide/messages";
 import { languageTag } from "@/paraglide/runtime";
+import personal from "@/config/personal.json";
 
 interface Education {
   degree: string;
@@ -15,18 +16,11 @@ interface Certificate {
 }
 
 const func = async (args: string[]) => {
-  let education, certificates;
+  const personalInfo = personal[languageTag()];
 
-  switch (languageTag()) {
-    case "en":
-      education = JSON.parse(process.env.NEXT_PUBLIC_EDUCATION || '[]');
-      certificates = JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES || '[]');
-      break;
-    case "es":
-      education = JSON.parse(process.env.NEXT_PUBLIC_EDUCATION_ES || '[]');
-      certificates = JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES_ES || '[]');
-      break;
-  }
+  const education = personalInfo.education.degrees;
+  const certificates = personalInfo.education.certificates;
+
   if (args.length === 0) return `
 ${(education as Education[])
   .map(edu => educationDegrees({ degree: edu.degree, major: edu.major, institution: edu.institution, graduation_year: edu.graduation_year })).join("\n")}

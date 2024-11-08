@@ -1,32 +1,23 @@
 import { joinList } from "@/utils/functions";
-import { aboutResponse, aboutMe, aboutAka, aboutAge, aboutOccupation, aboutLocation, aboutInterests } from "@/paraglide/messages";
+import { and, or, aboutResponse, aboutMe, aboutAka, aboutAge, aboutOccupation, aboutLocation, aboutInterests } from "@/paraglide/messages";
 import { languageTag } from "@/paraglide/runtime";
+import personal from "@/config/personal.json";
 
 const func = async (args: string[]) => {
-  let aka, occupation, career_interests, personal_interests;
+  const personalInfo = personal[languageTag()];
 
-  switch (languageTag()) {
-    case "en":
-      aka = joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], 'or');
-      occupation = process.env.NEXT_PUBLIC_OCCUPATION;
-      career_interests = joinList(process.env.NEXT_PUBLIC_CAREER_INTERESTS?.split(',') || [], 'and');
-      personal_interests = joinList(process.env.NEXT_PUBLIC_PERSONAL_INTERESTS?.split(',') || [], 'and');
-      break;
-    case "es":
-      aka = joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], 'o');
-      occupation = process.env.NEXT_PUBLIC_OCCUPATION_ES;
-      career_interests = joinList(process.env.NEXT_PUBLIC_CAREER_INTERESTS_ES?.split(',') || [], 'y');
-      personal_interests = joinList(process.env.NEXT_PUBLIC_PERSONAL_INTERESTS_ES?.split(',') || [], 'y');
-      break;
-  }
+  const aka = joinList(personalInfo.aka, or());
+  const occupation = personalInfo.occupation;
+  const career_interests = joinList(personalInfo.interests.career, and());
+  const personal_interests = joinList(personalInfo.interests.personal, and());
 
   if (args.length === 0) return aboutResponse({
-    name: process.env.NEXT_PUBLIC_NAME || '',
+    name: personalInfo.name,
     aka: aka,
-    age: process.env.NEXT_PUBLIC_AGE || '',
-    occupation: occupation || '',
-    company: process.env.NEXT_PUBLIC_COMPANY || '',
-    location: process.env.NEXT_PUBLIC_LOCATION || '',
+    age: personalInfo.age,
+    occupation: occupation,
+    company: personalInfo.company,
+    location: personalInfo.location,
     career_interests: career_interests,
     personal_interests: personal_interests
   });
@@ -37,19 +28,19 @@ const func = async (args: string[]) => {
   args.forEach(arg => {
     switch (arg) {
       case "me":
-        response += aboutMe({ name: process.env.NEXT_PUBLIC_NAME || '', occupation: occupation || '' });
+        response += aboutMe({ name: personalInfo.name, occupation: occupation });
         break;
       case "aka":
         response += aboutAka({ aka: aka });
         break;
       case "age":
-        response += aboutAge({ age: process.env.NEXT_PUBLIC_AGE || '' });
+        response += aboutAge({ age: personalInfo.age });
         break;
       case "occupation":
-        response += aboutOccupation({ occupation: occupation || '', company: process.env.NEXT_PUBLIC_COMPANY || '' });
+        response += aboutOccupation({ occupation: occupation, company: personalInfo.company });
         break;
       case "location":
-        response += aboutLocation({ location: process.env.NEXT_PUBLIC_LOCATION || '' });
+        response += aboutLocation({ location: personalInfo.location });
         break;
       case "interests":
         response += aboutInterests({ career_interests: career_interests, personal_interests: personal_interests });

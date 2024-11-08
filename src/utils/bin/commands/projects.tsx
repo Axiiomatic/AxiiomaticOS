@@ -1,4 +1,5 @@
 import { languageTag } from "@/paraglide/runtime";
+import personal from "@/config/personal.json";
 
 interface Project {
   name: string;
@@ -7,15 +8,8 @@ interface Project {
 }
 
 const func = async (args: string[]) => {
-  let projects;
-
-  switch (languageTag()) {
-    case "en":
-      projects = JSON.parse(process.env.NEXT_PUBLIC_PROJECTS || '[]');
-      break;
-    case "es":
-      projects = JSON.parse(process.env.NEXT_PUBLIC_PROJECTS_ES || '[]');
-  }
+  const personalInfo = personal[languageTag()];
+  const projects = personalInfo.projects;
 
   if (args.length === 0) return projects.map((project: Project) => `
 > <u><a href="${project.url}" target="_blank">${project.name}</a></u>
@@ -35,5 +29,5 @@ export default {
     "en": "Prints a list of all my projects",
     "es": "Imprime una lista de todos mis proyectos"
   },
-  validArgs: JSON.parse(process.env.NEXT_PUBLIC_PROJECTS || '[]').map((project: Project) => project.name.toLowerCase())
+  validArgs: personal.en.projects.map((project: Project) => project.name.toLowerCase())
 };

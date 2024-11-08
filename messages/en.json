@@ -2,6 +2,8 @@
     "$schema": "https://inlang.com/schema/inlang-message-format",
 
     "home": "Home",
+    "and": "and",
+    "or": "or",
     
     "welcome": "Welcome to AxiiomaticOS\nType 'help' to see a list of available commands\nType 'sumfetch' to display summary\nType 'quit' to exit the CLI",
     
@@ -75,5 +77,4 @@
     "ipErrorFailedRequest": "Failed to fetch IP data",
 
     "weatherErrorFailedRequest": "Failed to fetch weather data"
-
 }

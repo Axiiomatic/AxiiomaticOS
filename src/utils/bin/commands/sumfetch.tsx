@@ -1,6 +1,7 @@
 import { joinList } from "@/utils/functions";
-import { sumfetchSummary, sumfetchAbout, sumfetchEC, sumfetchProjects, sumfetchContact } from "@/paraglide/messages";
+import { or, sumfetchSummary, sumfetchAbout, sumfetchEC, sumfetchProjects, sumfetchContact } from "@/paraglide/messages";
 import { languageTag } from "@/paraglide/runtime";
+import personal from "@/config/personal.json";
 
 interface Education {
   degree: string;
@@ -27,24 +28,14 @@ interface Social {
 }
 
 const func = async () => {
-  let aka, education, certificates, projects, socials;
+  const personalInfo = personal[languageTag()];
 
-  switch (languageTag()) {
-    case "en":
-      aka = joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], "or");
-      education = JSON.parse(process.env.NEXT_PUBLIC_EDUCATION || '[]');
-      certificates = JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES || '[]');
-      projects = JSON.parse(process.env.NEXT_PUBLIC_PROJECTS || '[]');
-      socials = JSON.parse(process.env.NEXT_PUBLIC_SOCIALS || '[]');
-      break;
-    case "es":
-      aka = joinList(process.env.NEXT_PUBLIC_AKA?.split(',') || [], "o");
-      education = JSON.parse(process.env.NEXT_PUBLIC_EDUCATION_ES || '[]');
-      certificates = JSON.parse(process.env.NEXT_PUBLIC_CERTIFICATES_ES || '[]');
-      projects = JSON.parse(process.env.NEXT_PUBLIC_PROJECTS_ES || '[]');
-      socials = JSON.parse(process.env.NEXT_PUBLIC_SOCIALS_ES || '[]')
-      break;
-  }
+  const aka = joinList(personalInfo.aka, or());
+  const education = personalInfo.education.degrees;
+  const certificates = personalInfo.education.certificates;
+  const projects = personalInfo.projects;
+  const socials = personalInfo.socials;
+
   return `
 ▐▓▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▓
 ▐▓                                 ▐▓

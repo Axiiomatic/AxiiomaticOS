@@ -1,21 +1,13 @@
 import { joinList } from "@/utils/functions";
-import { languagesSpoken, languagesProgramming } from "@/paraglide/messages";
+import { and, languagesSpoken, languagesProgramming } from "@/paraglide/messages";
 import { languageTag } from "@/paraglide/runtime";
-
+import personal from "@/config/personal.json";
 
 const func = async (args: string[]) => {
-  let spoken_languages, programming_languages;
-  
-  switch (languageTag()) {
-    case "en":
-      spoken_languages = joinList(process.env.NEXT_PUBLIC_SPOKEN_LANGUAGES?.split(',') || [], 'and');
-      programming_languages = joinList(process.env.NEXT_PUBLIC_PROGRAMMING_LANGUAGES?.split(',') || [], 'and');
-      break;
-    case "es":
-      spoken_languages = joinList(process.env.NEXT_PUBLIC_SPOKEN_LANGUAGES_ES?.split(',') || [], 'y');
-      programming_languages = joinList(process.env.NEXT_PUBLIC_PROGRAMMING_LANGUAGES_ES?.split(',') || [], 'y');
-      break;
-  }
+  const personalInfo = personal[languageTag()];
+
+  const spoken_languages = joinList(personalInfo.languages.spoken, and());
+  const programming_languages = joinList(personalInfo.languages.programming, and());
 
   if (args.length === 0) return `${languagesSpoken({ spoken_languages: spoken_languages })}
 ${languagesProgramming({ programming_languages: programming_languages })}`;
