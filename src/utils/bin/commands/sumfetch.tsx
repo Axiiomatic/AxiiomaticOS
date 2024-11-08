@@ -46,10 +46,10 @@ const func = async () => {
 🖳 ${sumfetchSummary()}
 -------------------------
 🕮 ${sumfetchAbout()}
-> ${process.env.NEXT_PUBLIC_NAME}
+> ${personalInfo.name}
 > AKA ${aka}
-> <u><a href="${process.env.NEXT_PUBLIC_RESUME}" target="_blank">Resume (November 2024)</a></u>
-> <u><a href="${process.env.NEXT_PUBLIC_REPO}" target="_blank">Github Repo</a></u>
+> <u><a href="${personalInfo.links.resume}" target="_blank">Resume</a></u>
+> <u><a href="${personalInfo.links.repo}" target="_blank">Github Repo</a></u>
 --------------------------
 🖆 ${sumfetchEC()}
 ${education.map((edu : Education) => `> ${edu.degree} in ${edu.major} - ${edu.institution} (${edu.graduation_year})`).join("\n")}
