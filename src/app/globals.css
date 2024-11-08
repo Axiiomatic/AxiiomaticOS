@@ -44,10 +44,15 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px var(--color);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--color);
   outline: 5px solid var(--color);
+}
+
+/* Add this to ensure scrollable containers create a stacking context */
+.overflow-y-scroll {
+  isolation: isolate;
 }
