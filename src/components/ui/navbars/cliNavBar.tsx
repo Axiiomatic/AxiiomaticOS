@@ -23,16 +23,16 @@ export const CLINavBar = () => {
 const router = useRouter();
 
 return (
-  <nav className="fixed inset-x-0 z-[100] shadow-sm text-[25px]">
-    <div className="w-full mx-auto px-4">
-      <div className="flex justify-between h-14 items-center">
+  <nav className="fixed inset-x-0 z-[100] shadow-sm text-[2vmin]">
+    <div className="w-[100vw] mx-auto px-[1vmin]">
       <div className="flex justify-between h-14 items-end">
-        <nav className="hidden md:flex gap-1">
-          <AsciiWrapper className="text-[1px]">{AsciiLogo}</AsciiWrapper>
+      <div className="flex justify-between h-14 items-end">
+        <nav className="hidden md:flex gap-[1vmin]">
+          <AsciiWrapper className="text-[0.1vmin]">{AsciiLogo}</AsciiWrapper>
         </nav>
       </div>
           <div className="flex justify-between h-14 items-center">
-              <nav className="hidden md:flex gap-10">
+              <nav className="hidden md:flex gap-[2vmin] items-center">
                   <Link
                   href="/os"
                   className=""
@@ -57,7 +57,7 @@ return (
                   <Select onValueChange={(newValue) => {
                       router.push("/os/cli", { locale: newValue.toLowerCase()})
                   }} defaultValue={languageTag().toUpperCase()}>
-                  <SelectTrigger className="w-[200px] animate-text-flicker">
+                  <SelectTrigger className="w-[10vw] h-[5vh] animate-text-flicker">
                       <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="border-[--color] text-[--color]">
