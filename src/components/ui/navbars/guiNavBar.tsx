@@ -13,7 +13,7 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select";
-import { start, home, about, skills, education, projects, contact } from "@/paraglide/messages";
+import { start, home, about, education, projects, contact } from "@/paraglide/messages";
 import { languageTag } from "@/paraglide/runtime";
 import { availableLanguageTags } from "@/paraglide/runtime";
 import { AsciiLogo } from "@/components/ascii";
@@ -25,43 +25,43 @@ export const GUINavBar = () => {
   const { currentPage } = usePageHistory();
 
   return (
-    <nav className="fixed inset-x-0 z-[100] shadow-sm text-[25px]">
+    <nav className="relative w-full z-[100] shadow-sm text-[20px]">
       <div className="w-full mx-auto px-4">
-        <div className="flex justify-between h-14 items-center">
         <div className="flex justify-between h-14 items-end">
-          <nav className="hidden md:flex gap-1">
-            <AsciiWrapper className="text-[1px]">{AsciiLogo}</AsciiWrapper>
+        <div className="flex justify-between h-14 items-end">
+          <nav className="flex gap-1 overflow-x-auto">
+            <AsciiWrapper className="text-[1px] shrink-0">{AsciiLogo}</AsciiWrapper>
             <Link
                 href="/os/gui"
-                className={currentPage === "/os/gui" ? `underline underline-offset-[10px]` : ''}
+                className={`shrink-0 ${currentPage === "/os/gui" ? 'underline underline-offset-[10px]' : ''}`}
                 prefetch={false}
                 >
                 {home()}
             </Link>
             <Link
                 href="/os/gui/about"
-                className={currentPage === "/os/gui/about" ? `underline underline-offset-[10px]` : ''}
+                className={`shrink-0 ${currentPage === "/os/gui/about" ? 'underline underline-offset-[10px]' : ''}`}
                 prefetch={false}
                 >
                 {about()}
             </Link>
             <Link
                 href="/os/gui/education"
-                className={currentPage === "/os/gui/education" ? `underline underline-offset-[10px]` : ''}
+                className={`shrink-0 ${currentPage === "/os/gui/education" ? 'underline underline-offset-[10px]' : ''}`}
                 prefetch={false}
                 >
                 {education()}
             </Link>
             <Link
                 href="/os/gui/projects"
-                className={currentPage === "/os/gui/projects" ? `underline underline-offset-[10px]` : ''}
+                className={`shrink-0 ${currentPage === "/os/gui/projects" ? 'underline underline-offset-[10px]' : ''}`}
                 prefetch={false}
                 >
                 {projects()}
             </Link>
             <Link
                 href="/os/gui/contact"
-                className={currentPage === "/os/gui/contact" ? `underline underline-offset-[10px]` : ''}
+                className={`shrink-0 ${currentPage === "/os/gui/contact" ? 'underline underline-offset-[10px]' : ''}`}
                 prefetch={false}
                 >
                 {contact()}
@@ -69,27 +69,13 @@ export const GUINavBar = () => {
           </nav>
         </div>
             <div className="flex justify-between h-14 items-center">
-                <nav className="hidden md:flex gap-10">
+                <nav className="flex gap-10 overflow-x-auto">
                     <Link
                     href="/os"
-                    className=""
+                    className="shrink-0"
                     prefetch={false}
                     >
                     {start()}
-                    </Link>
-                    <Link
-                    href="/os/cli"
-                    className=""
-                    prefetch={false}
-                    >
-                    CLI
-                    </Link>
-                    <Link
-                    href="/os/blog"
-                    className=""
-                    prefetch={false}
-                    >
-                    Blog
                     </Link>
                     <Select onValueChange={(newValue) => {
                         router.push("/os/cli", { locale: newValue.toLowerCase() })

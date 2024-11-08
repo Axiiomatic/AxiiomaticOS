@@ -9,8 +9,8 @@ export const CRTWrapper = ({ className, children, ...props }: Props) => {
     return (
       <div
       className={`
-        absolute overflow-hidden
-        w-[100vw] h-[100vh]
+        relative overflow-hidden
+        w-full h-full
         pointer-events-none
         flex flex-col justify-between
         bg-[#333333]
