@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { MonitorWrapper } from "@/components/wrappers"
 import { usePageHistory } from "@/utils/contexts";
-import { TitleScreen } from "@/components/Computer/UI";
+import { TitleScreen } from "@/components/screens";
 
 export default function Home() {
   const { updatePageHistory } = usePageHistory();

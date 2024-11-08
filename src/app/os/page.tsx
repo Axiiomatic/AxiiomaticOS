@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { MonitorWrapper } from "@/components/wrappers"
 import { usePageHistory, useComputer } from "@/utils/contexts";
-import { HomeScreen, LoadingScreen } from "@/components/Computer/UI";
+import { StartScreen, LoadingScreen } from "@/components/screens";
 
 export default function OS() {
   const { updatePageHistory } = usePageHistory();
@@ -12,12 +12,12 @@ export default function OS() {
   useEffect(() => {
     updatePageHistory("/os");
     if (state === "title") setState("loading");
-    else setState("home");
+    else setState("start");
   }, [])
 
   return (
     <MonitorWrapper>
-      {state === "home" ? <HomeScreen /> : null}
+      {state === "start" ? <StartScreen /> : null}
       {state === "loading" ? <LoadingScreen /> : null}
     </MonitorWrapper>
   );

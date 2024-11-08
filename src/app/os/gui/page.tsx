@@ -3,7 +3,8 @@
 import { useEffect } from "react";
 import { MonitorWrapper } from "@/components/wrappers"
 import { usePageHistory, useComputer } from "@/utils/contexts";
-import { GUIScreen } from "@/components/Computer/UI";
+import { GUIScreen } from "@/components/screens";
+import { GUINavBar } from "@/components/ui/navbars";
 
 export default function GUI() {
   const { updatePageHistory } = usePageHistory();
@@ -15,7 +16,7 @@ export default function GUI() {
   }, [])
 
   return (
-    <MonitorWrapper>
+    <MonitorWrapper header={<GUINavBar />}>
       <GUIScreen />
     </MonitorWrapper>
   );

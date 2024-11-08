@@ -3,7 +3,8 @@
 import { useEffect } from "react";
 import { MonitorWrapper } from "@/components/wrappers"
 import { usePageHistory, useComputer } from "@/utils/contexts";
-import { CLIScreen } from "@/components/Computer/UI";
+import { CLIScreen } from "@/components/screens";
+import { CLINavBar } from "@/components/ui/navbars";
 
 export default function CLI() {
   const { updatePageHistory } = usePageHistory();
@@ -15,7 +16,7 @@ export default function CLI() {
   }, [])
 
   return (
-    <MonitorWrapper>
+    <MonitorWrapper header={<CLINavBar />}>
       <CLIScreen />
     </MonitorWrapper>
   );

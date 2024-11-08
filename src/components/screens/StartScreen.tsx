@@ -6,7 +6,7 @@ import {
 import { AsciiBanner } from "@/components/ascii";
 import { Link } from "@/lib/i18n";
 
-export const HomeScreen = () => {
+export const StartScreen = () => {
 
     return (
         <CenterWrapper>
@@ -26,4 +26,4 @@ export const HomeScreen = () => {
     )
 };
 
-export default HomeScreen;
+export default StartScreen;

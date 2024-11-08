@@ -20,7 +20,7 @@ export const LoadingScreen = () => {
     } = loadingHook();
 
     useEffect(() => {
-        if (loadingProgress >= 150) setState("home");
+        if (loadingProgress >= 150) setState("start");
     }, [loadingProgress]);
 
     return (
