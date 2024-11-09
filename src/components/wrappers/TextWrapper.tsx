@@ -70,7 +70,7 @@ export const TextWrapper = ({
       <div 
         className={`
           flex items-start z-[5]
-          text-[30px]
+          text-[3vmin]
           pointer-events-auto select-none
           ${className}
         `} 
@@ -85,7 +85,7 @@ export const TextWrapper = ({
     <div 
       className={`
         flex items-start
-        text-[30px]
+        text-[3vmin]
         pointer-events-auto select-none
         ${className}
       `} 
