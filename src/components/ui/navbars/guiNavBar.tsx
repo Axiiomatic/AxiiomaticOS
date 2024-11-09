@@ -25,12 +25,12 @@ export const GUINavBar = () => {
   const { currentPage } = usePageHistory();
 
   return (
-    <nav className="fixed inset-x-0 z-[100] shadow-sm text-[2vmin]">
+    <nav className="relative w-full z-[100] shadow-sm text-[20px]">
       <div className="w-full mx-auto px-4">
         <div className="flex justify-between h-14 items-end">
         <div className="flex justify-between h-14 items-end">
-          <nav className="hidden md:flex gap-[1vmin]">
-            <AsciiWrapper className="text-[0.1vmin]">{AsciiLogo}</AsciiWrapper>
+          <nav className="flex gap-1 overflow-x-auto">
+            <AsciiWrapper className="text-[1px] shrink-0">{AsciiLogo}</AsciiWrapper>
             <Link
                 href="/os/gui"
                 className={`shrink-0 ${currentPage === "/os/gui" ? 'underline underline-offset-[10px]' : ''}`}
@@ -69,7 +69,7 @@ export const GUINavBar = () => {
           </nav>
         </div>
             <div className="flex justify-between h-14 items-center">
-                <nav className="hidden md:flex gap-[2vmin] items-center">
+                <nav className="flex gap-10 overflow-x-auto">
                     <Link
                     href="/os"
                     className="shrink-0"
@@ -80,7 +80,7 @@ export const GUINavBar = () => {
                     <Select onValueChange={(newValue) => {
                         router.push("/os/cli", { locale: newValue.toLowerCase() })
                     }} defaultValue={languageTag().toUpperCase()}>
-                    <SelectTrigger className="w-[10vw] h-[5vh] animate-text-flicker">
+                    <SelectTrigger className="w-[200px] animate-text-flicker">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent className="border-[--color] text-[--color]">
