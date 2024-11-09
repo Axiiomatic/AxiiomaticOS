@@ -14,6 +14,7 @@ export const HeaderWrapper = ({ className, children, ...props }: Props) => {
           border-b-[0.1vmin] border-solid p-[5vh]
           font-vt323 text-[2vmin]
           pointer-events-auto animate-text-flicker
+          overflow-hidden
           ${className}
         `} 
         {...props}

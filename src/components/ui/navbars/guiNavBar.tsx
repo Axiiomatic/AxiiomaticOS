@@ -13,7 +13,7 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select";
-import { start, home, about, skills, education, projects, contact } from "@/paraglide/messages";
+import { start, home, about, education, projects, contact } from "@/paraglide/messages";
 import { languageTag } from "@/paraglide/runtime";
 import { availableLanguageTags } from "@/paraglide/runtime";
 import { AsciiLogo } from "@/components/ascii";
@@ -33,35 +33,35 @@ export const GUINavBar = () => {
             <AsciiWrapper className="text-[0.1vmin]">{AsciiLogo}</AsciiWrapper>
             <Link
                 href="/os/gui"
-                className={currentPage === "/os/gui" ? `underline underline-offset-[10px]` : ''}
+                className={`shrink-0 ${currentPage === "/os/gui" ? 'underline underline-offset-[10px]' : ''}`}
                 prefetch={false}
                 >
                 {home()}
             </Link>
             <Link
                 href="/os/gui/about"
-                className={currentPage === "/os/gui/about" ? `underline underline-offset-[10px]` : ''}
+                className={`shrink-0 ${currentPage === "/os/gui/about" ? 'underline underline-offset-[10px]' : ''}`}
                 prefetch={false}
                 >
                 {about()}
             </Link>
             <Link
                 href="/os/gui/education"
-                className={currentPage === "/os/gui/education" ? `underline underline-offset-[10px]` : ''}
+                className={`shrink-0 ${currentPage === "/os/gui/education" ? 'underline underline-offset-[10px]' : ''}`}
                 prefetch={false}
                 >
                 {education()}
             </Link>
             <Link
                 href="/os/gui/projects"
-                className={currentPage === "/os/gui/projects" ? `underline underline-offset-[10px]` : ''}
+                className={`shrink-0 ${currentPage === "/os/gui/projects" ? 'underline underline-offset-[10px]' : ''}`}
                 prefetch={false}
                 >
                 {projects()}
             </Link>
             <Link
                 href="/os/gui/contact"
-                className={currentPage === "/os/gui/contact" ? `underline underline-offset-[10px]` : ''}
+                className={`shrink-0 ${currentPage === "/os/gui/contact" ? 'underline underline-offset-[10px]' : ''}`}
                 prefetch={false}
                 >
                 {contact()}
@@ -72,24 +72,10 @@ export const GUINavBar = () => {
                 <nav className="hidden md:flex gap-[2vmin] items-center">
                     <Link
                     href="/os"
-                    className=""
+                    className="shrink-0"
                     prefetch={false}
                     >
                     {start()}
-                    </Link>
-                    <Link
-                    href="/os/cli"
-                    className=""
-                    prefetch={false}
-                    >
-                    CLI
-                    </Link>
-                    <Link
-                    href="/os/blog"
-                    className=""
-                    prefetch={false}
-                    >
-                    Blog
                     </Link>
                     <Select onValueChange={(newValue) => {
                         router.push("/os/cli", { locale: newValue.toLowerCase() })
