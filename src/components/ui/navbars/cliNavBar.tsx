@@ -20,56 +20,55 @@ import { AsciiLogo } from "@/components/ascii";
 import { AsciiWrapper } from "@/components/wrappers";
 
 export const CLINavBar = () => {
-const router = useRouter();
+  const router = useRouter();
 
-return (
-  <nav className="fixed inset-x-0 z-[100] shadow-sm text-[25px]">
-    <div className="w-full mx-auto px-4">
-      <div className="flex justify-between h-14 items-center">
-      <div className="flex justify-between h-14 items-end">
-        <nav className="hidden md:flex gap-1">
-          <AsciiWrapper className="text-[1px]">{AsciiLogo}</AsciiWrapper>
-        </nav>
+  return (
+    <nav className="w-full flex flex-wrap justify-between items-center px-4 py-2 min-h-12">
+      <div className="flex flex-wrap items-center gap-4">
+        <AsciiWrapper className="text-[0.05rem] leading-none">
+          {AsciiLogo}
+        </AsciiWrapper>
       </div>
-          <div className="flex justify-between h-14 items-center">
-              <nav className="hidden md:flex gap-10">
-                  <Link
-                  href="/os"
-                  className=""
-                  prefetch={false}
-                  >
-                  {start()}
-                  </Link>
-                  <Link
-                  href="/os/gui"
-                  className=""
-                  prefetch={false}
-                  >
-                  GUI
-                  </Link>
-                  <Link
-                  href="/os/blog"
-                  className=""
-                  prefetch={false}
-                  >
-                  Blog
-                  </Link>
-                  <Select onValueChange={(newValue) => {
-                      router.push("/os/cli", { locale: newValue.toLowerCase()})
-                  }} defaultValue={languageTag().toUpperCase()}>
-                  <SelectTrigger className="w-[200px] animate-text-flicker">
-                      <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent className="border-[--color] text-[--color]">
-                      {availableLanguageTags.map((tag : string) => {
-                          return <SelectItem value={tag.toUpperCase()}>{tag.toUpperCase()}</SelectItem>
-                      })}
-                  </SelectContent>
-              </Select>
-              </nav>
-          </div>
+      <div className="flex flex-wrap items-center gap-4">
+        <Link
+          href="/os"
+          className="text-nav"
+          prefetch={false}
+        >
+          {start()}
+        </Link>
+        <Link
+          href="/os/gui"
+          className="text-nav"
+          prefetch={false}
+        >
+          GUI
+        </Link>
+        <Link
+          href="/os/blog"
+          className="text-nav"
+          prefetch={false}
+        >
+          Blog
+        </Link>
+        <Select 
+          onValueChange={(newValue) => {
+            router.push("/os/cli", { locale: newValue.toLowerCase()})
+          }} 
+          defaultValue={languageTag().toUpperCase()}
+        >
+          <SelectTrigger className="w-[6rem] text-nav animate-text-flicker">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent className="border-[--color] text-nav">
+            {availableLanguageTags.map((tag : string) => (
+              <SelectItem key={tag} value={tag.toUpperCase()}>
+                {tag.toUpperCase()}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
-    </div>
-  </nav>
-)
-}
+    </nav>
+  );
+};

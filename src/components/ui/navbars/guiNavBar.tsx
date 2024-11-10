@@ -13,7 +13,7 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select";
-import { start, home, about, skills, education, projects, contact } from "@/paraglide/messages";
+import { start, about, experience, projects, contact } from "@/paraglide/messages";
 import { languageTag } from "@/paraglide/runtime";
 import { availableLanguageTags } from "@/paraglide/runtime";
 import { AsciiLogo } from "@/components/ascii";
@@ -25,88 +25,83 @@ export const GUINavBar = () => {
   const { currentPage } = usePageHistory();
 
   return (
-    <nav className="fixed inset-x-0 z-[100] shadow-sm text-[25px]">
-      <div className="w-full mx-auto px-4">
-        <div className="flex justify-between h-14 items-center">
-        <div className="flex justify-between h-14 items-end">
-          <nav className="hidden md:flex gap-1">
-            <AsciiWrapper className="text-[1px]">{AsciiLogo}</AsciiWrapper>
-            <Link
-                href="/os/gui"
-                className={currentPage === "/os/gui" ? `underline underline-offset-[10px]` : ''}
-                prefetch={false}
-                >
-                {home()}
-            </Link>
-            <Link
-                href="/os/gui/about"
-                className={currentPage === "/os/gui/about" ? `underline underline-offset-[10px]` : ''}
-                prefetch={false}
-                >
-                {about()}
-            </Link>
-            <Link
-                href="/os/gui/education"
-                className={currentPage === "/os/gui/education" ? `underline underline-offset-[10px]` : ''}
-                prefetch={false}
-                >
-                {education()}
-            </Link>
-            <Link
-                href="/os/gui/projects"
-                className={currentPage === "/os/gui/projects" ? `underline underline-offset-[10px]` : ''}
-                prefetch={false}
-                >
-                {projects()}
-            </Link>
-            <Link
-                href="/os/gui/contact"
-                className={currentPage === "/os/gui/contact" ? `underline underline-offset-[10px]` : ''}
-                prefetch={false}
-                >
-                {contact()}
-            </Link>
-          </nav>
-        </div>
-            <div className="flex justify-between h-14 items-center">
-                <nav className="hidden md:flex gap-10">
-                    <Link
-                    href="/os"
-                    className=""
-                    prefetch={false}
-                    >
-                    {start()}
-                    </Link>
-                    <Link
-                    href="/os/cli"
-                    className=""
-                    prefetch={false}
-                    >
-                    CLI
-                    </Link>
-                    <Link
-                    href="/os/blog"
-                    className=""
-                    prefetch={false}
-                    >
-                    Blog
-                    </Link>
-                    <Select onValueChange={(newValue) => {
-                        router.push("/os/cli", { locale: newValue.toLowerCase() })
-                    }} defaultValue={languageTag().toUpperCase()}>
-                    <SelectTrigger className="w-[200px] animate-text-flicker">
-                        <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent className="border-[--color] text-[--color]">
-                        {availableLanguageTags.map((tag : string) => {
-                            return <SelectItem value={tag.toUpperCase()}>{tag.toUpperCase()}</SelectItem>
-                        })}
-                    </SelectContent>
-                </Select>
-                </nav>
-            </div>
+    <nav className="w-full flex flex-wrap justify-between items-center px-4 py-2 min-h-12">
+      <div className="flex flex-wrap items-center gap-4">
+        <AsciiWrapper className="text-[0.05rem] leading-none">
+          {AsciiLogo}
+        </AsciiWrapper>
+        
+        <div className="flex flex-wrap items-center gap-4">
+          <Link
+            href="/os/gui"
+            className={`text-nav ${currentPage === "/os/gui" ? 'underline underline-offset-8' : ''}`}
+            prefetch={false}
+          >
+            {about()}
+          </Link>
+          <Link
+            href="/os/gui/experience"
+            className={`text-nav ${currentPage === "/os/gui/experience" ? 'underline underline-offset-8' : ''}`}
+            prefetch={false}
+          >
+            {experience()}
+          </Link>
+          <Link
+            href="/os/gui/projects"
+            className={`text-nav ${currentPage === "/os/gui/projects" ? 'underline underline-offset-8' : ''}`}
+            prefetch={false}
+          >
+            {projects()}
+          </Link>
+          <Link
+            href="/os/gui/contact"
+            className={`text-nav ${currentPage === "/os/gui/contact" ? 'underline underline-offset-8' : ''}`}
+            prefetch={false}
+          >
+            {contact()}
+          </Link>
         </div>
       </div>
+      <div className="flex flex-wrap items-center gap-4">
+        <Link
+          href="/os"
+          className="text-nav"
+          prefetch={false}
+        >
+          {start()}
+        </Link>
+        <Link
+          href="/os/cli"
+          className="text-nav"
+          prefetch={false}
+        >
+          CLI
+        </Link>
+        <Link
+          href="/os/blog"
+          className="text-nav"
+          prefetch={false}
+        >
+          Blog
+        </Link>
+        <Select 
+          onValueChange={(newValue) => {
+            router.push("/os/cli", { locale: newValue.toLowerCase()})
+          }} 
+          defaultValue={languageTag().toUpperCase()}
+        >
+          <SelectTrigger className="w-[6rem] text-nav animate-text-flicker">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent className="border-[--color] text-nav">
+            {availableLanguageTags.map((tag : string) => (
+              <SelectItem key={tag} value={tag.toUpperCase()}>
+                {tag.toUpperCase()}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
     </nav>
-  )
-  }
+  );
+};

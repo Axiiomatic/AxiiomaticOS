@@ -8,10 +8,10 @@ interface Props {
 export const HeaderWrapper = ({ className, children, ...props }: Props) => {
   
     return (
-      <div 
+      <header 
         className={`
-          relative flex items-center justify-center z-[20] text-[--color] border-b-[--color]
-          border-b-[1px] border-solid p-[50px]
+          relative z-[20] text-header
+          border-b border-[--color]
           font-vt323
           pointer-events-auto animate-text-flicker
           ${className}
@@ -19,7 +19,7 @@ export const HeaderWrapper = ({ className, children, ...props }: Props) => {
         {...props}
       >
         {children}
-      </div>
+      </header>
     );
   };
   

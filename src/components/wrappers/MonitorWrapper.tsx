@@ -7,8 +7,6 @@ import {
   FooterWrapper,
   HeaderWrapper
 } from "./";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-
 
 interface Props {
   header?: React.ReactNode;
@@ -16,18 +14,17 @@ interface Props {
 }
 
 export const MonitorWrapper = ({ header, children }: Props) => {
-
   return (
-  <AspectRatio ratio={4 / 3}>
-    <CRTWrapper>
+    <div className="w-full h-screen flex flex-col">
+      <CRTWrapper>
         {header && <HeaderWrapper>{header}</HeaderWrapper>}
         <TerminalWrapper>
           {children}
         </TerminalWrapper>
         <FooterWrapper>© 2024 Axiiomatic</FooterWrapper>
-    </CRTWrapper>
-  </AspectRatio>
-  )
+      </CRTWrapper>
+    </div>
+  );
 };
-  
+
 export default MonitorWrapper;

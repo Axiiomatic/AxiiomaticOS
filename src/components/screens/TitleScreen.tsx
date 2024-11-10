@@ -5,13 +5,13 @@ import {
 import { AsciiLogo } from "@/components/ascii";
 
 export const TitleScreen = () => {
-    return (
-        <CenterWrapper>
-            <div className="text-[10px]">
-                {AsciiLogo}
-            </div>
-        </CenterWrapper>
-    )
+  return (
+    <CenterWrapper>
+      <div className="text-ascii">
+        {AsciiLogo}
+      </div>
+    </CenterWrapper>
+  );
 };
-  
+
 export default TitleScreen;

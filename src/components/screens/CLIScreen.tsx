@@ -111,10 +111,10 @@ export const CLIScreen = () => {
   }, [promptFinished]);
 
   return (
-    <div>
+    <div className="h-screen overflow-hidden">
       <MatrixRain/>
       <div className="h-full z-[15] relative">
-        <div className="overflow-x-hidden overflow-y-scroll !important flex flex-col h-full relative z-[15]" ref={outputRef}>
+        <div className="overflow-x-hidden overflow-y-auto h-full max-h-screen flex flex-col relative z-[15]" ref={outputRef}>
           { /* Print previous outputs */ }
               
           {output.map((line, index) => {
@@ -149,7 +149,7 @@ export const CLIScreen = () => {
               
           {outputFinished && <TextWrapper className="h-full align-text-top items-start" animate={false}>
             {/* Animated Prompt */}
-            <TextWrapper className="mr-[5px] h-full w-auto whitespace-nowrap pointer-events-none text-[30px] align-text-top"
+            <TextWrapper className="mr-[5px] h-full w-auto whitespace-nowrap pointer-events-none text-terminal align-text-top"
               animate={true} speed={typingDelay} onAnimationStart={() => scrollToBottom()} onAnimationComplete={() => setPromptFinished(true)}
             >
               {`$ ${config.console_host}@${username} > `}
@@ -159,17 +159,14 @@ export const CLIScreen = () => {
             {promptFinished && (
               <div contentEditable={inputEditable}
                 className={`
-                  bg-transparent border-none w-[80vw] align-text-top
-                  h-full
-                  font-inherit
-                  outline-none text-[30px]
-                  caret-transparent cursor-default
-                  animate-text-flicker ml-[11px]
-                  break-words 
-                  relative
-
+                  bg-transparent border-none w-full
+                  align-text-top h-full
+                  font-inherit outline-none
+                  text-terminal caret-transparent
+                  cursor-default animate-text-flicker
+                  ml-2 break-words relative
                   after:content-["■"] after:animate-blink
-                  after:ml-[1px] after:relative after:z-[15]
+                  after:ml-[0.125rem] after:relative after:z-[15]
                 `} ref={inputRef} spellCheck={false}
                 onInput={(e) => setInput(e.currentTarget.textContent || '')}
                 onKeyDown={handleInput} 
@@ -188,7 +185,7 @@ export const CLIScreen = () => {
               >
                 {input}
               </div>
-            )}
+              )}
           </TextWrapper>}
         </div>
       </div>

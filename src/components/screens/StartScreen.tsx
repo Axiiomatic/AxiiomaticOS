@@ -10,17 +10,20 @@ export const StartScreen = () => {
 
     return (
         <CenterWrapper>
-            <AsciiWrapper className="top-[0%] text-[20px] border-b-[5px] p-5 border-b-[--color]">
+            <AsciiWrapper className="text-banner border-b-2 border-[--color] pb-4 mb-4">
                 {AsciiBanner}
             </AsciiWrapper>
 
-            <div className={`
-            flex flex-col p-5
-            text-[40px] items-center
-            `}>
-                <Link href="/os/gui">GUI</Link>
-                <Link href="/os/cli">CLI</Link>
-                <Link href="/os/blog">Blog</Link>
+            <div className="flex flex-col items-center gap-4">
+                <Link href="/os/gui" className="text-terminal">
+                    GUI
+                </Link>
+                <Link href="/os/cli" className="text-terminal">
+                    CLI
+                </Link>
+                <Link href="/os/blog" className="text-terminal">
+                    Blog
+                </Link>
             </div>
         </CenterWrapper>
     )

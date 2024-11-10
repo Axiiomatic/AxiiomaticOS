@@ -10,7 +10,7 @@ export const CenterWrapper = ({ className, children, ...props }: Props) => {
     <pre className={`
         absolute top-0 left-0 right-0 bottom-0
         flex flex-col items-center justify-center
-        text-[20px] z-[5] select-none
+        z-[5] select-none text-terminal
         ${className}
     `} {...props}>
         {children}

@@ -27,26 +27,25 @@ export const LoadingScreen = () => {
         <CenterWrapper>
             {loadingProgress < 125 ?
                 // Show loading animation
-                <div>
+                <div className="flex flex-col items-center w-full max-w-[800px]">
                     { /* Load animation */ }
-                    <TextWrapper className="justify-center items-center" animate={false}>{loadPrompt}</TextWrapper>
+                    <TextWrapper className="justify-center items-center text-banner" animate={false}>{loadPrompt}</TextWrapper>
 
                     { /* Progress bar */ }
-                    <div className={`
-                        w-[80vw] h-[40px] pointer-events-none
-                        text-center mt-[20px]
-                    `}>
-                        {'[' + '='.repeat(clamp(Math.floor(loadingProgress), 0, 100)) + '.'.repeat(clamp(Math.ceil(100-loadingProgress), 0, 100)) + ']'}
+                    <div className="w-full flex justify-center mt-4">
+                        <pre className="text-banner">
+                            {'[' + '='.repeat(clamp(Math.floor(loadingProgress), 0, 100)) + '.'.repeat(clamp(Math.ceil(100-loadingProgress), 0, 100)) + ']'}
+                        </pre>
                     </div>
                 </div> :
 
                 // Show ASCII title banner
-                <AsciiWrapper className="top-[0%] text-[20px]">
+                <AsciiWrapper className="text-banner">
                     {AsciiBanner}
                 </AsciiWrapper>
             }
             { /* Show ASCII logo if progress bar reaches 100% */ }
-            <AsciiWrapper className="top-[5%] text-[5px]">
+            <AsciiWrapper className="text-ascii mt-4">
                 {loadingProgress >= 100 ? AsciiLogo : EmptyLogo}
             </AsciiWrapper>
         </CenterWrapper>
