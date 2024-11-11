@@ -56,6 +56,11 @@
         "name": "Github",
         "display": "Axiiomatic",
         "url": "https://github.com/Axiiomatic"
+    },
+    {
+        "name": "LinkedIn",
+        "display": "Daniel Hernandez Sanchez",
+        "url": "https://www.linkedin.com/in/daniel-hernandez-sanchez-8118a3283/"
     }],
     "links": {
         "readme": "https://github.com/Axiiomatic/axiiomatic/blob/main/README.md",
