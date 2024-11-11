@@ -8,7 +8,6 @@ const func = async (args: string[]) => {
         const { data } = await axios.get(`https://wttr.in/${args.join(' ')}?A0T${languageTag() === "en" ? '' : `&lang=${languageTag()}`}`);
         return data;
     } catch (error) {
-        console.error('Error:', error);
         return weatherErrorFailedRequest();
     }
 };
@@ -17,6 +16,6 @@ export default {
     func,
     description: {
         "en": "Prints the weather data for a given location",
-        "es": "Imprime la información del clima para alguna ubicación"
+        "es": "Imprime la información del tiempo para alguna ubicación"
     }
 };
