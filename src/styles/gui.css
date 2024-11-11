@@ -12,15 +12,15 @@
   content: '';
   position: fixed;
   bottom: 0;
-  left: -50%;
-  width: 200%;
+  left: -50vw;
+  width: 200vw;
   background-image: 
-    linear-gradient(var(--bgColor) 3px, transparent 0),
-    linear-gradient(90deg, var(--bgColor) 3px, transparent 0),
-    linear-gradient(var(--bgColor) 3px, transparent 0),
-    linear-gradient(90deg, var(--bgColor) 3px, transparent 0);
-  background-size: 200px 200px, 200px 200px, 40px 40px, 40px 40px;
-  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    linear-gradient(var(--bgColor) 0.3vh, transparent 0),
+    linear-gradient(90deg, var(--bgColor) 0.3vh, transparent 0),
+    linear-gradient(var(--bgColor) 0.3vh, transparent 0),
+    linear-gradient(90deg, var(--bgColor) 0.3vh, transparent 0);
+  background-size: 20vh 20vh, 20vh 20vh, 4vh 4vh, 4vh 4vh;
+  background-position: -0.2vh -0.2vh, -0.2vh -0.2vh, -0.1vh -0.1vh, -0.1vh -0.1vh;
   will-change: transform;
   transform: rotateX(80deg);
   top: -50vh;
@@ -32,15 +32,15 @@
   content: '';
   position: fixed;
   top: 0;
-  left: -50%;
-  width: 200%;
+  left: -50vw;
+  width: 200vw;
   background-image: 
-    linear-gradient(var(--bgColor) 3px, transparent 0),
-    linear-gradient(90deg, var(--bgColor) 3px, transparent 0),
-    linear-gradient(var(--bgColor) 3px, transparent 0),
-    linear-gradient(90deg, var(--bgColor) 3px, transparent 0);
-  background-size: 200px 200px, 200px 200px, 40px 40px, 40px 40px;
-  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    linear-gradient(var(--bgColor) 0.3vh, transparent 0),
+    linear-gradient(90deg, var(--bgColor) 0.3vh, transparent 0),
+    linear-gradient(var(--bgColor) 0.3vh, transparent 0),
+    linear-gradient(90deg, var(--bgColor) 0.3vh, transparent 0);
+  background-size: 20vh 20vh, 20vh 20vh, 4vh 4vh, 4vh 4vh;
+  background-position: -0.2vh -0.2vh, -0.2vh -0.2vh, -0.1vh -0.1vh, -0.1vh -0.1vh;
   will-change: transform;
   transform: rotateX(-80deg);
   bottom: -50vh;
@@ -53,15 +53,15 @@
     transform: rotateX(80deg) translateY(0);
   }
   100% {
-    transform: rotateX(80deg) translateY(200px);
+    transform: rotateX(80deg) translateY(20vh);
   }
 }
 
 @keyframes gridMoveBottom {
-  from {
+  0% {
     transform: rotateX(-80deg) translateY(0);
   }
-  to {
-    transform: rotateX(-80deg) translateY(-200px);
+  100% {
+    transform: rotateX(-80deg) translateY(-20vh);
   }
 }

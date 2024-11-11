@@ -4,14 +4,15 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+  transform: translateY(0)
 }
 
 @keyframes matrix-rain {
   0% {
-    transform: translateY(-100%);
+    transform: translateY(-100vh);
   }
   100% {
-    transform: translateY(400%);
+    transform: translateY(200vh);
   }
 }
 
