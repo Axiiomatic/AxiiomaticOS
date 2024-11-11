@@ -33,5 +33,6 @@ export interface PreferencesContextInterface {
     username: string;
     setUsername: (username: string) => void;
     typingSpeed: number;
-    setTypingSpeed: (speed: number) => void;
+    typingDelay: number;
+    updateTypingSpeed: (delay: number) => void;
 }

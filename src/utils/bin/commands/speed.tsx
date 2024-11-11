@@ -18,7 +18,7 @@ export const func = async (context: PreferencesContextInterface, args: string[])
   if (speed === context.typingSpeed)
     return speedErrorAlready({ speed: speed });
   
-  context.setTypingSpeed(speed);
+  context.updateTypingSpeed(speed);
   return speedSet({ speed: speed });
 };
 
