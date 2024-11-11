@@ -5,11 +5,11 @@ import config from "@/../config.json";
 import {
   TextWrapper
 } from "@/components/wrappers";
-import { clamp } from "@/utils/functions";
 import { cliHook } from "@/utils/hooks";
 import { usePreferences } from "@/utils/contexts";
 import { useEffect, useState } from "react";
 import "@/styles/cli.css";
+import Typewriter from 'typewriter-effect';
 
 export const MatrixRain = () => {
   const [columns, setColumns] = useState<Array<{
@@ -41,7 +41,7 @@ export const MatrixRain = () => {
             top: '-100%',
             left: `${i * 2.5}%`,
             fontFamily: 'monospace',
-            fontSize: '1.2rem',
+            fontSize: '3vh',
             color: 'var(--bgColor)',
             writingMode: 'vertical-rl',
             textOrientation: 'upright',
@@ -58,7 +58,7 @@ export const MatrixRain = () => {
 };
 
 export const CLIScreen = () => {
-  const { username, typingSpeed } = usePreferences();
+  const { username, typingDelay } = usePreferences();
 
   const {
     input,
@@ -72,27 +72,18 @@ export const CLIScreen = () => {
     scrollToBottom
   } = cliHook();
 
-  const [typingDelay, setTypingDelay] = useState<number>(clamp(100-typingSpeed, 1, 100));
-  const [outputTyping, setOutputTyping] = useState<boolean>(false);
-  const [outputLines, setOutputLines] = useState<boolean[]>([]);
   const [outputFinished, setOutputFinished] = useState<boolean>(true);
   const [promptFinished, setPromptFinished] = useState<boolean>(false);
 
 
   useEffect(() => {
     if (output.length > 0) {
-      setOutputTyping(true);
-      setOutputLines(new Array(output.slice(-1)[0].split('\n').length).fill(false));
       setOutputFinished(output.length === 0);
       setPromptFinished(false);
     } else if (inputRef.current) {
       inputRef.current.focus();
     }
   }, [output]);
-
-  useEffect(() => {
-    setTypingDelay(clamp(100-typingSpeed, 1, 100));
-  }, [typingSpeed]);
 
   useEffect(() => {
     if (promptFinished && inputRef.current) {
@@ -111,49 +102,56 @@ export const CLIScreen = () => {
   }, [promptFinished]);
 
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="h-full overflow-hidden">
       <MatrixRain/>
       <div className="h-full z-[15] relative">
-        <div className="overflow-x-hidden overflow-y-auto h-full max-h-screen flex flex-col relative z-[15]" ref={outputRef}>
+        <div className="overflow-x-hidden overflow-y-auto h-full flex flex-col relative z-[15]" ref={outputRef}>
           { /* Print previous outputs */ }
               
           {output.map((line, index) => {
-            // Split the line by newlines and map each segment
-            const lastLine = index === output.length - 1;
-            return line.split('\n').map((segment, segmentIndex) => {
-              const prevLine = segmentIndex === 0 ? true : outputLines[segmentIndex - 1];
-              return (prevLine || !lastLine) && (
-                <TextWrapper className="w-[95vw] break-words align-text-top whitespace-pre-wrap items-center"
-                  key={`${index}-${segmentIndex}`} delay={0} speed={typingDelay}
-                  animate={lastLine && outputTyping}
-                  onAnimationComplete={() => {
-                    setOutputLines(() => {
-                      const newLines = [...outputLines];
-                      newLines[segmentIndex] = true;
-                      return newLines;
-                    });
-                    if (segmentIndex === line.split('\n').length - 1) {
+            if (index !== output.length - 1 || outputFinished)
+              return line.split('\n').map((segment, segmentIndex) => {
+                return <TextWrapper key={`${index}-${segmentIndex}`} className="w-[95vw] break-words align-text-top whitespace-pre-wrap items-center">{segment}</TextWrapper>
+              })
+
+            return <TextWrapper key={index} className="w-[95vw] break-words align-text-top whitespace-pre-wrap items-center">
+              <Typewriter
+                options={{
+                  cursor: "■",
+                  delay: typingDelay,
+                  cursorClassName: "animate-blink ml-[0.125rem] relative z-[15]"
+                }}
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString(line)
+                    .callFunction(() => {
                       setOutputFinished(true);
-                      setOutputTyping(false);
-                    }
-                  }}
-                >
-                  {/* Parse special characters and apply different font */}
-                  {segment}
-                </TextWrapper>
-              )
-            })
+                    })
+                    .start();
+                }}
+              />
+            </TextWrapper>
           })}
 
           { /* Current input line */ }
               
-          {outputFinished && <TextWrapper className="h-full align-text-top items-start" animate={false}>
-            {/* Animated Prompt */}
-            <TextWrapper className="mr-[5px] h-full w-auto whitespace-nowrap pointer-events-none text-terminal align-text-top"
-              animate={true} speed={typingDelay} onAnimationStart={() => scrollToBottom()} onAnimationComplete={() => setPromptFinished(true)}
-            >
-              {`$ ${config.console_host}@${username} > `}
-            </TextWrapper>
+          {outputFinished && <TextWrapper className="mr-[5px] h-full w-auto whitespace-nowrap pointer-events-none text-terminal align-text-top">
+            {promptFinished ? `$ ${config.console_host}@${username} > ` : <Typewriter
+                options={{
+                  cursor: "■",
+                  delay: typingDelay,
+                  cursorClassName: "animate-blink ml-[0.125rem] relative z-[15]"
+                }}
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString(`$ ${config.console_host}@${username} > `)
+                    .callFunction(() => {
+                      setPromptFinished(true);
+                    })
+                    .start();
+                }}
+              />
+            }
                   
             {/* Input field - only show when prompt animation is done */}
             {promptFinished && (
