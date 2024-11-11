@@ -14,9 +14,14 @@ export const clamp = (x : number, a : number, b : number) => {
 }
 
 export const joinList = (list : string[], conjunction : string) => {
-  if (list.length === 0) return '';
-  if (list.length === 1) return list[0];
-  return list.slice(0, -1).join(', ') + ' ' + conjunction + ' ' + list.slice(-1);
+  switch (list.length) {
+    case 0:
+      return '';
+    case 1:
+      return list[0];
+    default:
+      return list.slice(0, -1).join(', ') + ' ' + conjunction + ' ' + list.slice(-1);
+  }
 }
 
 export const numberWithCommas = (x : number) => {
