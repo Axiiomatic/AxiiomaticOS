@@ -1,7 +1,9 @@
 import { resumeOpen } from "@/paraglide/messages";
+import { languageTag } from "@/paraglide/runtime";
+import personal from "@/config/personal.json";
 
 const func = async () => {
-  window.open(process.env.NEXT_PUBLIC_RESUME, "_blank");
+  window.open(personal[languageTag()].links.resume, "_blank");
   return resumeOpen();
 };
 
