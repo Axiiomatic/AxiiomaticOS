@@ -119,7 +119,7 @@ export const CLIScreen = () => {
                 options={{
                   cursor: "■",
                   delay: typingDelay,
-                  cursorClassName: "animate-blink ml-[0.125rem] relative z-[15]"
+                  cursorClassName: "block-caret animate-blink"
                 }}
                 onInit={(typewriter) => {
                   typewriter
@@ -140,7 +140,7 @@ export const CLIScreen = () => {
                 options={{
                   cursor: "■",
                   delay: typingDelay,
-                  cursorClassName: "animate-blink ml-[0.125rem] relative z-[15]"
+                  cursorClassName: "block-caret animate-blink"
                 }}
                 onInit={(typewriter) => {
                   typewriter
@@ -164,7 +164,7 @@ export const CLIScreen = () => {
                   cursor-default animate-text-flicker
                   ml-2 break-words relative
                   after:content-["■"] after:animate-blink
-                  after:ml-[0.125rem] after:relative after:z-[15]
+                  after:block-caret
                 `} ref={inputRef} spellCheck={false}
                 onInput={(e) => setInput(e.currentTarget.textContent || '')}
                 onKeyDown={handleInput} 

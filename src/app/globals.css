@@ -80,6 +80,24 @@ body {
     line-height: 1.4;
     color: var(--color);
   }
+
+  .block-caret {
+    margin-left: 0.125rem;
+    position: relative;
+    z-index: 15;
+  }
+}
+
+.gui-small {
+    font-size: 1rem;
+}
+
+.gui-title {
+  font-size: 3rem;
+}
+
+.gui-aka {
+  font-size: 2rem;
 }
 
 ::-webkit-scrollbar {
