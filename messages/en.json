@@ -81,5 +81,8 @@
 
     "ipErrorFailedRequest": "Failed to fetch IP data",
 
-    "weatherErrorFailedRequest": "Failed to fetch weather data"
+    "weatherErrorFailedRequest": "Failed to fetch weather data",
+
+    "hi": "Hi!",
+    "myName": "My name is"
 }

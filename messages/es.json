@@ -83,5 +83,8 @@
 
     "ipErrorFailedRequest": "Error al pedir data de IP",
 
-    "weatherErrorFailedRequest": "Error al pedir data del clima"
+    "weatherErrorFailedRequest": "Error al pedir data del clima",
+    
+    "hi": "¡Hola!",
+    "myName": "Me llamo"
 }
