@@ -11,14 +11,12 @@ const func = async (args: string[]) => {
   const personalInfo = personal[languageTag()];
   const projects = personalInfo.projects;
 
-  if (args.length === 0) return projects.map((project: Project) => `
-> <u><a href="${project.url}" target="_blank">${project.name}</a></u>
+  if (args.length === 0) return projects.map((project: Project) => `> <u><a href="${project.url}" target="_blank">${project.name}</a></u>
     - ${project.description}`).join("\n");
 
   return projects.map((project: Project) => {
     if (args.includes(project.name.toLowerCase()))
-      return `
-> <u><a href="${project.url}" target="_blank">${project.name}</a></u>
+      return `> <u><a href="${project.url}" target="_blank">${project.name}</a></u>
     - ${project.description}`
   }).join("\n").trim();
 };
