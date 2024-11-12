@@ -10,6 +10,8 @@ import { languageTag } from "@/paraglide/runtime";
 import { joinList } from "@/utils/functions";
 import Typewriter from 'typewriter-effect';
 import { useEffect, useRef, useState } from 'react';
+import Image from "next/image";
+import projects from "@/utils/bin/commands/projects";
 
 export default function GUI() {
   const { typingDelay } = usePreferences();
@@ -97,16 +99,40 @@ export default function GUI() {
           {ascii[`AsciiUse_${lang}`]}
         </AsciiWrapper>
 
-        <div className="flex w-[100vw] justify-between">
-          <TextWrapper className="text-center justify-center flex-1">
-            <h1 className="gui">{m.guiProgramming()}</h1>
-          </TextWrapper>
-          <TextWrapper className="text-center justify-center flex-1">
-            <h1 className="gui">{m.guiFL()}</h1>
-          </TextWrapper>
-          <TextWrapper className="text-center justify-center flex-1">
-            <h1 className="gui">{m.guiTools()}</h1>
-          </TextWrapper>
+        <div className="flex w-[100vw] justify-between whitespace-pre">
+          <div className="flex-1 flex-col text-center justify-center">
+            <TextWrapper className="text-center justify-center">
+              <h1 className="gui">{m.guiProgramming()}</h1>
+            </TextWrapper>
+            <TextWrapper className="text-start justify-center whitespace-pre-wrap">
+              {personalInfo.skills.programming_languages.map((pl) => {
+                return `\n${pl}`;
+              })}
+            </TextWrapper>
+          </div>
+          <div className="flex-1 flex-col text-center justify-center">
+            <TextWrapper className="text-center justify-center">
+              <h1 className="gui">{m.guiFL()}</h1>
+            </TextWrapper>
+            <TextWrapper className="text-start justify-center whitespace-pre-wrap">
+              {personalInfo.skills.frameworks.map((fm) => {
+                return `\n${fm}`;
+              })}
+              {personalInfo.skills.libraries.map((lib) => {
+                return `\n${lib}`;
+              })}
+            </TextWrapper>
+          </div>
+          <div className="flex-1 flex-col text-center justify-center">
+            <TextWrapper className="text-center justify-center">
+              <h1 className="gui">{m.guiTools()}</h1>
+            </TextWrapper>
+            <TextWrapper className="text-start justify-center whitespace-pre-wrap">
+              {personalInfo.skills.tools.map((tl) => {
+                return `\n${tl}`;
+              })}
+            </TextWrapper>
+          </div>
         </div>
       
         <div className="h-[700px]"></div>
