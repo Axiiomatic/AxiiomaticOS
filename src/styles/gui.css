@@ -8,10 +8,11 @@
   z-index: 1;
 }
 
-.gui-background:after {
+/* Shared background layer styles for :before and :after pseudo-elements */
+.gui-background::before,
+.gui-background::after {
   content: '';
   position: fixed;
-  bottom: 0;
   left: -50vw;
   width: 200vw;
   background-image: 
@@ -22,32 +23,24 @@
   background-size: 20vh 20vh, 20vh 20vh, 4vh 4vh, 4vh 4vh;
   background-position: -0.2vh -0.2vh, -0.2vh -0.2vh, -0.1vh -0.1vh, -0.1vh -0.1vh;
   will-change: transform;
+  z-index: 2;
+}
+
+.gui-background::after {
+  bottom: 0;
   transform: rotateX(80deg);
   top: -50vh;
   animation: gridMoveTop 20s linear infinite;
-  z-index: 2;
 }
 
-.gui-background:before {
-  content: '';
-  position: fixed;
+.gui-background::before {
   top: 0;
-  left: -50vw;
-  width: 200vw;
-  background-image: 
-    linear-gradient(var(--bgColor) 0.3vh, transparent 0),
-    linear-gradient(90deg, var(--bgColor) 0.3vh, transparent 0),
-    linear-gradient(var(--bgColor) 0.3vh, transparent 0),
-    linear-gradient(90deg, var(--bgColor) 0.3vh, transparent 0);
-  background-size: 20vh 20vh, 20vh 20vh, 4vh 4vh, 4vh 4vh;
-  background-position: -0.2vh -0.2vh, -0.2vh -0.2vh, -0.1vh -0.1vh, -0.1vh -0.1vh;
-  will-change: transform;
   transform: rotateX(-80deg);
   bottom: -50vh;
   animation: gridMoveBottom 20s linear infinite;
-  z-index: 2;
 }
 
+/* Keyframes */
 @keyframes gridMoveTop {
   0% {
     transform: rotateX(80deg) translateY(0);
