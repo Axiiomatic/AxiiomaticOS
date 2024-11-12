@@ -1,4 +1,4 @@
-import cliHook from './cliHook';
-import loadingHook from './loadingHook';
+import CLIHook from './CLIHook';
+import LoadingHook from './LoadingHook';
 
-export { cliHook, loadingHook };
+export { CLIHook, LoadingHook };

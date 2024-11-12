@@ -6,7 +6,7 @@ import config from "@/../config.json";
 import { welcome } from '@/paraglide/messages';
 import { useRouter } from "@/lib/i18n";
 
-const cliHook = () => {
+const CLIHook = () => {
   const router = useRouter();
   const [input, setInput] = useState<string>('');
   const [inputEditable, setInputEditable] = useState<boolean>(true);
@@ -15,8 +15,8 @@ const cliHook = () => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [output, setOutput] = useState<string[]>([welcome()]);
 
-  const inputRef = useRef<any>(null);
-  const outputRef = useRef<any>(null);
+  const inputRef = useRef<HTMLDivElement>(null);
+  const outputRef = useRef<HTMLDivElement>(null);
 
   const preferencesContext = usePreferences();
   const { previousCommands, commandIndex, setCommandIndex, updateCommandHistory } = useCommandHistory();
@@ -27,7 +27,7 @@ const cliHook = () => {
     }
   };
 
-  const handleInput = (e : any) => {
+  const handleInput = (e : React.KeyboardEvent<HTMLDivElement>) => {
     let keyS = keyStreak;
     if (e.key === lastKey) keyS++;
     else keyS = 0;
@@ -61,7 +61,12 @@ const cliHook = () => {
 
     if (e.key === 'Enter') {
       e.preventDefault(); // Prevent default line break
-      if (inputRef.current?.textContent?.trim() !== '') {
+      
+      if (!inputRef.current) return;
+
+      if (!inputRef.current.textContent) return;
+      
+      if (inputRef.current.textContent.trim() !== '') {
         processCommand(inputRef.current.textContent.trim());
         inputRef.current.textContent = ''; // Clear the content
         setInput('');
@@ -139,4 +144,4 @@ const cliHook = () => {
     };
 };
 
-export default cliHook;
+export default CLIHook;

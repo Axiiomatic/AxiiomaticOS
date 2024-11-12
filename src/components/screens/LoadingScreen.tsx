@@ -9,7 +9,7 @@ import {
 import { AsciiBanner, AsciiLogo, EmptyLogo } from "@/components/ascii";
 import { useComputer } from "@/utils/contexts";
 import { clamp } from "@/utils/functions";
-import { loadingHook } from "@/utils/hooks";
+import { LoadingHook } from "@/utils/hooks";
 import { useEffect } from "react";
 
 export const LoadingScreen = () => {
@@ -17,7 +17,7 @@ export const LoadingScreen = () => {
     const {
         loadPrompt,
         loadingProgress
-    } = loadingHook();
+    } = LoadingHook();
 
     useEffect(() => {
         if (loadingProgress >= 150) setState("start");

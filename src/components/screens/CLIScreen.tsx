@@ -5,7 +5,7 @@ import config from "@/../config.json";
 import {
   TextWrapper
 } from "@/components/wrappers";
-import { cliHook } from "@/utils/hooks";
+import { CLIHook } from "@/utils/hooks";
 import { usePreferences } from "@/utils/contexts";
 import { useEffect, useState } from "react";
 import "@/styles/cli.css";
@@ -70,7 +70,7 @@ export const CLIScreen = () => {
     handleInput,
     keepFocus,
     scrollToBottom
-  } = cliHook();
+  } = CLIHook();
 
   const [outputFinished, setOutputFinished] = useState<boolean>(true);
   const [promptFinished, setPromptFinished] = useState<boolean>(false);

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const loadingHook = () => {
+const LoadingHook = () => {
   const [loadPrompt, setLoadPrompt] = useState<string | undefined>('/');
   const [loadingProgress, setLoadingProgress] = useState<number>(0);
 
@@ -48,4 +48,4 @@ const loadingHook = () => {
     };
 };
 
-export default loadingHook;
+export default LoadingHook;
