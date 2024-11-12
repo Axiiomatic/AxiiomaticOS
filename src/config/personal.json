@@ -31,9 +31,9 @@
 
 
     "skills": {
-        "programming_languages": ["Python", "JavaScript", "Node.js", "TypeScript", "C", "C++", "C#", "HTML", "CSS", "MIPS", "MATLAB"],
-        "frameworks": ["Tailwind CSS", "Next.js", "Streamlit"],
-        "libraries": ["React", "Discord.js", "Three.js", "NumPy", "pandas", "scikit-learn", "TensorFlow"],
+        "programming_languages": ["JavaScript", "Node.js", "TypeScript", "HTML", "CSS", "Python", "C", "C++", "C#", "MIPS", "MATLAB"],
+        "frameworks": ["Next.js", "Tailwind CSS", "Streamlit"],
+        "libraries": ["React", "Three.js", "Discord.js", "NumPy", "pandas", "scikit-learn", "TensorFlow"],
         "tools": ["Git", "MongoDB", "VS Code", "Microsoft 365", "LaTeX", "SONY Vegas", "Krita"],
         "languages": ["Spanish (Native)", "English (Fluent)"]
     },
