@@ -1,11 +1,15 @@
 {
   "en": {
     "name": "Daniel Hernandez Sanchez",
+    "status": "making my own TTRPG system",
     "aka": ["Axiiomatic", "Axiom", "Ax"],
+
     "age": "19",
+
     "occupation": "Junior Computer Engineering Student",
     "company": "FIU",
     "location": "Miami, FL",
+
     "education": {
         "degrees": [{
             "institution": "FIU",
@@ -19,62 +23,91 @@
             "completion_year": "In Progress"
         }]
     },
+
     "interests": {
         "career": ["Cybersecurity", "AI", "Web Development", "Robotics"],
         "personal": ["Videogames", "Fencing", "Gamedev", "TTRPGs"]
     },
+
     "languages": {
         "spoken": ["Spanish (Native)", "English (Fluent)"],
         "programming": ["Python", "JavaScript", "TypeScript", "C/C++", "C#", "HTML", "CSS", "MIPS", "MATLAB"]
     },
-    "projects": [{
-        "name": "AxiiomaticOS",
-        "description": "AxiiomaticOS is my personal 3D portfolio website based on a Console Terminal UI.",
-        "url": "https://github.com/Axiiomatic/AxiiomaticOS"
-    },
-    {
-        "name": "Treasure-Keepers",
-        "description": "Shellhacks 2024 Hackathon - Statefarm Challenge Winner. Treasure Keeper is a financial literacy web app serving low-income and first generation students, immigrants and anyone else that might struggle with financial literacy. We aim to help students achieve their goals and improve their financial well-being.",
-        "url": "https://github.com/Juuicee/ShellHacks-2024"
-    },
-    {
-        "name": "La-Patrulla",
-        "description": "La Patrulla is a Discord Bot Application made for playing the Venezuelan cards game Truco, as well as other card games.",
-        "url": "https://github.com/Axiiomatic/..."
-    },
-    {
-        "name": "Jef's-Easy-Bank",
-        "description": "Shellhacks 2023 Hackathon Submission. Jef's Easy Bank is a banking web application built with the purpose of tracking multiple bank accounts, savings and expenses at the same time.",
-        "url": "https://github.com/luis-c465/shellhacks"
-    }],
-    "socials": [{
-        "name": "Email",
-        "display": "danielalejandrohs@gmail.com",
-        "url": "mailto:danielalejandrohs@gmail.com"
-    },
-    {
-        "name": "Github",
-        "display": "Axiiomatic",
-        "url": "https://github.com/Axiiomatic"
-    },
-    {
-        "name": "LinkedIn",
-        "display": "Daniel Hernandez Sanchez",
-        "url": "https://www.linkedin.com/in/daniel-hernandez-sanchez-8118a3283/"
-    }],
-    "links": {
-        "readme": "https://github.com/Axiiomatic/axiiomatic/blob/main/README.md",
-        "repo": "https://github.com/Axiiomatic/axiiomatic",
-        "resume": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf"
-    }
+
+
+
+    "experience": [
+        {
+            "company": "FIU",
+            "url": "https://www.fiu.edu",
+            "position": "Level 2 Learning Assitant",
+            "duration": "2023 - Present",
+            "description": [
+                "- Supervise multiple College Algebra and Pre-Calculus classes of +100 students each during classes and exams.",
+                "- Address key struggles in students' understanding in Math Lab 1 and weekly 1-on-1 small group review sessions.",
+                "- Co-lead LA meetings and mentor new LAs regarding rules and how to help students."
+            ]
+        }
+    ],
+    
+
+
+    "projects": [
+        {
+            "name": "AxiiomaticOS",
+            "description": "AxiiomaticOS is my personal 3D portfolio website based on a Console Terminal UI.",
+            "url": "https://github.com/Axiiomatic/AxiiomaticOS"
+        },
+        {
+            "name": "Treasure-Keepers",
+            "description": "Shellhacks 2024 Hackathon - Statefarm Challenge Winner. Treasure Keeper is a financial literacy web app serving low-income and first generation students, immigrants and anyone else that might struggle with financial literacy. We aim to help students achieve their goals and improve their financial well-being.",
+            "url": "https://github.com/Juuicee/ShellHacks-2024"
+        },
+        {
+            "name": "La-Patrulla",
+            "description": "La Patrulla is a Discord Bot Application made for playing the Venezuelan cards game Truco, as well as other card games.",
+            "url": "https://github.com/Axiiomatic/..."
+        },
+        {
+            "name": "Jef's-Easy-Bank",
+            "description": "Shellhacks 2023 Hackathon Submission. Jef's Easy Bank is a banking web application built with the purpose of tracking multiple bank accounts, savings and expenses at the same time.",
+            "url": "https://github.com/luis-c465/shellhacks"
+        }
+    ],
+
+
+    "socials": [
+        {
+            "name": "Email",
+            "display": "danielalejandrohs@gmail.com",
+            "url": "mailto:danielalejandrohs@gmail.com"
+        },
+        {
+            "name": "Github",
+            "display": "Axiiomatic",
+            "url": "https://github.com/Axiiomatic"
+        },
+        {
+            "name": "LinkedIn",
+            "display": "Daniel Hernandez Sanchez",
+            "url": "https://www.linkedin.com/in/daniel-hernandez-sanchez-8118a3283/"
+        }
+    ]
   },
+
+
+
   "es": {  
     "name": "Daniel Hernandez Sanchez",
+    "status": "haciendo mi propio sistema de Juego de Mesa de Rol",
     "aka": ["Axiiomatic", "Axiom", "Ax"],
+    
     "age": "19",
+
     "occupation": "Estudiante de Ingeniería de Computación de Tercer Año",
     "company": "FIU",
     "location": "Miami, FL",
+
     "education": {
         "degrees": [{
             "institution": "FIU",
@@ -88,53 +121,83 @@
             "completion_year": "In Progress"
         }]
     },
+
     "interests": {
         "career": ["Ciberseguridad", "IA", "Desarrollo de Web", "Robótica"],
         "personal": ["Jugar y desarrollar videojuegos", "Esgrima", "Juegos de mesa de rol"]
     },
+
     "languages": {
         "spoken": ["Español (Nativo)", "Inglés (Fluido)"],
         "programming": ["Python", "JavaScript", "TypeScript", "C/C++", "C#", "HTML", "CSS", "MIPS", "MATLAB"]
     },
-    "projects": [{
-        "name": "AxiiomaticOS",
-        "description": "AxiiomaticOS es mi página personal de portafolio 3D basada en una Interfaz de Terminal de Consola.",
-        "url": "https://github.com/Axiiomatic/AxiiomaticOS"
-    },
-    {
-        "name": "Treasure-Keepers",
-        "description": "Hackathon Shellhacks 2024 - Ganador del Desafío de Statefarm. Treasure Keeper es una aplicación web de conocimiento financiero enfocada a estudiantes de primera generación, inmigrantes y otras personas de pocos recursos financieros que puedan tener problemas con tales conceptos. Nos dedicamos a ayudar estudiantes a alcanzar sus metas y mejorar su bienestar financiero.",
-        "url": "https://github.com/Juuicee/ShellHacks-2024"
-    },
-    {
-        "name": "La-Patrulla",
-        "description": "La Patrulla es un Bot de Discord para jugar al juego de cartas Truco Venezolano y otros juegos de cartas.",
-        "url": "https://github.com/Axiiomatic/..."
-    },
-    {
-        "name": "Jef's-Easy-Bank",
-        "description": "Proyecto para Hackathon Shellhacks 2023. Jef's Easy Bank es una aplicación web bancaria hecha con el propósito de monitorear múltiples cuentas bancarias, ahorros y gastos al mismo tiempo.",
-        "url": "https://github.com/luis-c465/shellhacks"
-    }],
-    "socials": [{
-        "name": "Correo Electrónico",
-        "display": "danielalejandrohs@gmail.com",
-        "url": "mailto:danielalejandrohs@gmail.com"
-    },
-    {
-        "name": "Github",
-        "display": "Axiiomatic",
-        "url": "https://www.github.com/Axiiomatic"
-    },
-    {
-        "name": "LinkedIn",
-        "display": "Daniel Hernandez Sanchez",
-        "url": "https://www.linkedin.com/in/daniel-hernandez-sanchez-8118a3283/"
-    }],
-    "links": {
-        "readme": "https://github.com/Axiiomatic/axiiomatic/blob/main/README.md",
-        "repo": "https://github.com/Axiiomatic/axiiomatic",
-        "resume": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf"
-    }
+
+
+
+    "experience": [
+        {
+            "company": "FIU",
+            "url": "https://www.fiu.edu",
+            "position": "Asistente de Aprendizaje Nivel 2",
+            "duration": "2023 - Presente",
+            "description": [
+                "- Supervisar varias clases de Algebra y Pre-Cálculo de +100 estudiantes durante clases y exámenes.",
+                "- Corregir las dificultades clave en el entendimiento de los estudiantes en el Laboratorio de Matemática y en sesiones de estudio pequeñas semanales.",
+                "- Co-liderar reuinones de Asistentes y mentorar a nuevos asistentes sobre reglas y cómo ayudar los estudiantes."
+            ]
+        }
+    ],
+
+
+
+    "projects": [
+        {
+            "name": "AxiiomaticOS",
+            "description": "AxiiomaticOS es mi página personal de portafolio 3D basada en una Interfaz de Terminal de Consola.",
+            "url": "https://github.com/Axiiomatic/AxiiomaticOS"
+        },
+        {
+            "name": "Treasure-Keepers",
+            "description": "Hackathon Shellhacks 2024 - Ganador del Desafío de Statefarm. Treasure Keeper es una aplicación web de conocimiento financiero enfocada a estudiantes de primera generación, inmigrantes y otras personas de pocos recursos financieros que puedan tener problemas con tales conceptos. Nos dedicamos a ayudar estudiantes a alcanzar sus metas y mejorar su bienestar financiero.",
+            "url": "https://github.com/Juuicee/ShellHacks-2024"
+        },
+        {
+            "name": "La-Patrulla",
+            "description": "La Patrulla es un Bot de Discord para jugar al juego de cartas Truco Venezolano y otros juegos de cartas.",
+            "url": "https://github.com/Axiiomatic/..."
+        },
+        {
+            "name": "Jef's-Easy-Bank",
+            "description": "Proyecto para Hackathon Shellhacks 2023. Jef's Easy Bank es una aplicación web bancaria hecha con el propósito de monitorear múltiples cuentas bancarias, ahorros y gastos al mismo tiempo.",
+            "url": "https://github.com/luis-c465/shellhacks"
+        }
+    ],
+
+
+    "socials": [
+        {
+            "name": "Correo Electrónico",
+            "display": "danielalejandrohs@gmail.com",
+            "url": "mailto:danielalejandrohs@gmail.com"
+        },
+        {
+            "name": "Github",
+            "display": "Axiiomatic",
+            "url": "https://www.github.com/Axiiomatic"
+        },
+        {
+            "name": "LinkedIn",
+            "display": "Daniel Hernandez Sanchez",
+            "url": "https://www.linkedin.com/in/daniel-hernandez-sanchez-8118a3283/"
+        }
+    ]
+  },
+
+
+
+  "links": {
+    "readme": "https://github.com/Axiiomatic/axiiomatic/blob/main/README.md",
+    "repo": "https://github.com/Axiiomatic/axiiomatic",
+    "resume": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf"
   }
 }
