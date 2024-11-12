@@ -56,6 +56,7 @@
 
     "sumfetchSummary": "Summary",
     "sumfetchAbout": "ABOUT",
+    "sumfetchExperience": "EXPERIENCE",
     "sumfetchEC": "EDUCATION & CERTIFICATES",
     "sumfetchProjects": "PROJECTS",
     "sumfetchContact": "CONTACT",
@@ -84,5 +85,10 @@
     "weatherErrorFailedRequest": "Failed to fetch weather data",
 
     "hi": "Hi!",
-    "myName": "My name is"
+    "myName": "My name is",
+    "guiIntro": "I'm a {occupation} at {company}. I'm currently {status}.",
+
+    "guiAbout": "Hello! I'm {first_name}, though you'll often find me online as {aka}. ",
+    "guiMore": "I've been passionate about computers and programming since childhood, which has led me to my current career as a {occupation}.\n",
+    "guiSelf": "A lot of my coding knowledge has been self taught over the last {years} years. I have a big interest for {interests}.\n"
 }

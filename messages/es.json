@@ -58,6 +58,7 @@
 
     "sumfetchSummary": "Sumario",
     "sumfetchAbout": "SOBRE MÍ",
+    "sumfetchExperience": "EXPERIENCIA",
     "sumfetchEC": "EDUCACIÓN Y CERTIFICACIONES",
     "sumfetchProjects": "PROYECTOS",
     "sumfetchContact": "CONTACTO",
@@ -86,5 +87,10 @@
     "weatherErrorFailedRequest": "Error al pedir data del clima",
     
     "hi": "¡Hola!",
-    "myName": "Me llamo"
+    "myName": "Me llamo",
+    "guiIntro": "Soy un {occupation} en {company}. Actualmente, estoy {status}.",
+
+    "guiAbout": "¡Hola! Mi nombre es {first_name}, pero de seguro me encontrarás como {aka} en línea. ",
+    "guiMore": "Las computadoras y la programamción me han apasionado desde mi infancia, lo que me ha llevado a mi carrera actual como un {occupation}.\n",
+    "guiSelf": "Una gran parte de mi conocimiento de programación ha sido autodidacta por los últimos {years} años. Tengo bastante interés en {interests}.\n"
 }
