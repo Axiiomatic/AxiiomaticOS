@@ -89,11 +89,13 @@
 
     "hi": "Hi!",
     "myName": "My name is",
-    "guiIntro": "I'm a {occupation} at {company}. I'm currently {status}.",
+    "guiIntro": "I'm a {occupation} at {company}\nI'm currently {status}",
 
     "guiAbout": "Hello! I'm {first_name}, though you'll often find me online as {aka}. ",
     "guiMore": "I've been passionate about computers and programming since childhood, which has led me to my current career as a {occupation}.\n",
-    "guiSelf": "A lot of my coding knowledge has been self taught over the last {years} years. I have a big interest for {interests}.\n"
+    "guiSelf": "A lot of my coding knowledge has been self taught over the last {years} years. I have a big interest for {interests}.\n",
 
-
+    "guiProgramming": "Programming Languages",
+    "guiFL": "Frameworks & Libraries",
+    "guiTools": "Tools"
 }

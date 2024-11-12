@@ -91,9 +91,13 @@
     
     "hi": "¡Hola!",
     "myName": "Me llamo",
-    "guiIntro": "Soy un {occupation} en {company}. Actualmente, estoy {status}.",
+    "guiIntro": "Soy un {occupation} en {company}\nActualmente, estoy {status}",
 
     "guiAbout": "¡Hola! Mi nombre es {first_name}, pero de seguro me encontrarás como {aka} en línea. ",
     "guiMore": "Las computadoras y la programamción me han apasionado desde mi infancia, lo que me ha llevado a mi carrera actual como un {occupation}.\n",
-    "guiSelf": "Una gran parte de mi conocimiento de programación ha sido autodidacta por los últimos {years} años. Tengo bastante interés en {interests}.\n"
+    "guiSelf": "Una gran parte de mi conocimiento de programación ha sido autodidacta por los últimos {years} años. Tengo bastante interés en {interests}.\n",
+
+    "guiProgramming": "Lenguajes de programación",
+    "guiFL": "Estructuras y Librerias",
+    "guiTools": "Herramientas"
 }
