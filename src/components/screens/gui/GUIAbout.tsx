@@ -10,8 +10,6 @@ import { languageTag } from "@/paraglide/runtime";
 import { joinList } from "@/utils/functions";
 import Typewriter from 'typewriter-effect';
 import { useEffect, useRef, useState } from 'react';
-import Image from "next/image";
-import projects from "@/utils/bin/commands/projects";
 
 export default function GUI() {
   const { typingDelay } = usePreferences();
