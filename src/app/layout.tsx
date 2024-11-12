@@ -6,11 +6,6 @@ import config from "@/../config.json";
 import { PreferencesProvider, CameraProvider, PageHistoryProvider, CommandHistoryProvider, ComputerProvider } from "@/utils/contexts";
 import "./globals.css";
 
-const hackNF = localFont({
-  src: "./fonts/Hack-NF.ttf",
-  variable: "--font-hack-nf",
-  weight: "100 900",
-});
 const vt323 = localFont({
   src: "./fonts/VT323-Regular.ttf",
   variable: "--font-vt323",
