@@ -10,13 +10,13 @@ import experience from "./experience";
 import google from "./google";
 import gui from "./gui";
 import help from "./help";
-import languages from "./languages";
 import projects from "./projects";
 import quit from "./quit";
 import readme from "./readme";
 import reddit from "./reddit";
 import repo from "./repo";
 import resume from "./resume";
+import skills from "./skills";
 import socials from "./socials";
 import speed from "./speed";
 import sumfetch from "./sumfetch";
@@ -39,13 +39,13 @@ export const commands = {
     google,
     gui,
     help,
-    languages,
     projects,
     quit,
     readme,
     reddit,
     repo,
     resume,
+    skills,
     socials,
     speed,
     sumfetch,
