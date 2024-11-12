@@ -29,7 +29,7 @@ export const LoadingScreen = () => {
                 // Show loading animation
                 <div className="flex flex-col items-center w-full max-w-[800px]">
                     { /* Load animation */ }
-                    <TextWrapper className="justify-center items-center text-banner" animate={false}>{loadPrompt}</TextWrapper>
+                    <TextWrapper className="justify-center items-center text-banner">{loadPrompt}</TextWrapper>
 
                     { /* Progress bar */ }
                     <div className="w-full flex justify-center mt-4">
