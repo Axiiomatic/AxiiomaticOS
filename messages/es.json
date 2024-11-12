@@ -16,7 +16,7 @@
     "invalidArg": "Argumento inválido '{arg}' para comando '{command}'\n",
     "commandError": "Error ejecutando comando: {command}",
 
-    "aboutResponse": "¡Hola! Soy {name}, aunque suelo usar {aka} en línea\nSoy un {occupation} de {age} años en {company} ubicado en {location}\nEstoy interesado en {career_interests}\n¡También me gusta {personal_interests}!\n\nMás sobre mí:\n'sumfetch' - Pequeño resumen\n'resume' - Mi resume actual\n'readme' - Mi README de Github",
+    "aboutResponse": "¡Hola! Soy {name}, aunque suelo usar {aka} en línea\nSoy un {occupation} de {age} años en {company} ubicado en {location}\nEstoy interesado en {career_interests}\n¡También me gusta {personal_interests}!\nMás sobre mí:\n'sumfetch' - Pequeño resumen\n'resume' - Mi resume actual\n'readme' - Mi README de Github",
     "aboutAge": "¡Tengo {age} años!\n",
     "aboutAka": "Casi nunca uso mi nombre real en línea. Suelo usar {aka} en mis redes sociales\n",
     "aboutInterests": "Estoy interesado en {career_interests}\n¡También me gusta {personal_interests}!\n",
@@ -38,8 +38,11 @@
     "googleOpen": "Se abrió Google",
     "googleResponse": "Se buscó \"{query}\" en Google",
 
-    "languagesSpoken": "> Idiomas: {spoken_languages}",
-    "languagesProgramming": "> Lenguajes de programación: {programming_languages}",
+    "skillsProgramming": "> Lenguajes de Programación: {programming_languages}",
+    "skillsFrameworks": "> Estructuras: {frameworks}",
+    "skillsLibraries": "> Librerías: {libraries}",
+    "skillsTools": "> Herramientas: {tools}",
+    "skillsLanguages": "> Idiomas: {languages}",
 
     "readmeOpen": "Se abrió mi README",
 

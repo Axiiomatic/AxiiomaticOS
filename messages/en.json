@@ -16,7 +16,7 @@
     "invalidArg": "Invalid argument '{arg}' for command '{command}'\n",
     "commandError": "Error executing command: {command}",
     
-    "aboutResponse": "Hello! I'm {name}, but I usually go by {aka} online\nI'm a {age} year old {occupation} at {company} located at {location}\nI'm interested in {career_interests}\nHowever, I also really enjoy {personal_interests}!\n\nMore about me:\n'sumfetch' - Short Summary\n'resume' - My Latest Resume\n'readme' - My Github README",
+    "aboutResponse": "Hello! I'm {name}, but I usually go by {aka} online\nI'm a {age} year old {occupation} at {company} located at {location}\nI'm interested in {career_interests}\nHowever, I also really enjoy {personal_interests}!\nMore about me:\n'sumfetch' - Short Summary\n'resume' - My Latest Resume\n'readme' - My Github README",
     "aboutAge": "I'm {age} years old!\n",
     "aboutAka": "I almost never use my real name online. I usually go by {aka} in social media\n",
     "aboutInterests": "I'm interested in {career_interests}\nI also enjoy {personal_interests}!\n",
@@ -36,8 +36,11 @@
     "googleOpen": "Opened Google",
     "googleResponse": "Searched Google for \"{query}\"",
 
-    "languagesSpoken": "> Spoken Languages: {spoken_languages}",
-    "languagesProgramming": "> Programming Languages: {programming_languages}",
+    "skillsProgramming": "> Programming Languages: {programming_languages}",
+    "skillsFrameworks": "> Frameworks: {frameworks}",
+    "skillsLibraries": "> Libraries: {libraries}",
+    "skillsTools": "> Tools: {tools}",
+    "skillsLanguages": "> Languages: {languages}",
 
     "readmeOpen": "Opened README",
 
@@ -91,4 +94,6 @@
     "guiAbout": "Hello! I'm {first_name}, though you'll often find me online as {aka}. ",
     "guiMore": "I've been passionate about computers and programming since childhood, which has led me to my current career as a {occupation}.\n",
     "guiSelf": "A lot of my coding knowledge has been self taught over the last {years} years. I have a big interest for {interests}.\n"
+
+
 }
