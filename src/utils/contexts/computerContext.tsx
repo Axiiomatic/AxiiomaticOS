@@ -9,7 +9,7 @@ interface Props {
 
 const ComputerContext = createContext<ComputerContextInterface>({
     state: 'title',
-    setState: (newState: string) => { },
+    setState: () => {},
 });
 
 export const ComputerProvider = ({ children } : Props) => {

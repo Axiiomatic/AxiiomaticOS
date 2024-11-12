@@ -1,5 +1,9 @@
 import { bin } from "@/utils/bin";
 
+interface Command {
+  validArgs: string[];
+}
+
 export const tabCompletion = (input: string, lastKey : string, keyStreak : number, prevSuggestions : string[]): [string, string[]] => {
     const words = input.split(/\s+/);
     let lastWord = words[words.length-1];
@@ -11,7 +15,7 @@ export const tabCompletion = (input: string, lastKey : string, keyStreak : numbe
         const command = bin[words[0] as keyof typeof bin];
         if ('validArgs' in command) {
           if (words.length === 1) lastWord = '';
-          args = command.validArgs;
+          args = (command as Command).validArgs;
         }
       }
       if (args.length === 0) currentSuggestions = Object.keys(bin).filter(cmd => cmd.startsWith(lastWord));

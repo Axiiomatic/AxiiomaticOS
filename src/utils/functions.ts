@@ -1,5 +1,5 @@
 export const hexToRGB = (hex : string) => {
-    var m = hex.match(/^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i) || [];
+    const m = hex.match(/^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i) || [];
 
 
     return m.length === 4 ? {
