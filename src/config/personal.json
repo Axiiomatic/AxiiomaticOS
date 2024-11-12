@@ -136,7 +136,7 @@
         "frameworks": ["Tailwind CSS", "Next.js", "Streamlit"],
         "libraries": ["React", "Discord.js", "Three.js", "NumPy", "pandas", "scikit-learn", "TensorFlow"],
         "tools": ["Git", "MongoDB", "VS Code", "Microsoft 365", "LaTeX", "SONY Vegas", "Krita"],
-        "languages": ["Español (Nativo)", "Inglés (Fluiente)"]
+        "languages": ["Español (Nativo)", "Inglés (Fluido)"]
     },
 
     "experience": [
