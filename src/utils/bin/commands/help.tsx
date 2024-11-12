@@ -30,6 +30,7 @@ export default {
         "duckduckgo",
         "echo",
         "education",
+        "experience",
         "google",
         "help",
         "ip",

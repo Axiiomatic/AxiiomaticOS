@@ -6,6 +6,7 @@ import date from "./date";
 import duckduckgo from "./duckduckgo";
 import echo from "./echo";
 import education from "./education";
+import experience from "./experience";
 import google from "./google";
 import gui from "./gui";
 import help from "./help";
@@ -34,6 +35,7 @@ export const commands = {
     duckduckgo,
     echo,
     education,
+    experience,
     google,
     gui,
     help,
