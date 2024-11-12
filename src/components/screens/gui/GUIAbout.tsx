@@ -17,62 +17,15 @@ export default function GUI() {
   const personalInfo = personal[lang];
 
   // State and refs for observing the second typewriter and measuring height
-  const [typewritersVisible, setTypewritersVisible] = useState<boolean[]>([false, false]);
-  const [typewriterHeights, setTypewriterHeights] = useState<number[]>([0, 0, 0]);
-  const typewriterRefs = useRef<HTMLDivElement[]>([]);
-  const contentRefs = useRef<HTMLDivElement[]>([]);
+  const [typewriterHeight, setTypewriterHeight] = useState<number>(0);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   // Calculate the height of the content before it starts typing
   useEffect(() => {
-    for (let i = 0; i < contentRefs.current.length; i++) {
-        if (contentRefs.current[i]) {
-            // Measure the height of the content before animation starts
-            const height = contentRefs.current[i].scrollHeight;
-            setTypewriterHeights((prev) => {
-                const newHeights = prev;
-                newHeights[i] = height;
-                return newHeights
-            });
-        }
+    if (contentRef.current) {
+      // Measure the height of the content before animation starts
+      setTypewriterHeight(contentRef.current.scrollHeight);
     }
-  }, []);
-
-  // Set up Intersection Observer for the second Typewriter
-  useEffect(() => {
-    const observers: IntersectionObserver[] = []; // Array to store all observers
-  
-    for (let i = 0; i < typewriterRefs.current.length; i++) {
-      if (typewriterRefs.current[i]) {
-        // Create a new observer for each index
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (entry.isIntersecting) {
-              // Pass the specific index to set the corresponding item in the array to true
-              console.log(i)
-              setTypewritersVisible((prev) => {
-                const newVisible = [...prev];
-                newVisible[i] = true; // Use the preserved index
-                return newVisible;
-              });
-              observer.disconnect(); // Stop observing this element once visible
-            }
-          },
-          {
-            root: null, // Defaults to viewport
-            rootMargin: '0px 0px -25% 0px', // Triggers slightly above the exact middle of the screen
-            threshold: 0.5, // Adjust threshold as needed
-          }
-        );
-  
-        observer.observe(typewriterRefs.current[i]);
-        observers.push(observer); // Store each observer in the array
-      }
-    }
-  
-    // Cleanup function to disconnect all observers
-    return () => {
-      observers.forEach((observer) => observer.disconnect());
-    };
   }, []);
 
   return (
@@ -81,10 +34,10 @@ export default function GUI() {
         <AsciiWrapper className="text-[0.1rem]">
           {ascii.AsciiLogo}
         </AsciiWrapper>
-        <div className="flex flex-row mt-10 w-[60vw] justify-center text-center">
-            <div style={{ height: typewriterHeights[0] }}>
+        <div className="flex flex-row mt-10 justify-center text-center">
+            <div style={{ height: typewriterHeight }}>
                 <TextWrapper>
-                    <div ref={(e) => {contentRefs.current.push(e as HTMLDivElement)}}>
+                    <div ref={contentRef}>
                     <Typewriter
                     options={{
                         cursor: "",
@@ -114,100 +67,49 @@ export default function GUI() {
             </div>
         </div>
 
-        {/* Reduced Spacer to make the second typewriter easier to reach */}
-        <div className="h-[700px]"></div> {/* Adjust height as needed */}
+        <div className="h-[700px]"></div>
 
         <AsciiWrapper className="text-[0.5rem] border-b-2 border-[--color] pb-4 mb-4">
           {ascii[`AsciiAboutMe_${lang}`]}
         </AsciiWrapper>
 
-        {/* Second Typewriter, starts only when close to centered on screen */}
-        <div ref={(e) => {typewriterRefs.current.push(e as HTMLDivElement)}}>
-          {typewritersVisible[0] && (
-            <div className="flex flex-row w-[60vw] text-center justify-center">
-            <TextWrapper>
-                <div style={{ height: typewriterHeights[1] }}>
-              {/* Pre-calculate the height of the second Typewriter content */}
-              <div ref={(e) => {contentRefs.current.push(e as HTMLDivElement)}}>
-                <Typewriter
-                  options={{
-                    cursor: "",
-                    delay: typingDelay,
-                    wrapperClassName: "whitespace-pre-wrap"
-                  }}
-                  onInit={(typewriter) => {
-                    typewriter
-                      .typeString(m.guiAbout({
-                        first_name: personalInfo.name.split(" ")[0],
-                        aka: joinList(personalInfo.aka, m.or())
-                      }))
-                      .pauseFor(500)
-                      .typeString(m.guiMore({
-                        occupation: personalInfo.occupation
-                      }))
-                      .pauseFor(500)
-                      .typeString(m.guiSelf({
-                        years: parseInt(personalInfo.age) - 13,
-                        interests: joinList(personalInfo.interests.career, m.and())
-                      }))
-                      .start();
-                  }}
-                />
-              </div>
-              </div>
+        <div className="flex flex-row w-[60vw] text-center justify-center">
+          <TextWrapper>
+            {m.guiAbout({
+              first_name: personalInfo.name.split(" ")[0],
+              aka: joinList(personalInfo.aka, m.or())
+            })}
+
+            {m.guiMore({
+              occupation: personalInfo.occupation
+            })}
+
+            {m.guiSelf({
+              years: parseInt(personalInfo.age) - 13,
+              interests: joinList(personalInfo.interests.career, m.and())
+            })}
             </TextWrapper>
-            </div>
-          )}
         </div>
 
-        {/* Reduced Spacer to make the second typewriter easier to reach */}
-        <div className="h-[700px]"></div> {/* Adjust height as needed */}
+        <div className="h-[700px]"></div>
 
         <AsciiWrapper className="text-[0.5rem] border-b-2 border-[--color] pb-4 mb-4">
           {ascii[`AsciiUse_${lang}`]}
         </AsciiWrapper>
 
-        {/* Third Typewriter, starts only when close to centered on screen */}
-        <div ref={(e) => {typewriterRefs.current.push(e as HTMLDivElement)}}>
-          {typewritersVisible[1] && (
-            <div className="flex flex-row w-[60vw] text-center justify-center">
-            <TextWrapper>
-                <div style={{ height: typewriterHeights[1] }}>
-              {/* Pre-calculate the height of the second Typewriter content */}
-              <div ref={(e) => {contentRefs.current.push(e as HTMLDivElement)}}>
-                <Typewriter
-                  options={{
-                    cursor: "",
-                    delay: typingDelay,
-                    wrapperClassName: "whitespace-pre-wrap"
-                  }}
-                  onInit={(typewriter) => {
-                    typewriter
-                      .typeString(m.guiAbout({
-                        first_name: personalInfo.name.split(" ")[0],
-                        aka: joinList(personalInfo.aka, m.or())
-                      }))
-                      .pauseFor(500)
-                      .typeString(m.guiMore({
-                        occupation: personalInfo.occupation
-                      }))
-                      .pauseFor(500)
-                      .typeString(m.guiSelf({
-                        years: parseInt(personalInfo.age) - 13,
-                        interests: joinList(personalInfo.interests.career, m.and())
-                      }))
-                      .start();
-                  }}
-                />
-              </div>
-              </div>
-            </TextWrapper>
-            </div>
-          )}
+        <div className="flex w-[100vw] justify-between">
+          <TextWrapper className="text-center justify-center flex-1">
+            <h1 className="gui">{m.guiProgramming()}</h1>
+          </TextWrapper>
+          <TextWrapper className="text-center justify-center flex-1">
+            <h1 className="gui">{m.guiFL()}</h1>
+          </TextWrapper>
+          <TextWrapper className="text-center justify-center flex-1">
+            <h1 className="gui">{m.guiTools()}</h1>
+          </TextWrapper>
         </div>
-
-        {/* Extra padding at the bottom to allow scrolling further */}
-        <div className="h-[700px]"></div> {/* Adjust height as needed */}
+      
+        <div className="h-[700px]"></div>
       </div>
     </GUIScreen>
   );

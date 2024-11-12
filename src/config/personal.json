@@ -31,7 +31,7 @@
 
 
     "skills": {
-        "programming_languages": ["Python", "JavaScript", "Node.js", "TypeScript", "C/C++", "C#", "HTML", "CSS", "MIPS", "MATLAB"],
+        "programming_languages": ["Python", "JavaScript", "Node.js", "TypeScript", "C", "C++", "C#", "HTML", "CSS", "MIPS", "MATLAB"],
         "frameworks": ["Tailwind CSS", "Next.js", "Streamlit"],
         "libraries": ["React", "Discord.js", "Three.js", "NumPy", "pandas", "scikit-learn", "TensorFlow"],
         "tools": ["Git", "MongoDB", "VS Code", "Microsoft 365", "LaTeX", "SONY Vegas", "Krita"],

@@ -100,6 +100,14 @@ body {
   font-size: 2rem;
 }
 
+h1.gui::before {
+  content: '{ ';
+}
+
+h1.gui::after {
+  content: ' }';
+}
+
 ::-webkit-scrollbar {
   width: 5px;
   cursor: pointer;
