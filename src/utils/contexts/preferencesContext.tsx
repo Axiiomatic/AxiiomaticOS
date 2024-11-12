@@ -5,11 +5,6 @@ import { PreferencesContextInterface } from './ContextInterfaces';
 import { clamp } from '../functions';
 import config from "@/../config.json";
 
-interface Theme {
-    textColor: string;
-    bgColor: string;
-}
-
 interface Props {
     children?: ReactNode
 }

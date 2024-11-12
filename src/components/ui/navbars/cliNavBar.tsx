@@ -55,7 +55,7 @@ export const CLINavBar = () => {
         </Link>
         <Select 
           onValueChange={(newValue) => {
-            router.push(currentPage, { locale: newValue.toLowerCase()})
+            router.push(currentPage, { locale: newValue.toLowerCase() as "en" | "es"})
           }} 
           defaultValue={languageTag().toUpperCase()}
         >

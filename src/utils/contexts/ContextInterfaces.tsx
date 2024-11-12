@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from 'react'; 
-
 export interface CameraContextInterface {
     cameraPosition: number[]
     setCameraPosition: (position: number[]) => void
