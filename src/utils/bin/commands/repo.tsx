@@ -1,9 +1,8 @@
 import { repoOpen } from "@/paraglide/messages";
-import { languageTag } from "@/paraglide/runtime";
 import personal from "@/config/personal.json";
 
 const func = async () => {
-  window.open(personal[languageTag()].links.repo, "_blank");
+  window.open(personal.links.repo, "_blank");
   return repoOpen();
 };
 

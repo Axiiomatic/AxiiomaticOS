@@ -1,9 +1,8 @@
 import { readmeOpen } from "@/paraglide/messages";
-import { languageTag } from "@/paraglide/runtime";
 import personal from "@/config/personal.json";
 
 const func = async () => {
-  window.open(personal[languageTag()].links.readme, "_blank");
+  window.open(personal.links.readme, "_blank");
   return readmeOpen();
 };
 
