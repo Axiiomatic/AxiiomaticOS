@@ -2,7 +2,8 @@ import TitleScreen from "./TitleScreen";
 import LoadingScreen from "./LoadingScreen";
 import StartScreen from "./StartScreen";
 import CLIScreen from "./CLIScreen";
-import GUIScreen from "./GUIScreen";
+import GUIScreen from "./gui/GUIScreen";
+import GUIAbout from "./gui/GUIAbout";
 import BlogScreen from "./BlogScreen";
 
 export {
@@ -11,5 +12,6 @@ export {
     StartScreen,
     CLIScreen,
     GUIScreen,
+    GUIAbout,
     BlogScreen
 }
